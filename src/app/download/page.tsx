@@ -5,37 +5,29 @@ export const metadata: Metadata = {
   description: "Download Morpheus for macOS, Windows, Linux, iOS, and Android.",
 };
 
-const GITHUB_RELEASE =
-  "https://github.com/shaktech786/morpheus/releases/latest";
-
 const desktopPlatforms = [
   {
     name: "macOS (Apple Silicon)",
-    file: "Morpheus Agent-1.1.0-arm64.dmg",
     tag: "darwin-arm64",
     note: "M1/M2/M3/M4 Macs",
   },
   {
     name: "macOS (Intel)",
-    file: "Morpheus Agent-1.1.0.dmg",
     tag: "darwin-x64",
     note: "Intel-based Macs",
   },
   {
     name: "Windows",
-    file: "Morpheus Agent Setup 1.1.0.exe",
     tag: "win32-x64",
     note: "Windows 10+ (x64)",
   },
   {
     name: "Linux (AppImage)",
-    file: "Morpheus-Agent-1.1.0-x86_64.AppImage",
     tag: "linux-appimg",
     note: "Universal Linux",
   },
   {
     name: "Linux (Debian)",
-    file: "Morpheus-Agent-1.1.0-amd64.deb",
     tag: "linux-deb",
     note: "Ubuntu / Debian",
   },
@@ -60,19 +52,24 @@ export default function DownloadPage() {
           </p>
           <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
             {desktopPlatforms.map((p) => (
-              <a
+              <div
                 key={p.name}
-                href={`${GITHUB_RELEASE}/download/${p.file}`}
-                className="group flex items-center gap-4 rounded-xl border border-border bg-surface p-4 transition-all hover:border-morpheus-dark hover:bg-surface-hover"
+                className="flex items-center gap-4 rounded-xl border border-border bg-surface p-4"
               >
                 <span className="text-sm text-morpheus-muted font-bold">[{p.tag}]</span>
                 <div>
-                  <div className="font-medium text-zinc-200 group-hover:text-morpheus transition-colors">{p.name}</div>
+                  <div className="font-medium text-zinc-200">{p.name}</div>
                   <div className="text-xs text-zinc-600">{p.note}</div>
                 </div>
-              </a>
+              </div>
             ))}
           </div>
+          <p className="mt-4 text-sm text-zinc-500">
+            Downloads coming soon. Join the waitlist by emailing{" "}
+            <a href="mailto:hi@shak-tech.com" className="text-morpheus-dark hover:text-morpheus transition-colors">
+              hi@shak-tech.com
+            </a>
+          </p>
         </div>
 
         {/* Mobile */}
