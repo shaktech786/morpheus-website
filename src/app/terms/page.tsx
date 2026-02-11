@@ -19,7 +19,7 @@ export default function TermsPage() {
         </p>
 
         <h2>2. Description of Service</h2>
-        <p>Morpheus is an open-source application that allows you to remotely control your desktop computer from a mobile device. The Software:</p>
+        <p>Morpheus is an application that allows you to remotely control your desktop computer from a mobile device. The Software:</p>
         <ul>
           <li>Executes commands on your desktop via Claude Code AI</li>
           <li>Provides encrypted communication between your mobile and desktop</li>
@@ -72,10 +72,11 @@ export default function TermsPage() {
           <li><strong>Cloudflare</strong> — Remote access tunnels. Subject to <a href="https://www.cloudflare.com/terms/" target="_blank" rel="noopener noreferrer">Cloudflare&apos;s Terms</a></li>
         </ul>
 
-        <h2>8. Open Source License</h2>
+        <h2>8. Intellectual Property</h2>
         <p>
-          Morpheus is licensed under the <a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener noreferrer">MIT License</a>.
-          You may use, modify, and distribute the Software in accordance with the license terms.
+          Morpheus and its source code are the property of its creators. You may use the Software
+          in accordance with these Terms. Unauthorized reproduction, distribution, or modification
+          of the Software is prohibited.
         </p>
 
         <h2>9. Disclaimer of Warranties</h2>
@@ -107,7 +108,7 @@ export default function TermsPage() {
           For questions about these Terms: <a href="mailto:hi@shak-tech.com">hi@shak-tech.com</a>
         </p>
         <p>
-          Repository: <a href="https://github.com/shaktech786/morpheus" target="_blank" rel="noopener noreferrer">github.com/shaktech786/morpheus</a>
+          Website: <a href="https://getmorphe.us">getmorphe.us</a>
         </p>
       </div>
     </div>

@@ -37,14 +37,6 @@ function Header() {
           <Link href="/terms" className="hover:text-morpheus transition-colors">
             Terms
           </Link>
-          <a
-            href="https://github.com/shaktech786/morpheus"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-morpheus transition-colors"
-          >
-            GitHub
-          </a>
         </div>
       </nav>
     </header>
@@ -70,14 +62,6 @@ function Footer() {
                   Download
                 </Link>
               </li>
-              <li>
-                <a
-                  href="https://github.com/shaktech786/morpheus"
-                  className="hover:text-morpheus transition-colors"
-                >
-                  GitHub
-                </a>
-              </li>
             </ul>
           </div>
           <div>
@@ -97,7 +81,7 @@ function Footer() {
           </div>
         </div>
         <div className="mt-8 border-t border-border pt-8 text-center text-sm text-zinc-700">
-          <span className="text-morpheus-dark">&gt;</span> &copy; {new Date().getFullYear()} Shakeel Bhamani. MIT License.
+          <span className="text-morpheus-dark">&gt;</span> &copy; {new Date().getFullYear()} Shakeel Bhamani. All rights reserved.
         </div>
       </div>
     </footer>

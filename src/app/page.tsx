@@ -32,10 +32,10 @@ const features = [
     icon: "layers",
   },
   {
-    title: "Open Source",
+    title: "Your Data, Your Control",
     description:
-      "Fully open-source under MIT license. Audit the code, contribute, or fork it. Your data, your control.",
-    icon: "code",
+      "No accounts, no cloud, no telemetry. Everything runs locally on your devices. You own your data completely.",
+    icon: "shield",
   },
 ];
 
@@ -45,7 +45,7 @@ const featureIcons: Record<string, string> = {
   globe: "[net]",
   terminal: "[>_]",
   layers: "[x-p]",
-  code: "[src]",
+  shield: "[own]",
 };
 
 const steps = [
@@ -96,19 +96,17 @@ export default function Home() {
               Download Now
             </Link>
             <a
-              href="https://github.com/shaktech786/morpheus"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="#features"
               className="rounded-lg border border-border px-8 py-3 text-sm font-semibold text-zinc-400 transition-colors hover:border-morpheus-dark hover:text-morpheus"
             >
-              View on GitHub
+              Learn More
             </a>
           </div>
         </div>
       </section>
 
       {/* Features */}
-      <section className="border-t border-border py-24">
+      <section id="features" className="border-t border-border py-24">
         <div className="mx-auto max-w-6xl px-6">
           <h2 className="text-center text-3xl font-bold sm:text-4xl">
             <span className="text-morpheus">&gt;</span> Everything You Need
@@ -182,7 +180,7 @@ export default function Home() {
               "ECDH + TweetNaCl end-to-end encryption",
               "No accounts or registration required",
               "No analytics, tracking, or advertising",
-              "Open-source — audit the code yourself",
+              "Zero cloud dependency — fully local operation",
               "Voice mode is opt-in and off by default",
             ].map((item) => (
               <div key={item} className="flex items-start gap-3 rounded-lg border border-border bg-surface p-3">

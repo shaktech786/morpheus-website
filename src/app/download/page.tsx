@@ -73,17 +73,6 @@ export default function DownloadPage() {
               </a>
             ))}
           </div>
-          <p className="mt-4 text-xs text-zinc-700">
-            All releases available on{" "}
-            <a
-              href={GITHUB_RELEASE}
-              className="text-morpheus-dark hover:text-morpheus transition-colors"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              GitHub Releases
-            </a>
-          </p>
         </div>
 
         {/* Mobile */}
@@ -98,7 +87,7 @@ export default function DownloadPage() {
               <div>
                 <div className="font-medium text-zinc-200">iOS</div>
                 <div className="text-xs text-zinc-600">
-                  Coming to App Store — <a href={GITHUB_RELEASE} className="text-morpheus-dark hover:text-morpheus transition-colors" target="_blank" rel="noopener noreferrer">get IPA from GitHub</a>
+                  Coming soon to the App Store
                 </div>
               </div>
             </div>
@@ -107,7 +96,7 @@ export default function DownloadPage() {
               <div>
                 <div className="font-medium text-zinc-200">Android</div>
                 <div className="text-xs text-zinc-600">
-                  Coming to Play Store — <a href={GITHUB_RELEASE} className="text-morpheus-dark hover:text-morpheus transition-colors" target="_blank" rel="noopener noreferrer">get APK from GitHub</a>
+                  Coming soon to the Play Store
                 </div>
               </div>
             </div>

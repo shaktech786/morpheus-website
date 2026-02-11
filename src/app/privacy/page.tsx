@@ -15,7 +15,7 @@ export default function PrivacyPage() {
         <h2>1. Introduction</h2>
         <p>
           This Privacy Policy describes how Morpheus (&quot;the Software&quot;) handles your data.
-          Morpheus is an open-source, mobile-to-desktop AI agent control application.
+          Morpheus is a mobile-to-desktop AI agent control application.
         </p>
         <p>
           <strong>The short version</strong>: Morpheus stores all data locally on your devices.
@@ -135,7 +135,7 @@ export default function PrivacyPage() {
           <li>Pairing codes for secure device authentication</li>
           <li>Encrypted local storage for sensitive credentials</li>
           <li>No remote data storage eliminates server-side breach risk</li>
-          <li>Open-source code allows public security auditing</li>
+          <li>Minimal attack surface with local-only architecture</li>
         </ul>
 
         <h2>14. Changes to This Policy</h2>
@@ -149,7 +149,7 @@ export default function PrivacyPage() {
           For questions about this Privacy Policy: <a href="mailto:hi@shak-tech.com">hi@shak-tech.com</a>
         </p>
         <p>
-          Repository: <a href="https://github.com/shaktech786/morpheus" target="_blank" rel="noopener noreferrer">github.com/shaktech786/morpheus</a>
+          Website: <a href="https://getmorphe.us">getmorphe.us</a>
         </p>
       </div>
     </div>
