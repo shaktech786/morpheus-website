@@ -164,6 +164,49 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Pricing Preview */}
+      <section className="border-t border-border py-24">
+        <div className="mx-auto max-w-4xl px-6 text-center">
+          <h2 className="text-3xl font-bold sm:text-4xl">
+            <span className="text-morpheus">&gt;</span> Free to Start, Pro to Unlock
+          </h2>
+          <p className="mx-auto mt-4 max-w-xl text-zinc-500">
+            Get started with local AI control at no cost. Upgrade to Pro for
+            voice commands, remote access, unlimited devices, and more.
+          </p>
+          <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2">
+            <div className="rounded-xl border border-border bg-surface p-6 text-left">
+              <h3 className="text-lg font-semibold text-zinc-300">Free</h3>
+              <p className="mt-1 text-2xl font-bold text-white">$0 <span className="text-sm font-normal text-zinc-500">/ forever</span></p>
+              <ul className="mt-4 space-y-2 text-sm text-zinc-400">
+                <li><span className="text-morpheus font-bold mr-2">[+]</span>LAN connection &amp; text commands</li>
+                <li><span className="text-morpheus font-bold mr-2">[+]</span>E2E encryption</li>
+                <li><span className="text-morpheus font-bold mr-2">[+]</span>1 paired device</li>
+                <li><span className="text-morpheus font-bold mr-2">[+]</span>Basic MCP servers</li>
+              </ul>
+            </div>
+            <div className="rounded-xl border border-morpheus/40 bg-surface p-6 text-left shadow-[0_0_30px_rgba(0,255,0,0.08)]">
+              <h3 className="text-lg font-semibold text-morpheus">Pro</h3>
+              <p className="mt-1 text-2xl font-bold text-white">$4.99 <span className="text-sm font-normal text-zinc-500">/ month</span></p>
+              <ul className="mt-4 space-y-2 text-sm text-zinc-400">
+                <li><span className="text-morpheus font-bold mr-2">[+]</span>Everything in Free</li>
+                <li><span className="text-morpheus font-bold mr-2">[+]</span>Voice mode &amp; remote access</li>
+                <li><span className="text-morpheus font-bold mr-2">[+]</span>Unlimited devices &amp; all MCP servers</li>
+                <li><span className="text-morpheus font-bold mr-2">[+]</span>Priority support</li>
+              </ul>
+            </div>
+          </div>
+          <div className="mt-10">
+            <Link
+              href="/pricing"
+              className="rounded-lg border border-morpheus bg-morpheus/10 px-8 py-3 text-sm font-semibold text-morpheus transition-all hover:bg-morpheus/20 hover:shadow-[0_0_20px_rgba(0,255,0,0.15)]"
+            >
+              View Full Pricing
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* Security */}
       <section className="border-t border-border py-24">
         <div className="mx-auto max-w-4xl px-6 text-center">

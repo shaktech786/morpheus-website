@@ -31,6 +31,9 @@ function Header() {
           <Link href="/download" className="hover:text-morpheus transition-colors">
             Download
           </Link>
+          <Link href="/pricing" className="hover:text-morpheus transition-colors">
+            Pricing
+          </Link>
           <Link href="/privacy" className="hover:text-morpheus transition-colors">
             Privacy
           </Link>
@@ -51,7 +54,7 @@ function Footer() {
           <div>
             <h3 className="font-semibold text-morpheus">morpheus</h3>
             <p className="mt-2 text-sm text-zinc-600">
-              Open-source AI agent control from your mobile device.
+              AI agent control from your mobile device.
             </p>
           </div>
           <div>
@@ -60,6 +63,11 @@ function Footer() {
               <li>
                 <Link href="/download" className="hover:text-morpheus transition-colors">
                   Download
+                </Link>
+              </li>
+              <li>
+                <Link href="/pricing" className="hover:text-morpheus transition-colors">
+                  Pricing
                 </Link>
               </li>
             </ul>
