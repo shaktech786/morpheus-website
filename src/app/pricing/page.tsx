@@ -32,8 +32,12 @@ const faqs = [
     a: "Payments are handled through the App Store (iOS) and Google Play (Android). You can use any payment method configured in your Apple or Google account, including credit cards, debit cards, Apple Pay, and Google Pay.",
   },
   {
+    q: "What's the Lifetime plan?",
+    a: "The Lifetime plan is a one-time payment of $79.99 that gives you permanent access to all Pro features — no recurring charges, no expiration. It's roughly 2x the annual price and pays for itself in under two years.",
+  },
+  {
     q: "Can I cancel anytime?",
-    a: "Yes. You can cancel your Pro subscription at any time. You'll retain access to Pro features until the end of your current billing period, then you'll be moved to the free plan automatically.",
+    a: "Yes. You can cancel your Pro subscription at any time. You'll retain access to Pro features until the end of your current billing period, then you'll be moved to the free plan automatically. The Lifetime plan never expires and doesn't need to be cancelled.",
   },
   {
     q: "Is my data encrypted?",
@@ -58,6 +62,7 @@ export default function PricingPage() {
   const monthlyPrice = "$4.99";
   const annualPrice = "$39.99";
   const annualMonthly = "$3.33";
+  const lifetimePrice = "$79.99";
 
   return (
     <div>
@@ -214,6 +219,35 @@ export default function PricingPage() {
                     </li>
                   ))}
                 </ul>
+              </div>
+            </div>
+          </div>
+
+          {/* Lifetime Option */}
+          <div className="mt-8 rounded-xl border border-morpheus/30 bg-surface p-6 shadow-[0_0_20px_rgba(0,255,0,0.05)]">
+            <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
+              <div>
+                <div className="flex items-center gap-3">
+                  <span className="rounded-md border border-morpheus bg-morpheus/20 px-3 py-0.5 text-xs font-bold uppercase tracking-wider text-morpheus">
+                    Best Value
+                  </span>
+                  <h3 className="text-lg font-semibold text-white">
+                    Lifetime
+                  </h3>
+                </div>
+                <p className="mt-2 text-sm text-zinc-500">
+                  Pay once, own forever. All Pro features with no recurring
+                  charges.
+                </p>
+              </div>
+              <div className="text-center sm:text-right">
+                <span className="text-4xl font-bold text-white">
+                  {lifetimePrice}
+                </span>
+                <span className="text-sm text-zinc-500"> / one-time</span>
+                <p className="mt-1 text-sm text-morpheus-muted">
+                  ~2x annual — pays for itself in under 2 years
+                </p>
               </div>
             </div>
           </div>

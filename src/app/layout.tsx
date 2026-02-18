@@ -9,14 +9,49 @@ const jetbrains = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Morpheus - AI Agent Control From Your Phone",
+  title: {
+    default: "Morpheus - AI Agent Control From Your Phone",
+    template: "%s | Morpheus",
+  },
   description:
     "Control your desktop AI agent from anywhere. Voice commands, encrypted pairing, and remote access — all from your mobile device.",
+  keywords: [
+    "AI agent",
+    "remote control",
+    "voice commands",
+    "desktop agent",
+    "mobile control",
+    "encrypted pairing",
+    "Morpheus",
+  ],
+  authors: [{ name: "Shakeel Bhamani" }],
+  creator: "Shakeel Bhamani",
+  metadataBase: new URL("https://getmorphe.us"),
   openGraph: {
     title: "Morpheus - AI Agent Control From Your Phone",
     description:
       "Control your desktop AI agent from anywhere. Voice commands, encrypted pairing, and remote access.",
+    url: "https://getmorphe.us",
+    siteName: "Morpheus",
+    locale: "en_US",
     type: "website",
+  },
+  twitter: {
+    card: "summary",
+    title: "Morpheus - AI Agent Control From Your Phone",
+    description:
+      "Control your desktop AI agent from anywhere. Voice commands, encrypted pairing, and remote access.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
 };
 
