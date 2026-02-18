@@ -4,7 +4,7 @@ const features = [
   {
     title: "Voice Control",
     description:
-      "Talk to your AI agent naturally. Voice commands are processed through OpenAI's Realtime API with live transcription and audio responses.",
+      "Talk to your AI agent naturally with live transcription and audio responses. Included with Pro, or use your own OpenAI key.",
     icon: "mic",
   },
   {

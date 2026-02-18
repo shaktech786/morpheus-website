@@ -114,8 +114,8 @@ export default function DownloadPage() {
               Android 7.0+
             </li>
             <li>
-              <strong className="text-zinc-300">Voice mode:</strong> Requires an
-              OpenAI API key with Realtime API access
+              <strong className="text-zinc-300">Voice mode:</strong> Included
+              with Pro plan, or bring your own OpenAI API key
             </li>
             <li>
               <strong className="text-zinc-300">Network:</strong> Both devices
