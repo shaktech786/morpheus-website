@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Terms of Service - Morpheus",
-  description: "Morpheus Terms of Service.",
+  title: "Terms of Service",
+  description:
+    "Morpheus Terms of Service. Usage terms for the mobile-to-desktop AI agent control application.",
 };
 
 export default function TermsPage() {

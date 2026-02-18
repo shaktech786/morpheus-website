@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy - Morpheus",
-  description: "Morpheus Privacy Policy. All data stored locally, no cloud, no tracking.",
+  title: "Privacy Policy",
+  description:
+    "Morpheus Privacy Policy. All data stored locally on your devices. No cloud storage, no tracking, no telemetry.",
 };
 
 export default function PrivacyPage() {

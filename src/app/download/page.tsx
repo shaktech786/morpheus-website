@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Download Morpheus",
-  description: "Download Morpheus for macOS, Windows, Linux, iOS, and Android.",
+  title: "Download",
+  description:
+    "Download Morpheus for macOS, Windows, Linux, iOS, and Android. Control your desktop AI agent from your phone.",
 };
 
 const desktopPlatforms = [

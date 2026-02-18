@@ -66,9 +66,42 @@ const steps = [
   },
 ];
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "Morpheus",
+  description:
+    "Control your desktop AI agent from anywhere. Voice commands, encrypted pairing, and remote access — all from your mobile device.",
+  url: "https://getmorphe.us",
+  applicationCategory: "UtilitiesApplication",
+  operatingSystem: "macOS, Windows, Linux, iOS, Android",
+  offers: [
+    {
+      "@type": "Offer",
+      price: "0",
+      priceCurrency: "USD",
+      description: "Free plan",
+    },
+    {
+      "@type": "Offer",
+      price: "4.99",
+      priceCurrency: "USD",
+      description: "Pro monthly plan",
+    },
+  ],
+  author: {
+    "@type": "Person",
+    name: "Shakeel Bhamani",
+  },
+};
+
 export default function Home() {
   return (
     <div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* Hero */}
       <section className="scanlines relative overflow-hidden py-32 sm:py-40">
         <div className="absolute inset-0 bg-gradient-to-b from-morpheus-dim to-transparent" />
