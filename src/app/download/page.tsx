@@ -114,12 +114,16 @@ export default function DownloadPage() {
               Android 7.0+
             </li>
             <li>
-              <strong className="text-zinc-300">Voice mode:</strong> Included
-              with Pro plan, or bring your own OpenAI API key
+              <strong className="text-zinc-300">Voice mode:</strong> Available
+              with the Pro plan
+            </li>
+            <li>
+              <strong className="text-zinc-300">AI:</strong> Your own Claude
+              subscription (free tier), or purchase token packs in-app (Pro)
             </li>
             <li>
               <strong className="text-zinc-300">Network:</strong> Both devices
-              on same LAN for local mode, or internet for remote mode
+              on same LAN for local mode, or internet for remote mode (Pro)
             </li>
           </ul>
         </div>

@@ -22,7 +22,7 @@ export default function TermsPage() {
         <h2>2. Description of Service</h2>
         <p>Morpheus is an application that allows you to remotely control your desktop computer from a mobile device. The Software:</p>
         <ul>
-          <li>Executes commands on your desktop via Claude Code AI</li>
+          <li>Executes AI-powered commands on your desktop</li>
           <li>Provides encrypted communication between your mobile and desktop</li>
           <li>Optionally enables remote access through Cloudflare Quick Tunnels</li>
           <li>Optionally supports voice commands via OpenAI&apos;s Realtime API</li>
@@ -68,7 +68,7 @@ export default function TermsPage() {
         <h2>7. Third-Party Services</h2>
         <p>Morpheus integrates with third-party services that have their own terms:</p>
         <ul>
-          <li><strong>Claude Code / Anthropic</strong> — AI agent execution engine. Subject to <a href="https://www.anthropic.com/terms" target="_blank" rel="noopener noreferrer">Anthropic&apos;s Terms</a></li>
+          <li><strong>Anthropic</strong> — AI model provider. Subject to <a href="https://www.anthropic.com/terms" target="_blank" rel="noopener noreferrer">Anthropic&apos;s Terms</a></li>
           <li><strong>OpenAI</strong> — Voice processing. Subject to <a href="https://openai.com/terms" target="_blank" rel="noopener noreferrer">OpenAI&apos;s Terms</a></li>
           <li><strong>Cloudflare</strong> — Remote access tunnels. Subject to <a href="https://www.cloudflare.com/terms/" target="_blank" rel="noopener noreferrer">Cloudflare&apos;s Terms</a></li>
         </ul>

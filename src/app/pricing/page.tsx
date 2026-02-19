@@ -9,6 +9,7 @@ const features = [
   { name: "E2E Encryption", free: true, pro: true },
   { name: "Paired Devices", free: "1", pro: "Unlimited" },
   { name: "MCP Servers", free: "Basic", pro: "All" },
+  { name: "AI Token Packs", free: false, pro: true },
   { name: "Voice Mode", free: false, pro: true },
   { name: "Remote Access", free: false, pro: true },
   { name: "Priority Support", free: false, pro: true },
@@ -17,7 +18,11 @@ const features = [
 const faqs = [
   {
     q: "What's included in the free plan?",
-    a: "The free plan includes LAN connection, text commands, end-to-end encryption, one paired device, and access to basic MCP servers. It's everything you need to get started controlling your AI agent from your phone on a local network.",
+    a: "The free plan lets you use Morpheus as a remote control for your existing AI setup. It includes LAN connection, text commands, end-to-end encryption, one paired device, and basic MCP servers. You'll need your own Claude subscription (Pro, Max, or API key) on the desktop side.",
+  },
+  {
+    q: "What if I don't have a Claude subscription?",
+    a: "No problem — with Pro, you can purchase AI token packs directly in the app. We handle all the setup so you can start using Morpheus immediately without any external accounts or subscriptions.",
   },
   {
     q: "Can I switch between monthly and annual?",
@@ -128,7 +133,7 @@ export default function PricingPage() {
               <div>
                 <h3 className="text-lg font-semibold text-zinc-300">Free</h3>
                 <p className="mt-1 text-sm text-zinc-500">
-                  For getting started with local AI control.
+                  Bring your own Claude subscription. Morpheus handles the rest.
                 </p>
               </div>
               <div className="mt-6">

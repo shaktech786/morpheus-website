@@ -4,7 +4,7 @@ const features = [
   {
     title: "Voice Control",
     description:
-      "Talk to your AI agent naturally with live transcription and audio responses. Included with Pro, or use your own OpenAI key.",
+      "Talk to your AI agent naturally with live transcription and audio responses. Available with the Pro plan.",
     icon: "mic",
   },
   {
@@ -22,7 +22,7 @@ const features = [
   {
     title: "AI-Powered Coding",
     description:
-      "Execute coding tasks on your desktop through Claude Code. Review, approve, and monitor AI operations from your phone.",
+      "Execute coding tasks on your desktop with Morpheus. Review, approve, and monitor AI operations from your phone.",
     icon: "terminal",
   },
   {
@@ -204,13 +204,14 @@ export default function Home() {
             <span className="text-morpheus">&gt;</span> Free to Start, Pro to Unlock
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-zinc-500">
-            Get started with local AI control at no cost. Upgrade to Pro for
-            voice commands, remote access, unlimited devices, and more.
+            Already have a Claude subscription? Use Morpheus free. No subscription?
+            Go Pro and we handle everything with AI token packs.
           </p>
           <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2">
             <div className="rounded-xl border border-border bg-surface p-6 text-left">
               <h3 className="text-lg font-semibold text-zinc-300">Free</h3>
               <p className="mt-1 text-2xl font-bold text-white">$0 <span className="text-sm font-normal text-zinc-500">/ forever</span></p>
+              <p className="mt-2 text-xs text-zinc-600">Bring your own Claude subscription</p>
               <ul className="mt-4 space-y-2 text-sm text-zinc-400">
                 <li><span className="text-morpheus font-bold mr-2">[+]</span>LAN connection &amp; text commands</li>
                 <li><span className="text-morpheus font-bold mr-2">[+]</span>E2E encryption</li>
@@ -221,8 +222,10 @@ export default function Home() {
             <div className="rounded-xl border border-morpheus/40 bg-surface p-6 text-left shadow-[0_0_30px_rgba(0,255,0,0.08)]">
               <h3 className="text-lg font-semibold text-morpheus">Pro</h3>
               <p className="mt-1 text-2xl font-bold text-white">$4.99 <span className="text-sm font-normal text-zinc-500">/ month</span></p>
+              <p className="mt-2 text-xs text-morpheus-muted">No subscription needed — we handle it</p>
               <ul className="mt-4 space-y-2 text-sm text-zinc-400">
                 <li><span className="text-morpheus font-bold mr-2">[+]</span>Everything in Free</li>
+                <li><span className="text-morpheus font-bold mr-2">[+]</span>AI token packs — no external accounts needed</li>
                 <li><span className="text-morpheus font-bold mr-2">[+]</span>Voice mode &amp; remote access</li>
                 <li><span className="text-morpheus font-bold mr-2">[+]</span>Unlimited devices &amp; all MCP servers</li>
                 <li><span className="text-morpheus font-bold mr-2">[+]</span>Priority support</li>
