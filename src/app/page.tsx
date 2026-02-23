@@ -1,4 +1,5 @@
 import Link from "next/link";
+import WaitlistForm from "@/components/WaitlistForm";
 
 const features = [
   {
@@ -121,19 +122,14 @@ export default function Home() {
             end-to-end encryption. Voice commands, remote access, and full
             control — from anywhere.
           </p>
-          <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
-            <Link
-              href="/download"
-              className="rounded-lg border border-morpheus bg-morpheus/10 px-8 py-3 text-sm font-semibold text-morpheus transition-all hover:bg-morpheus/20 hover:shadow-[0_0_20px_rgba(0,255,0,0.15)]"
-            >
-              Download Now
-            </Link>
-            <a
-              href="#features"
-              className="rounded-lg border border-border px-8 py-3 text-sm font-semibold text-zinc-400 transition-colors hover:border-morpheus-dark hover:text-morpheus"
-            >
-              Learn More
-            </a>
+          <div className="mt-10 max-w-lg mx-auto">
+            <WaitlistForm source="hero" compact />
+          </div>
+          <div className="mt-6 flex items-center justify-center gap-2">
+            <span className="inline-block h-2 w-2 rounded-full bg-morpheus pulse-dot" />
+            <span className="text-xs text-zinc-500">
+              Early access &mdash; <span className="text-morpheus font-semibold">50% off</span> at launch
+            </span>
           </div>
         </div>
       </section>
@@ -239,6 +235,40 @@ export default function Home() {
             >
               View Full Pricing
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Early Access CTA */}
+      <section id="early-access" className="border-t border-border py-24">
+        <div className="mx-auto max-w-4xl px-6">
+          <div className="rounded-2xl border border-morpheus/30 bg-gradient-to-b from-morpheus/5 to-transparent p-8 sm:p-12 text-center shadow-[0_0_60px_rgba(0,255,0,0.05)]">
+            <p className="text-sm text-morpheus-muted tracking-widest uppercase mb-4">
+              &gt; early access program
+            </p>
+            <h2 className="text-3xl font-bold sm:text-4xl">
+              Get <span className="text-morpheus glow-green">50% Off</span> at Launch
+            </h2>
+            <p className="mx-auto mt-4 max-w-xl text-zinc-500">
+              Join the waitlist and lock in your early bird discount.
+              Be the first to control your AI agent from anywhere.
+            </p>
+            <div className="mt-4 inline-flex items-center gap-4 rounded-lg border border-border bg-surface px-6 py-3">
+              <div className="text-left">
+                <p className="text-xs text-zinc-500">Pro plan at launch</p>
+                <p className="text-lg font-bold">
+                  <span className="text-zinc-600 line-through mr-2">$4.99</span>
+                  <span className="text-morpheus">$2.49</span>
+                  <span className="text-xs font-normal text-zinc-500">/mo</span>
+                </p>
+              </div>
+              <div className="rounded-md bg-morpheus/10 border border-morpheus/30 px-3 py-1">
+                <span className="text-xs font-bold text-morpheus">SAVE 50%</span>
+              </div>
+            </div>
+            <div className="mt-8 max-w-lg mx-auto">
+              <WaitlistForm source="early-access" />
+            </div>
           </div>
         </div>
       </section>

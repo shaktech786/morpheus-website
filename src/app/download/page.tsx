@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import WaitlistForm from "@/components/WaitlistForm";
 
 export const metadata: Metadata = {
   title: "Download",
@@ -65,12 +66,12 @@ export default function DownloadPage() {
               </div>
             ))}
           </div>
-          <p className="mt-4 text-sm text-zinc-500">
-            Downloads coming soon. Join the waitlist by emailing{" "}
-            <a href="mailto:hi@shak-tech.com" className="text-morpheus-dark hover:text-morpheus transition-colors">
-              hi@shak-tech.com
-            </a>
-          </p>
+          <div className="mt-6 rounded-xl border border-border bg-surface p-6">
+            <p className="text-sm text-zinc-400 mb-4">
+              Downloads coming soon. Join the early access list to get notified &mdash; plus <span className="text-morpheus font-semibold">50% off</span> Pro at launch.
+            </p>
+            <WaitlistForm source="download" compact />
+          </div>
         </div>
 
         {/* Mobile */}
