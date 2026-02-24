@@ -3,14 +3,17 @@
 import { useState, type FormEvent } from "react";
 
 interface WaitlistFormProps {
+  id?: string;
   source?: string;
   compact?: boolean;
 }
 
 export default function WaitlistForm({
+  id = "waitlist",
   source = "website",
   compact = false,
 }: WaitlistFormProps) {
+  const inputId = `${id}-email`;
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<
     "idle" | "loading" | "success" | "error" | "duplicate"
@@ -52,6 +55,8 @@ export default function WaitlistForm({
   if (status === "success") {
     return (
       <div
+        role="status"
+        aria-live="polite"
         className={`rounded-lg border border-morpheus/40 bg-morpheus/5 ${compact ? "p-3" : "p-6"} text-center`}
       >
         <p className="text-sm text-morpheus font-bold tracking-wider">
@@ -68,6 +73,8 @@ export default function WaitlistForm({
   if (status === "duplicate") {
     return (
       <div
+        role="status"
+        aria-live="polite"
         className={`rounded-lg border border-morpheus-dark/40 bg-morpheus/5 ${compact ? "p-3" : "p-6"} text-center`}
       >
         <p className="text-sm text-morpheus-muted font-bold tracking-wider">
@@ -83,7 +90,11 @@ export default function WaitlistForm({
       <div
         className={`flex ${compact ? "flex-col sm:flex-row" : "flex-col sm:flex-row"} gap-3`}
       >
+        <label htmlFor={inputId} className="sr-only">
+          Email address
+        </label>
         <input
+          id={inputId}
           type="email"
           value={email}
           onChange={(e) => {
@@ -110,9 +121,9 @@ export default function WaitlistForm({
         </button>
       </div>
       {status === "error" && (
-        <p className="mt-2 text-xs text-red-400">{message}</p>
+        <p role="alert" aria-live="assertive" className="mt-2 text-xs text-red-400">{message}</p>
       )}
-      <p className="mt-2 text-xs text-zinc-600">
+      <p className="mt-2 text-xs text-zinc-500">
         No spam. One email at launch. Unsubscribe anytime.
       </p>
     </form>

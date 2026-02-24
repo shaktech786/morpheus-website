@@ -42,27 +42,32 @@ export default function DownloadPage() {
         <h1 className="text-center text-4xl font-bold sm:text-5xl">
           <span className="text-morpheus">&gt;</span> Download Morpheus
         </h1>
-        <p className="mx-auto mt-4 max-w-xl text-center text-zinc-500">
+        <p className="mx-auto mt-4 max-w-xl text-center text-zinc-400">
           Get the desktop agent and mobile app. Pair once, control from anywhere.
         </p>
 
         {/* Desktop */}
         <div className="mt-16">
           <h2 className="text-2xl font-semibold text-morpheus">Desktop Agent</h2>
-          <p className="mt-2 text-sm text-zinc-500">
+          <p className="mt-2 text-sm text-zinc-400">
             Install on the computer you want to control.
           </p>
           <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
             {desktopPlatforms.map((p) => (
               <div
                 key={p.name}
-                className="flex items-center gap-4 rounded-xl border border-border bg-surface p-4"
+                className="flex items-center justify-between gap-4 rounded-xl border border-border bg-surface p-4"
               >
-                <span className="text-sm text-morpheus-muted font-bold">[{p.tag}]</span>
-                <div>
-                  <div className="font-medium text-zinc-200">{p.name}</div>
-                  <div className="text-xs text-zinc-600">{p.note}</div>
+                <div className="flex items-center gap-4">
+                  <span className="text-sm text-morpheus-muted font-bold" aria-hidden="true">[{p.tag}]</span>
+                  <div>
+                    <div className="font-medium text-zinc-200">{p.name}</div>
+                    <div className="text-xs text-zinc-500">{p.note}</div>
+                  </div>
                 </div>
+                <span className="rounded-md border border-border bg-surface-hover px-2 py-0.5 text-xs text-zinc-500">
+                  Coming soon
+                </span>
               </div>
             ))}
           </div>
@@ -70,34 +75,44 @@ export default function DownloadPage() {
             <p className="text-sm text-zinc-400 mb-4">
               Downloads coming soon. Join the early access list to get notified &mdash; plus <span className="text-morpheus font-semibold">50% off</span> Pro at launch.
             </p>
-            <WaitlistForm source="download" compact />
+            <WaitlistForm id="download-waitlist" source="download" compact />
           </div>
         </div>
 
         {/* Mobile */}
         <div className="mt-16">
           <h2 className="text-2xl font-semibold text-morpheus">Mobile App</h2>
-          <p className="mt-2 text-sm text-zinc-500">
+          <p className="mt-2 text-sm text-zinc-400">
             Control your desktop agent from your phone.
           </p>
           <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
-            <div className="flex items-center gap-4 rounded-xl border border-border bg-surface p-4">
-              <span className="text-sm text-morpheus-muted font-bold">[ios]</span>
-              <div>
-                <div className="font-medium text-zinc-200">iOS</div>
-                <div className="text-xs text-zinc-600">
-                  Coming soon to the App Store
+            <div className="flex items-center justify-between gap-4 rounded-xl border border-border bg-surface p-4">
+              <div className="flex items-center gap-4">
+                <span className="text-sm text-morpheus-muted font-bold" aria-hidden="true">[ios]</span>
+                <div>
+                  <div className="font-medium text-zinc-200">iOS</div>
+                  <div className="text-xs text-zinc-500">
+                    Coming soon to the App Store
+                  </div>
                 </div>
               </div>
+              <span className="rounded-md border border-border bg-surface-hover px-2 py-0.5 text-xs text-zinc-500">
+                Coming soon
+              </span>
             </div>
-            <div className="flex items-center gap-4 rounded-xl border border-border bg-surface p-4">
-              <span className="text-sm text-morpheus-muted font-bold">[apk]</span>
-              <div>
-                <div className="font-medium text-zinc-200">Android</div>
-                <div className="text-xs text-zinc-600">
-                  Coming soon to the Play Store
+            <div className="flex items-center justify-between gap-4 rounded-xl border border-border bg-surface p-4">
+              <div className="flex items-center gap-4">
+                <span className="text-sm text-morpheus-muted font-bold" aria-hidden="true">[apk]</span>
+                <div>
+                  <div className="font-medium text-zinc-200">Android</div>
+                  <div className="text-xs text-zinc-500">
+                    Coming soon to the Play Store
+                  </div>
                 </div>
               </div>
+              <span className="rounded-md border border-border bg-surface-hover px-2 py-0.5 text-xs text-zinc-500">
+                Coming soon
+              </span>
             </div>
           </div>
         </div>
@@ -105,7 +120,7 @@ export default function DownloadPage() {
         {/* Requirements */}
         <div className="mt-16 rounded-xl border border-border bg-surface p-6">
           <h2 className="text-lg font-semibold text-morpheus">[sys.requirements]</h2>
-          <ul className="mt-4 space-y-2 text-sm text-zinc-500">
+          <ul className="mt-4 space-y-2 text-sm text-zinc-400">
             <li>
               <strong className="text-zinc-300">Desktop:</strong> macOS 10.12+,
               Windows 10+, or Linux (glibc 2.17+)

@@ -13,8 +13,23 @@
   --color-border: #333333;
 }
 
-html {
-  scroll-behavior: smooth;
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Screen-reader only utility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
 }
 
 /* Scanline overlay for hero */
@@ -67,6 +82,21 @@ html {
 }
 
 /* Prose overrides for legal pages */
+/* Reduced motion: disable decorative animations */
+@media (prefers-reduced-motion: reduce) {
+  .cursor-blink::after {
+    animation: none;
+  }
+
+  .pulse-dot {
+    animation: none;
+  }
+
+  .scanlines::after {
+    display: none;
+  }
+}
+
 .prose-morpheus {
   --tw-prose-body: #b0b0b0;
   --tw-prose-headings: #00ff00;

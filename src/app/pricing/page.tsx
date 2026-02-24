@@ -1,19 +1,14 @@
-"use client";
-
+import type { Metadata } from "next";
 import Link from "next/link";
-import { useState } from "react";
+import BillingToggle from "@/components/BillingToggle";
+import FaqAccordion from "@/components/FaqAccordion";
+import { PLAN_FEATURES } from "@/lib/pricing";
 
-const features = [
-  { name: "LAN Connection", free: true, pro: true },
-  { name: "Text Commands", free: true, pro: true },
-  { name: "E2E Encryption", free: true, pro: true },
-  { name: "Paired Devices", free: "1", pro: "Unlimited" },
-  { name: "MCP Servers", free: "Basic", pro: "All" },
-  { name: "AI Token Packs", free: false, pro: true },
-  { name: "Voice Mode", free: false, pro: true },
-  { name: "Remote Access", free: false, pro: true },
-  { name: "Priority Support", free: false, pro: true },
-];
+export const metadata: Metadata = {
+  title: "Pricing",
+  description:
+    "Morpheus pricing — free to start with BYOK, or go Pro for voice, remote access, unlimited devices, and AI token packs.",
+};
 
 const faqs = [
   {
@@ -29,8 +24,8 @@ const faqs = [
     a: "Yes. You can switch between monthly and annual billing at any time. When switching to annual, you'll receive prorated credit for any remaining time on your monthly plan. Switching to monthly takes effect at the end of your current annual billing cycle.",
   },
   {
-    q: "How does the free trial work?",
-    a: "When Pro launches, new users will get a 14-day free trial with full access to all Pro features. No credit card required to start. At the end of the trial, you can choose to subscribe or continue on the free plan.",
+    q: "Can I try Pro before committing?",
+    a: "The Free plan gives you full access to core features with your own Claude subscription. When you're ready for voice, remote access, and unlimited devices, upgrade to Pro anytime from the app.",
   },
   {
     q: "What payment methods do you accept?",
@@ -55,233 +50,58 @@ function FeatureValue({ value }: { value: boolean | string }) {
     return <span className="text-sm text-zinc-300">{value}</span>;
   }
   if (value) {
-    return <span className="text-morpheus font-bold">[+]</span>;
+    return <span className="text-morpheus font-bold" aria-label="Included">[+]</span>;
   }
-  return <span className="text-zinc-600 font-bold">[-]</span>;
+  return <span className="text-zinc-600 font-bold" aria-label="Not included">[-]</span>;
 }
 
 export default function PricingPage() {
-  const [annual, setAnnual] = useState(false);
-  const [openFaq, setOpenFaq] = useState<number | null>(null);
-
-  const monthlyPrice = "$4.99";
-  const annualPrice = "$39.99";
-  const annualMonthly = "$3.33";
-  const lifetimePrice = "$79.99";
-
   return (
     <div>
-      {/* Hero */}
-      <section className="scanlines relative overflow-hidden py-24 sm:py-32">
+      {/* Hero + Billing Toggle + Cards */}
+      <section aria-labelledby="pricing-heading" className="scanlines relative overflow-hidden py-24 sm:py-32">
         <div className="absolute inset-0 bg-gradient-to-b from-morpheus-dim to-transparent" />
         <div className="relative mx-auto max-w-4xl px-6 text-center">
           <p className="mb-4 text-sm text-morpheus-muted tracking-widest uppercase">
             &gt; loading pricing_matrix...
           </p>
-          <h1 className="text-4xl font-bold tracking-tight sm:text-6xl">
+          <h1 id="pricing-heading" className="text-4xl font-bold tracking-tight sm:text-6xl">
             Simple, Transparent
             <br />
             <span className="text-morpheus glow-green">Pricing</span>
           </h1>
-          <p className="mx-auto mt-6 max-w-xl text-lg text-zinc-500">
+          <p className="mx-auto mt-6 max-w-xl text-lg text-zinc-400">
             Start free. Upgrade when you need voice control, remote access,
             unlimited devices, and more.
           </p>
 
-          {/* Billing toggle */}
-          <div className="mt-10 flex items-center justify-center gap-4">
-            <span
-              className={`text-sm font-semibold ${!annual ? "text-morpheus" : "text-zinc-500"}`}
-            >
-              Monthly
-            </span>
-            <button
-              onClick={() => setAnnual(!annual)}
-              className={`relative h-7 w-12 rounded-full border transition-colors ${
-                annual
-                  ? "border-morpheus bg-morpheus/20"
-                  : "border-border bg-surface"
-              }`}
-              aria-label="Toggle annual billing"
-            >
-              <span
-                className={`absolute top-0.5 h-5 w-5 rounded-full transition-all ${
-                  annual
-                    ? "left-6 bg-morpheus"
-                    : "left-0.5 bg-zinc-400"
-                }`}
-              />
-            </button>
-            <span
-              className={`text-sm font-semibold ${annual ? "text-morpheus" : "text-zinc-500"}`}
-            >
-              Annual{" "}
-              <span className="ml-1 rounded-md border border-morpheus-dark bg-morpheus/10 px-2 py-0.5 text-xs text-morpheus">
-                Save 33%
-              </span>
-            </span>
-          </div>
-        </div>
-      </section>
-
-      {/* Pricing Cards */}
-      <section className="border-t border-border py-20">
-        <div className="mx-auto max-w-5xl px-6">
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-            {/* Free Tier */}
-            <div className="flex flex-col rounded-xl border border-border bg-surface p-8">
-              <div>
-                <h3 className="text-lg font-semibold text-zinc-300">Free</h3>
-                <p className="mt-1 text-sm text-zinc-500">
-                  Bring your own Claude subscription. Morpheus handles the rest.
-                </p>
-              </div>
-              <div className="mt-6">
-                <span className="text-4xl font-bold text-white">$0</span>
-                <span className="text-sm text-zinc-500"> / forever</span>
-              </div>
-              <Link
-                href="/download"
-                className="mt-8 block rounded-lg border border-border bg-surface-hover px-6 py-3 text-center text-sm font-semibold text-zinc-300 transition-all hover:border-morpheus-dark hover:text-morpheus"
-              >
-                Download Free
-              </Link>
-              <div className="mt-8 flex-1">
-                <p className="text-xs font-semibold uppercase tracking-wider text-zinc-500">
-                  What&apos;s included
-                </p>
-                <ul className="mt-4 space-y-3">
-                  {features.map((f) => (
-                    <li key={f.name} className="flex items-center gap-3 text-sm">
-                      <FeatureValue value={f.free} />
-                      <span className="text-zinc-400">{f.name}</span>
-                      {typeof f.free === "string" && (
-                        <span className="ml-auto text-xs text-zinc-600">
-                          {f.free}
-                        </span>
-                      )}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-
-            {/* Pro Tier */}
-            <div className="relative flex flex-col rounded-xl border border-morpheus/40 bg-surface p-8 shadow-[0_0_30px_rgba(0,255,0,0.08)]">
-              {/* Recommended badge */}
-              <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                <span className="rounded-full border border-morpheus bg-morpheus/20 px-4 py-1 text-xs font-bold uppercase tracking-wider text-morpheus">
-                  Recommended
-                </span>
-              </div>
-
-              <div>
-                <h3 className="text-lg font-semibold text-morpheus">Pro</h3>
-                <p className="mt-1 text-sm text-zinc-500">
-                  Full power. Voice, remote, unlimited devices.
-                </p>
-              </div>
-              <div className="mt-6">
-                {annual ? (
-                  <>
-                    <span className="text-4xl font-bold text-white">
-                      {annualPrice}
-                    </span>
-                    <span className="text-sm text-zinc-500"> / year</span>
-                    <p className="mt-1 text-sm text-morpheus-muted">
-                      {annualMonthly}/mo billed annually
-                    </p>
-                  </>
-                ) : (
-                  <>
-                    <span className="text-4xl font-bold text-white">
-                      {monthlyPrice}
-                    </span>
-                    <span className="text-sm text-zinc-500"> / month</span>
-                  </>
-                )}
-              </div>
-              <button
-                disabled
-                className="mt-8 block cursor-not-allowed rounded-lg border border-morpheus bg-morpheus/10 px-6 py-3 text-center text-sm font-semibold text-morpheus opacity-70"
-              >
-                Coming Soon
-              </button>
-              <div className="mt-8 flex-1">
-                <p className="text-xs font-semibold uppercase tracking-wider text-zinc-500">
-                  Everything in Free, plus
-                </p>
-                <ul className="mt-4 space-y-3">
-                  {features.map((f) => (
-                    <li key={f.name} className="flex items-center gap-3 text-sm">
-                      <FeatureValue value={f.pro} />
-                      <span className="text-zinc-400">{f.name}</span>
-                      {typeof f.pro === "string" && (
-                        <span className="ml-auto text-xs text-zinc-600">
-                          {f.pro}
-                        </span>
-                      )}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          {/* Lifetime Option */}
-          <div className="mt-8 rounded-xl border border-morpheus/30 bg-surface p-6 shadow-[0_0_20px_rgba(0,255,0,0.05)]">
-            <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
-              <div>
-                <div className="flex items-center gap-3">
-                  <span className="rounded-md border border-morpheus bg-morpheus/20 px-3 py-0.5 text-xs font-bold uppercase tracking-wider text-morpheus">
-                    Best Value
-                  </span>
-                  <h3 className="text-lg font-semibold text-white">
-                    Lifetime
-                  </h3>
-                </div>
-                <p className="mt-2 text-sm text-zinc-500">
-                  Pay once, own forever. All Pro features with no recurring
-                  charges.
-                </p>
-              </div>
-              <div className="text-center sm:text-right">
-                <span className="text-4xl font-bold text-white">
-                  {lifetimePrice}
-                </span>
-                <span className="text-sm text-zinc-500"> / one-time</span>
-                <p className="mt-1 text-sm text-morpheus-muted">
-                  ~2x annual — pays for itself in under 2 years
-                </p>
-              </div>
-            </div>
-          </div>
+          <BillingToggle />
         </div>
       </section>
 
       {/* Feature Comparison Table */}
-      <section className="border-t border-border py-20">
+      <section aria-labelledby="comparison-heading" className="border-t border-border py-20">
         <div className="mx-auto max-w-3xl px-6">
-          <h2 className="text-center text-2xl font-bold sm:text-3xl">
-            <span className="text-morpheus">&gt;</span> Feature Comparison
+          <h2 id="comparison-heading" className="text-center text-2xl font-bold sm:text-3xl">
+            <span className="text-morpheus" aria-hidden="true">&gt;</span> Feature Comparison
           </h2>
           <div className="mt-12 overflow-hidden rounded-xl border border-border">
-            <table className="w-full">
+            <table aria-label="Feature comparison between Free and Pro plans" className="w-full">
               <thead>
                 <tr className="border-b border-border bg-surface">
-                  <th className="px-6 py-4 text-left text-sm font-semibold text-zinc-400">
+                  <th scope="col" className="px-6 py-4 text-left text-sm font-semibold text-zinc-400">
                     Feature
                   </th>
-                  <th className="px-6 py-4 text-center text-sm font-semibold text-zinc-400">
+                  <th scope="col" className="px-6 py-4 text-center text-sm font-semibold text-zinc-400">
                     Free
                   </th>
-                  <th className="px-6 py-4 text-center text-sm font-semibold text-morpheus">
+                  <th scope="col" className="px-6 py-4 text-center text-sm font-semibold text-morpheus">
                     Pro
                   </th>
                 </tr>
               </thead>
               <tbody>
-                {features.map((f, i) => (
+                {PLAN_FEATURES.map((f, i) => (
                   <tr
                     key={f.name}
                     className={`border-b border-border ${
@@ -306,54 +126,23 @@ export default function PricingPage() {
       </section>
 
       {/* FAQ */}
-      <section className="border-t border-border py-20">
+      <section aria-labelledby="faq-heading" className="border-t border-border py-20">
         <div className="mx-auto max-w-3xl px-6">
-          <h2 className="text-center text-2xl font-bold sm:text-3xl">
-            <span className="text-morpheus">&gt;</span> Frequently Asked
+          <h2 id="faq-heading" className="text-center text-2xl font-bold sm:text-3xl">
+            <span className="text-morpheus" aria-hidden="true">&gt;</span> Frequently Asked
             Questions
           </h2>
-          <div className="mt-12 space-y-3">
-            {faqs.map((faq, i) => (
-              <div
-                key={i}
-                className="rounded-xl border border-border bg-surface overflow-hidden"
-              >
-                <button
-                  onClick={() => setOpenFaq(openFaq === i ? null : i)}
-                  className="flex w-full items-center justify-between px-6 py-4 text-left transition-colors hover:bg-surface-hover"
-                >
-                  <span className="text-sm font-semibold text-zinc-300">
-                    <span className="text-morpheus mr-2">&gt;</span>
-                    {faq.q}
-                  </span>
-                  <span
-                    className={`text-morpheus transition-transform ${
-                      openFaq === i ? "rotate-45" : ""
-                    }`}
-                  >
-                    +
-                  </span>
-                </button>
-                {openFaq === i && (
-                  <div className="border-t border-border px-6 py-4">
-                    <p className="text-sm leading-relaxed text-zinc-500">
-                      {faq.a}
-                    </p>
-                  </div>
-                )}
-              </div>
-            ))}
-          </div>
+          <FaqAccordion items={faqs} />
         </div>
       </section>
 
       {/* Bottom CTA */}
-      <section className="border-t border-border py-24">
+      <section aria-labelledby="cta-heading" className="border-t border-border py-24">
         <div className="mx-auto max-w-4xl px-6 text-center">
-          <h2 className="text-3xl font-bold sm:text-4xl">
-            <span className="text-morpheus">&gt;</span> Ready to Take Control?
+          <h2 id="cta-heading" className="text-3xl font-bold sm:text-4xl">
+            <span className="text-morpheus" aria-hidden="true">&gt;</span> Ready to Take Control?
           </h2>
-          <p className="mx-auto mt-4 max-w-xl text-zinc-500">
+          <p className="mx-auto mt-4 max-w-xl text-zinc-400">
             Download Morpheus free and start commanding your AI agent from your
             phone. Upgrade to Pro when you need the full power.
           </p>
@@ -366,6 +155,7 @@ export default function PricingPage() {
             </Link>
             <button
               disabled
+              title="Pro plan is not yet available"
               className="cursor-not-allowed rounded-lg border border-border px-8 py-3 text-sm font-semibold text-zinc-500 opacity-70"
             >
               Pro Coming Soon

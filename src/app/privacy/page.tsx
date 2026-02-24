@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Privacy Policy",
   description:
-    "Morpheus Privacy Policy. All data stored locally on your devices. No cloud storage, no tracking, no telemetry.",
+    "Morpheus Privacy Policy. All data stored locally on your devices. No cloud storage, no tracking. Minimal error reporting for stability.",
 };
 
 export default function PrivacyPage() {
@@ -48,12 +48,21 @@ export default function PrivacyPage() {
 
         <h2>3. What Is NOT Collected</h2>
         <ul>
-          <li><strong>No telemetry</strong>: No usage statistics, crash reports, or behavioral analytics</li>
-          <li><strong>No analytics</strong>: No third-party analytics SDKs</li>
-          <li><strong>No cloud storage</strong>: No data stored on any server operated by Morpheus</li>
+          <li><strong>No behavioral analytics</strong>: No usage statistics, session recording, or behavioral profiling</li>
           <li><strong>No advertising data</strong>: No ad tracking, fingerprinting, or marketing identifiers</li>
-          <li><strong>No account data</strong>: No user accounts, emails, or registration required</li>
           <li><strong>No location data</strong>: No GPS, IP geolocation, or location tracking</li>
+        </ul>
+
+        <h2>3a. Error Reporting</h2>
+        <p>
+          To maintain stability and fix crashes, Morpheus uses <strong>Sentry</strong> for anonymous
+          error reporting on both desktop and mobile. When an unhandled error occurs:
+        </p>
+        <ul>
+          <li>Crash stack traces and error messages are sent to Sentry</li>
+          <li>No personally identifiable information, commands, or AI responses are included</li>
+          <li>No usage analytics, session recording, or behavioral data is collected</li>
+          <li>Error reports contain only technical details needed to diagnose crashes</li>
         </ul>
 
         <h2>4. Local Storage</h2>
@@ -100,8 +109,9 @@ export default function PrivacyPage() {
         <ul>
           <li><strong>OpenAI</strong> — Voice mode only. Audio data shared when enabled.</li>
           <li><strong>Cloudflare</strong> — Remote access only. Encrypted traffic routed through their network.</li>
+          <li><strong>Sentry</strong> — Anonymous crash reporting. Technical error data only, no personal information.</li>
         </ul>
-        <p>Neither service is contacted unless you explicitly enable the corresponding feature.</p>
+        <p>OpenAI and Cloudflare are not contacted unless you explicitly enable the corresponding feature. Sentry receives data only when an unhandled error occurs.</p>
 
         <h2>9. Data Retention</h2>
         <ul>
