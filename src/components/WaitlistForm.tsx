@@ -64,7 +64,7 @@ export default function WaitlistForm({
         </p>
         <p className="mt-2 text-sm text-zinc-400">{message}</p>
         <p className="mt-1 text-xs text-morpheus-muted">
-          50% early bird discount locked in.
+          You&apos;ll be the first to hear about new features.
         </p>
       </div>
     );
@@ -113,10 +113,10 @@ export default function WaitlistForm({
           {status === "loading" ? (
             <span className="inline-flex items-center gap-2">
               <span className="h-3 w-3 rounded-full border-2 border-morpheus border-t-transparent animate-spin" />
-              Joining...
+              Subscribing...
             </span>
           ) : (
-            "Get Early Access"
+            "Get Updates"
           )}
         </button>
       </div>
@@ -124,7 +124,7 @@ export default function WaitlistForm({
         <p role="alert" aria-live="assertive" className="mt-2 text-xs text-red-400">{message}</p>
       )}
       <p className="mt-2 text-xs text-zinc-500">
-        No spam. One email at launch. Unsubscribe anytime.
+        No spam. Product updates only. Unsubscribe anytime.
       </p>
     </form>
   );

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import WaitlistForm from "@/components/WaitlistForm";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Download",
@@ -12,28 +12,41 @@ const desktopPlatforms = [
     name: "macOS (Apple Silicon)",
     tag: "darwin-arm64",
     note: "M1/M2/M3/M4 Macs",
+    artifact: "Morpheus-Agent-*-arm64.dmg",
   },
   {
     name: "macOS (Intel)",
     tag: "darwin-x64",
     note: "Intel-based Macs",
+    artifact: "Morpheus-Agent-*-x64.dmg",
   },
   {
-    name: "Windows",
+    name: "Windows (Installer)",
     tag: "win32-x64",
     note: "Windows 10+ (x64)",
+    artifact: "Morpheus-Agent-Setup-*.exe",
+  },
+  {
+    name: "Windows (Portable)",
+    tag: "win32-portable",
+    note: "No install required",
+    artifact: "Morpheus-Agent-*.exe",
   },
   {
     name: "Linux (AppImage)",
     tag: "linux-appimg",
     note: "Universal Linux",
+    artifact: "Morpheus-Agent-*-x64.AppImage",
   },
   {
     name: "Linux (Debian)",
     tag: "linux-deb",
     note: "Ubuntu / Debian",
+    artifact: "Morpheus-Agent-*-x64.deb",
   },
 ];
+
+const GITHUB_RELEASES = "https://github.com/shaktech786/morpheus/releases/latest";
 
 export default function DownloadPage() {
   return (
@@ -54,9 +67,12 @@ export default function DownloadPage() {
           </p>
           <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
             {desktopPlatforms.map((p) => (
-              <div
+              <a
                 key={p.name}
-                className="flex items-center justify-between gap-4 rounded-xl border border-border bg-surface p-4"
+                href={GITHUB_RELEASES}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-between gap-4 rounded-xl border border-border bg-surface p-4 transition-all hover:border-morpheus-dark hover:bg-surface-hover"
               >
                 <div className="flex items-center gap-4">
                   <span className="text-sm text-morpheus-muted font-bold" aria-hidden="true">[{p.tag}]</span>
@@ -65,17 +81,11 @@ export default function DownloadPage() {
                     <div className="text-xs text-zinc-500">{p.note}</div>
                   </div>
                 </div>
-                <span className="rounded-md border border-border bg-surface-hover px-2 py-0.5 text-xs text-zinc-500">
-                  Coming soon
+                <span className="rounded-md border border-morpheus bg-morpheus/10 px-3 py-1 text-xs font-semibold text-morpheus">
+                  Download
                 </span>
-              </div>
+              </a>
             ))}
-          </div>
-          <div className="mt-6 rounded-xl border border-border bg-surface p-6">
-            <p className="text-sm text-zinc-400 mb-4">
-              Downloads coming soon. Join the early access list to get notified &mdash; plus <span className="text-morpheus font-semibold">50% off</span> Pro at launch.
-            </p>
-            <WaitlistForm id="download-waitlist" source="download" compact />
           </div>
         </div>
 
@@ -86,34 +96,44 @@ export default function DownloadPage() {
             Control your desktop agent from your phone.
           </p>
           <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
-            <div className="flex items-center justify-between gap-4 rounded-xl border border-border bg-surface p-4">
+            <a
+              href="https://apps.apple.com/app/morpheus-ai-control/id0000000000"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-between gap-4 rounded-xl border border-border bg-surface p-4 transition-all hover:border-morpheus-dark hover:bg-surface-hover"
+            >
               <div className="flex items-center gap-4">
                 <span className="text-sm text-morpheus-muted font-bold" aria-hidden="true">[ios]</span>
                 <div>
                   <div className="font-medium text-zinc-200">iOS</div>
                   <div className="text-xs text-zinc-500">
-                    Coming soon to the App Store
+                    App Store — iPhone &amp; iPad
                   </div>
                 </div>
               </div>
-              <span className="rounded-md border border-border bg-surface-hover px-2 py-0.5 text-xs text-zinc-500">
-                Coming soon
+              <span className="rounded-md border border-morpheus bg-morpheus/10 px-3 py-1 text-xs font-semibold text-morpheus">
+                App Store
               </span>
-            </div>
-            <div className="flex items-center justify-between gap-4 rounded-xl border border-border bg-surface p-4">
+            </a>
+            <a
+              href="https://play.google.com/store/apps/details?id=us.getmorphe.mobile"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-between gap-4 rounded-xl border border-border bg-surface p-4 transition-all hover:border-morpheus-dark hover:bg-surface-hover"
+            >
               <div className="flex items-center gap-4">
                 <span className="text-sm text-morpheus-muted font-bold" aria-hidden="true">[apk]</span>
                 <div>
                   <div className="font-medium text-zinc-200">Android</div>
                   <div className="text-xs text-zinc-500">
-                    Coming soon to the Play Store
+                    Google Play Store
                   </div>
                 </div>
               </div>
-              <span className="rounded-md border border-border bg-surface-hover px-2 py-0.5 text-xs text-zinc-500">
-                Coming soon
+              <span className="rounded-md border border-morpheus bg-morpheus/10 px-3 py-1 text-xs font-semibold text-morpheus">
+                Play Store
               </span>
-            </div>
+            </a>
           </div>
         </div>
 
@@ -135,13 +155,29 @@ export default function DownloadPage() {
             </li>
             <li>
               <strong className="text-zinc-300">AI:</strong> Your own Claude
-              subscription (free tier), or purchase token packs in-app (Pro)
+              subscription (free tier) or purchase{" "}
+              <Link href="/pricing#tokens-heading" className="text-morpheus hover:underline">
+                token packs
+              </Link>{" "}
+              in-app
             </li>
             <li>
               <strong className="text-zinc-300">Network:</strong> Both devices
               on same LAN for local mode, or internet for remote mode (Pro)
             </li>
           </ul>
+        </div>
+
+        {/* Quick Start */}
+        <div className="mt-16 rounded-xl border border-morpheus/30 bg-surface p-6">
+          <h2 className="text-lg font-semibold text-morpheus">[quick_start]</h2>
+          <ol className="mt-4 space-y-3 text-sm text-zinc-400 list-decimal list-inside">
+            <li>Download and install the <strong className="text-zinc-300">Desktop Agent</strong> on the machine you want to control</li>
+            <li>Download the <strong className="text-zinc-300">Mobile App</strong> on your phone</li>
+            <li>Open the desktop agent — it will display a <strong className="text-zinc-300">QR code</strong></li>
+            <li>Open the mobile app → <strong className="text-zinc-300">Devices</strong> → <strong className="text-zinc-300">Add Device</strong> → scan the QR code</li>
+            <li>Start typing or speaking commands — your AI agent is now under your control</li>
+          </ol>
         </div>
       </div>
     </div>

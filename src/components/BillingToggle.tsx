@@ -17,11 +17,6 @@ function FeatureValue({ value }: { value: boolean | string }) {
 export default function BillingToggle() {
   const [annual, setAnnual] = useState(false);
 
-  const monthlyPrice = PRICING.monthly;
-  const annualPrice = PRICING.annual;
-  const annualMonthly = PRICING.annualMonthly;
-  const lifetimePrice = PRICING.lifetime;
-
   return (
     <>
       <div className="mt-10 flex items-center justify-center gap-4">
@@ -60,9 +55,9 @@ export default function BillingToggle() {
         </span>
       </div>
 
-      {/* Pricing Cards */}
-      <div className="mx-auto max-w-5xl mt-16">
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+      {/* Pricing Cards — 3 columns */}
+      <div className="mx-auto max-w-6xl mt-16">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
           {/* Free Tier */}
           <div className="flex flex-col rounded-xl border border-border bg-surface p-8">
             <div>
@@ -105,7 +100,7 @@ export default function BillingToggle() {
           <div className="relative flex flex-col rounded-xl border border-morpheus/40 bg-surface p-8 shadow-[0_0_30px_rgba(0,255,0,0.08)]">
             <div className="absolute -top-3 left-1/2 -translate-x-1/2">
               <span className="rounded-full border border-morpheus bg-morpheus/20 px-4 py-1 text-xs font-bold uppercase tracking-wider text-morpheus">
-                Recommended
+                Most Popular
               </span>
             </div>
 
@@ -119,29 +114,28 @@ export default function BillingToggle() {
               {annual ? (
                 <>
                   <span className="text-4xl font-bold text-white">
-                    {annualPrice}
+                    {PRICING.annual}
                   </span>
                   <span className="text-sm text-zinc-400"> / year</span>
                   <p className="mt-1 text-sm text-morpheus-muted">
-                    {annualMonthly}/mo billed annually
+                    {PRICING.annualMonthly}/mo billed annually
                   </p>
                 </>
               ) : (
                 <>
                   <span className="text-4xl font-bold text-white">
-                    {monthlyPrice}
+                    {PRICING.monthly}
                   </span>
                   <span className="text-sm text-zinc-400"> / month</span>
                 </>
               )}
             </div>
-            <button
-              disabled
-              title="Pro plan is not yet available"
-              className="mt-8 block cursor-not-allowed rounded-lg border border-morpheus bg-morpheus/10 px-6 py-3 text-center text-sm font-semibold text-morpheus opacity-70"
+            <Link
+              href="/download"
+              className="mt-8 block rounded-lg border border-morpheus bg-morpheus/10 px-6 py-3 text-center text-sm font-semibold text-morpheus transition-all hover:bg-morpheus/20 hover:shadow-[0_0_20px_rgba(0,255,0,0.15)]"
             >
-              Coming Soon
-            </button>
+              Get Pro
+            </Link>
             <div className="mt-8 flex-1">
               <p className="text-xs font-semibold uppercase tracking-wider text-zinc-400">
                 Everything in Free, plus
@@ -161,6 +155,66 @@ export default function BillingToggle() {
               </ul>
             </div>
           </div>
+
+          {/* Team Tier */}
+          <div className="relative flex flex-col rounded-xl border border-[#00ccff]/30 bg-surface p-8 shadow-[0_0_30px_rgba(0,204,255,0.06)]">
+            <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+              <span className="rounded-full border border-[#00ccff]/50 bg-[#00ccff]/10 px-4 py-1 text-xs font-bold uppercase tracking-wider text-[#00ccff]">
+                For Teams
+              </span>
+            </div>
+
+            <div>
+              <h3 className="text-lg font-semibold text-[#00ccff]">Team</h3>
+              <p className="mt-1 text-sm text-zinc-400">
+                Shared devices, audit logs, admin controls.
+              </p>
+            </div>
+            <div className="mt-6">
+              {annual ? (
+                <>
+                  <span className="text-4xl font-bold text-white">
+                    {PRICING.teamAnnual}
+                  </span>
+                  <span className="text-sm text-zinc-400"> / seat / year</span>
+                  <p className="mt-1 text-sm text-[#00ccff]/70">
+                    {PRICING.teamAnnualMonthly}/seat/mo billed annually
+                  </p>
+                </>
+              ) : (
+                <>
+                  <span className="text-4xl font-bold text-white">
+                    {PRICING.teamMonthly}
+                  </span>
+                  <span className="text-sm text-zinc-400"> / seat / month</span>
+                </>
+              )}
+            </div>
+            <Link
+              href="mailto:team@getmorphe.us?subject=Morpheus Team Plan"
+              className="mt-8 block rounded-lg border border-[#00ccff]/40 bg-[#00ccff]/10 px-6 py-3 text-center text-sm font-semibold text-[#00ccff] transition-all hover:bg-[#00ccff]/20 hover:shadow-[0_0_20px_rgba(0,204,255,0.15)]"
+            >
+              Contact Sales
+            </Link>
+            <div className="mt-8 flex-1">
+              <p className="text-xs font-semibold uppercase tracking-wider text-zinc-400">
+                Everything in Pro, plus
+              </p>
+              <ul className="mt-4 space-y-3">
+                {PLAN_FEATURES.map((f) => (
+                  <li key={f.name} className="flex items-center gap-3 text-sm">
+                    <FeatureValue value={f.team} />
+                    <span className="text-zinc-400">{f.name}</span>
+                    {typeof f.team === "string" && (
+                      <span className="ml-auto text-xs text-zinc-500">
+                        {f.team}
+                      </span>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
         </div>
 
         {/* Lifetime Option */}
@@ -172,7 +226,7 @@ export default function BillingToggle() {
                   Best Value
                 </span>
                 <h3 className="text-lg font-semibold text-white">
-                  Lifetime
+                  Lifetime Pro
                 </h3>
               </div>
               <p className="mt-2 text-sm text-zinc-400">
@@ -182,7 +236,7 @@ export default function BillingToggle() {
             </div>
             <div className="text-center sm:text-right">
               <span className="text-4xl font-bold text-white">
-                {lifetimePrice}
+                {PRICING.lifetime}
               </span>
               <span className="text-sm text-zinc-400"> / one-time</span>
               <p className="mt-1 text-sm text-morpheus-muted">

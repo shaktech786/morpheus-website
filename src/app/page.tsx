@@ -68,6 +68,24 @@ const steps = [
   },
 ];
 
+const useCases = [
+  {
+    persona: "Solo Developer",
+    quote: "Deploy from the couch. Run tests from bed. Check logs from the bar.",
+    icon: "[dev]",
+  },
+  {
+    persona: "DevOps Engineer",
+    quote: "Monitor and manage servers from your phone without SSH clients or VPNs.",
+    icon: "[ops]",
+  },
+  {
+    persona: "Team Lead",
+    quote: "Review what your AI agent did while you were in meetings. Full audit trail.",
+    icon: "[mgr]",
+  },
+];
+
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
@@ -89,6 +107,12 @@ const jsonLd = {
       price: PRICING.monthly.replace("$", ""),
       priceCurrency: "USD",
       description: "Pro monthly plan",
+    },
+    {
+      "@type": "Offer",
+      price: PRICING.teamMonthly.replace("$", ""),
+      priceCurrency: "USD",
+      description: "Team monthly plan per seat",
     },
   ],
   author: {
@@ -123,13 +147,24 @@ export default function Home() {
             end-to-end encryption. Voice commands, remote access, and full
             control — from anywhere.
           </p>
-          <div className="mt-10 max-w-lg mx-auto">
-            <WaitlistForm id="hero-waitlist" source="hero" compact />
+          <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
+            <Link
+              href="/download"
+              className="rounded-lg border border-morpheus bg-morpheus/10 px-8 py-3 text-sm font-semibold text-morpheus transition-all hover:bg-morpheus/20 hover:shadow-[0_0_20px_rgba(0,255,0,0.15)]"
+            >
+              Download for Free
+            </Link>
+            <Link
+              href="/pricing"
+              className="rounded-lg border border-border px-8 py-3 text-sm font-semibold text-zinc-400 transition-all hover:border-morpheus-dark hover:text-morpheus"
+            >
+              View Pricing
+            </Link>
           </div>
           <div className="mt-6 flex items-center justify-center gap-2">
             <span className="inline-block h-2 w-2 rounded-full bg-morpheus pulse-dot" aria-hidden="true" />
             <span className="text-xs text-zinc-400">
-              Early access &mdash; <span className="text-morpheus font-semibold">50% off</span> at launch
+              Free to start — no credit card required
             </span>
           </div>
         </div>
@@ -159,6 +194,37 @@ export default function Home() {
                 </h3>
                 <p className="mt-2 text-sm text-zinc-400">
                   {feature.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Use Cases */}
+      <section aria-labelledby="usecases-heading" className="border-t border-border py-24">
+        <div className="mx-auto max-w-6xl px-6">
+          <h2 id="usecases-heading" className="text-center text-3xl font-bold sm:text-4xl">
+            <span className="text-morpheus" aria-hidden="true">&gt;</span> Built For Developers
+          </h2>
+          <p className="mx-auto mt-4 max-w-xl text-center text-zinc-400">
+            Whether you&apos;re a solo dev, a DevOps engineer, or leading a team
+            — Morpheus gives you remote control over your AI agent.
+          </p>
+          <div className="mt-16 grid grid-cols-1 gap-6 sm:grid-cols-3">
+            {useCases.map((uc) => (
+              <div
+                key={uc.persona}
+                className="rounded-xl border border-border bg-surface p-6"
+              >
+                <div className="text-lg text-morpheus font-bold" aria-hidden="true">
+                  {uc.icon}
+                </div>
+                <h3 className="mt-3 text-lg font-semibold text-zinc-200">
+                  {uc.persona}
+                </h3>
+                <p className="mt-3 text-sm text-zinc-400 italic">
+                  &ldquo;{uc.quote}&rdquo;
                 </p>
               </div>
             ))}
@@ -196,15 +262,16 @@ export default function Home() {
 
       {/* Pricing Preview */}
       <section aria-labelledby="pricing-preview-heading" className="border-t border-border py-24">
-        <div className="mx-auto max-w-4xl px-6 text-center">
+        <div className="mx-auto max-w-6xl px-6 text-center">
           <h2 id="pricing-preview-heading" className="text-3xl font-bold sm:text-4xl">
-            <span className="text-morpheus" aria-hidden="true">&gt;</span> Free to Start, Pro to Unlock
+            <span className="text-morpheus" aria-hidden="true">&gt;</span> Plans for Every Developer
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-zinc-400">
-            Already have a Claude subscription? Use Morpheus free. No subscription?
-            Go Pro and we handle everything with AI token packs.
+            Start free with your own Claude subscription, go Pro for the full
+            experience, or get Team for your dev shop.
           </p>
-          <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2">
+          <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-3">
+            {/* Free */}
             <div className="rounded-xl border border-border bg-surface p-6 text-left">
               <h3 className="text-lg font-semibold text-zinc-300">Free</h3>
               <p className="mt-1 text-2xl font-bold text-white">$0 <span className="text-sm font-normal text-zinc-400">/ forever</span></p>
@@ -213,19 +280,31 @@ export default function Home() {
                 <li><span className="text-morpheus font-bold mr-2" aria-hidden="true">[+]</span>LAN connection &amp; text commands</li>
                 <li><span className="text-morpheus font-bold mr-2" aria-hidden="true">[+]</span>E2E encryption</li>
                 <li><span className="text-morpheus font-bold mr-2" aria-hidden="true">[+]</span>1 paired device</li>
-                <li><span className="text-morpheus font-bold mr-2" aria-hidden="true">[+]</span>Basic MCP servers</li>
+                <li><span className="text-morpheus font-bold mr-2" aria-hidden="true">[+]</span>AI token packs available</li>
               </ul>
             </div>
+            {/* Pro */}
             <div className="rounded-xl border border-morpheus/40 bg-surface p-6 text-left shadow-[0_0_30px_rgba(0,255,0,0.08)]">
               <h3 className="text-lg font-semibold text-morpheus">Pro</h3>
               <p className="mt-1 text-2xl font-bold text-white">{PRICING.monthly} <span className="text-sm font-normal text-zinc-400">/ month</span></p>
-              <p className="mt-2 text-xs text-morpheus-muted">No subscription needed — we handle it</p>
+              <p className="mt-2 text-xs text-morpheus-muted">Full power for individual developers</p>
               <ul className="mt-4 space-y-2 text-sm text-zinc-400">
                 <li><span className="text-morpheus font-bold mr-2" aria-hidden="true">[+]</span>Everything in Free</li>
-                <li><span className="text-morpheus font-bold mr-2" aria-hidden="true">[+]</span>AI token packs — no external accounts needed</li>
                 <li><span className="text-morpheus font-bold mr-2" aria-hidden="true">[+]</span>Voice mode &amp; remote access</li>
                 <li><span className="text-morpheus font-bold mr-2" aria-hidden="true">[+]</span>Unlimited devices &amp; all MCP servers</li>
-                <li><span className="text-morpheus font-bold mr-2" aria-hidden="true">[+]</span>Priority support</li>
+                <li><span className="text-morpheus font-bold mr-2" aria-hidden="true">[+]</span>Unlimited history &amp; saved commands</li>
+              </ul>
+            </div>
+            {/* Team */}
+            <div className="rounded-xl border border-[#00ccff]/30 bg-surface p-6 text-left shadow-[0_0_30px_rgba(0,204,255,0.06)]">
+              <h3 className="text-lg font-semibold text-[#00ccff]">Team</h3>
+              <p className="mt-1 text-2xl font-bold text-white">{PRICING.teamMonthly} <span className="text-sm font-normal text-zinc-400">/ seat / mo</span></p>
+              <p className="mt-2 text-xs text-[#00ccff]/70">Built for dev teams</p>
+              <ul className="mt-4 space-y-2 text-sm text-zinc-400">
+                <li><span className="text-[#00ccff] font-bold mr-2" aria-hidden="true">[+]</span>Everything in Pro</li>
+                <li><span className="text-[#00ccff] font-bold mr-2" aria-hidden="true">[+]</span>Shared device pools &amp; audit logs</li>
+                <li><span className="text-[#00ccff] font-bold mr-2" aria-hidden="true">[+]</span>Admin controls &amp; SSO</li>
+                <li><span className="text-[#00ccff] font-bold mr-2" aria-hidden="true">[+]</span>Shared token pool &amp; up to 25 seats</li>
               </ul>
             </div>
           </div>
@@ -240,35 +319,22 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Early Access CTA */}
-      <section id="early-access" aria-labelledby="early-access-heading" className="border-t border-border py-24">
+      {/* Newsletter CTA (replaces early access / waitlist) */}
+      <section id="newsletter" aria-labelledby="newsletter-heading" className="border-t border-border py-24">
         <div className="mx-auto max-w-4xl px-6">
           <div className="rounded-2xl border border-morpheus/30 bg-gradient-to-b from-morpheus/5 to-transparent p-8 sm:p-12 text-center shadow-[0_0_60px_rgba(0,255,0,0.05)]">
             <p className="text-sm text-morpheus-muted tracking-widest uppercase mb-4">
-              &gt; early access program
+              &gt; stay updated
             </p>
-            <h2 id="early-access-heading" className="text-3xl font-bold sm:text-4xl">
-              Get <span className="text-morpheus glow-green">50% Off</span> at Launch
+            <h2 id="newsletter-heading" className="text-3xl font-bold sm:text-4xl">
+              Get Product Updates
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-zinc-400">
-              Join the waitlist and lock in your early bird discount.
-              Be the first to control your AI agent from anywhere.
+              Be the first to know about new features, MCP integrations, and platform updates.
+              No spam — just product news.
             </p>
-            <div className="mt-4 inline-flex items-center gap-4 rounded-lg border border-border bg-surface px-6 py-3">
-              <div className="text-left">
-                <p className="text-xs text-zinc-400">Pro plan at launch</p>
-                <p className="text-lg font-bold">
-                  <span className="text-zinc-500 line-through mr-2">{PRICING.monthly}</span>
-                  <span className="text-morpheus">{PRICING.earlyBird}</span>
-                  <span className="text-xs font-normal text-zinc-400">/mo</span>
-                </p>
-              </div>
-              <div className="rounded-md bg-morpheus/10 border border-morpheus/30 px-3 py-1">
-                <span className="text-xs font-bold text-morpheus">SAVE 50%</span>
-              </div>
-            </div>
             <div className="mt-8 max-w-lg mx-auto">
-              <WaitlistForm id="early-access-waitlist" source="early-access" />
+              <WaitlistForm id="newsletter-waitlist" source="newsletter" />
             </div>
           </div>
         </div>

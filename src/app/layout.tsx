@@ -73,11 +73,14 @@ function Header() {
           <Link href="/pricing" className="py-2 hover:text-morpheus transition-colors">
             Pricing
           </Link>
-          <Link href="/privacy" className="py-2 hover:text-morpheus transition-colors">
-            Privacy
+          <Link href="/docs" className="py-2 hover:text-morpheus transition-colors">
+            Docs
           </Link>
-          <Link href="/terms" className="py-2 hover:text-morpheus transition-colors">
-            Terms
+          <Link href="/marketplace" className="py-2 hover:text-morpheus transition-colors">
+            Marketplace
+          </Link>
+          <Link href="/blog" className="py-2 hover:text-morpheus transition-colors">
+            Blog
           </Link>
         </div>
         <MobileNav />
@@ -90,7 +93,7 @@ function Footer() {
   return (
     <footer className="border-t border-border bg-black py-12">
       <div className="mx-auto max-w-6xl px-6">
-        <div className="grid grid-cols-1 gap-8 sm:grid-cols-3">
+        <div className="grid grid-cols-1 gap-8 sm:grid-cols-4">
           <div>
             <h3 className="font-semibold text-morpheus">morpheus</h3>
             <p className="mt-2 text-sm text-zinc-400">
@@ -98,7 +101,7 @@ function Footer() {
             </p>
           </div>
           <nav aria-label="Product links">
-            <h3 className="font-semibold text-zinc-400">Links</h3>
+            <h3 className="font-semibold text-zinc-400">Product</h3>
             <ul className="mt-2 space-y-1 text-sm text-zinc-500">
               <li>
                 <Link href="/download" className="hover:text-morpheus transition-colors">
@@ -108,6 +111,31 @@ function Footer() {
               <li>
                 <Link href="/pricing" className="hover:text-morpheus transition-colors">
                   Pricing
+                </Link>
+              </li>
+              <li>
+                <Link href="/docs" className="hover:text-morpheus transition-colors">
+                  Documentation
+                </Link>
+              </li>
+              <li>
+                <Link href="/marketplace" className="hover:text-morpheus transition-colors">
+                  MCP Marketplace
+                </Link>
+              </li>
+            </ul>
+          </nav>
+          <nav aria-label="Resources">
+            <h3 className="font-semibold text-zinc-400">Resources</h3>
+            <ul className="mt-2 space-y-1 text-sm text-zinc-500">
+              <li>
+                <Link href="/blog" className="hover:text-morpheus transition-colors">
+                  Blog
+                </Link>
+              </li>
+              <li>
+                <Link href="mailto:team@getmorphe.us" className="hover:text-morpheus transition-colors">
+                  Contact Sales
                 </Link>
               </li>
             </ul>
