@@ -4,9 +4,15 @@ import { PRICING } from "@/lib/pricing";
 
 const features = [
   {
+    title: "Do Anything",
+    description:
+      "Code, research, send emails, manage files, query databases, automate workflows — if you can do it at a keyboard, Morpheus can do it from your phone.",
+    icon: "terminal",
+  },
+  {
     title: "Voice Control",
     description:
-      "Talk to your AI agent naturally with live transcription and audio responses. Available with the Pro plan.",
+      "Talk to Morpheus naturally — like having a conversation with your computer. Live transcription, audio responses, and hands-free control.",
     icon: "mic",
   },
   {
@@ -22,15 +28,9 @@ const features = [
     icon: "globe",
   },
   {
-    title: "AI-Powered Coding",
+    title: "Extensible with MCP",
     description:
-      "Execute coding tasks on your desktop with Morpheus. Review, approve, and monitor AI operations from your phone.",
-    icon: "terminal",
-  },
-  {
-    title: "Cross-Platform",
-    description:
-      "Desktop app for macOS, Windows, and Linux. Mobile app for iOS and Android. One pairing, works everywhere.",
+      "Connect to GitHub, Slack, Notion, PostgreSQL, Redis, AWS, and more through 18+ Model Context Protocol servers. Add your own.",
     icon: "layers",
   },
   {
@@ -42,11 +42,11 @@ const features = [
 ];
 
 const featureIcons: Record<string, string> = {
+  terminal: "[>_]",
   mic: "[mic]",
   lock: "[enc]",
   globe: "[net]",
-  terminal: "[>_]",
-  layers: "[x-p]",
+  layers: "[mcp]",
   shield: "[own]",
 };
 
@@ -63,25 +63,25 @@ const steps = [
   },
   {
     step: "03",
-    title: "Start Commanding",
-    description: "Type or speak commands to your AI agent from anywhere in the world.",
+    title: "Do Anything",
+    description: "Code, research, email, automate — tell Morpheus what to do and it handles the rest.",
   },
 ];
 
 const useCases = [
   {
-    persona: "Solo Developer",
-    quote: "Deploy from the couch. Run tests from bed. Check logs from the bar.",
+    persona: "The Builder",
+    quote: "Deploy from the couch. Fix bugs from bed. Scaffold a new app from the coffee shop. Your desktop is always within reach.",
     icon: "[dev]",
   },
   {
-    persona: "DevOps Engineer",
-    quote: "Monitor and manage servers from your phone without SSH clients or VPNs.",
+    persona: "The Multitasker",
+    quote: "Research competitors, draft emails, update Notion, query the database — all from one conversation on your phone.",
     icon: "[ops]",
   },
   {
-    persona: "Team Lead",
-    quote: "Review what your AI agent did while you were in meetings. Full audit trail.",
+    persona: "The Automator",
+    quote: "Set up cron jobs, write scripts, build workflows, and manage infrastructure without ever opening a laptop.",
     icon: "[mgr]",
   },
 ];
@@ -91,7 +91,7 @@ const jsonLd = {
   "@type": "SoftwareApplication",
   name: "Morpheus",
   description:
-    "Control your desktop AI agent from anywhere. Voice commands, encrypted pairing, and remote access — all from your mobile device.",
+    "Your personal Jarvis — control your entire computer from your phone. Code, research, send emails, automate tasks, and more with AI. End-to-end encrypted.",
   url: "https://getmorphe.us",
   applicationCategory: "UtilitiesApplication",
   operatingSystem: "macOS, Windows, Linux, iOS, Android",
@@ -136,16 +136,16 @@ export default function Home() {
             &gt; initializing morpheus protocol...
           </p>
           <h1 id="hero-heading" className="text-5xl font-bold tracking-tight sm:text-7xl">
-            Control Your AI Agent
+            Your Personal Jarvis,
             <br />
             <span className="text-morpheus glow-green">
-              From Your Phone
+              In Your Pocket
             </span>
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg text-zinc-400">
-            Morpheus connects your mobile device to your desktop AI agent with
-            end-to-end encryption. Voice commands, remote access, and full
-            control — from anywhere.
+            Morpheus gives you full control of your computer from your phone.
+            Code, research, send emails, automate tasks, manage files — anything you
+            could do at your keyboard, now from anywhere.
           </p>
           <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
             <Link
@@ -170,15 +170,48 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Capabilities Showcase */}
+      <section aria-labelledby="capabilities-heading" className="border-t border-border py-24">
+        <div className="mx-auto max-w-6xl px-6">
+          <h2 id="capabilities-heading" className="text-center text-3xl font-bold sm:text-4xl">
+            <span className="text-morpheus" aria-hidden="true">&gt;</span> What Can Morpheus Do?
+          </h2>
+          <p className="mx-auto mt-4 max-w-xl text-center text-zinc-400">
+            Anything you could do at your keyboard. Here are just a few examples.
+          </p>
+          <div className="mt-16 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {[
+              { cmd: '"Research the top 5 competitors for my SaaS"', tag: 'Research', color: 'text-blue-400' },
+              { cmd: '"Fix the TypeScript errors and push to main"', tag: 'Code', color: 'text-morpheus' },
+              { cmd: '"Send my team an email about the release"', tag: 'Email', color: 'text-yellow-400' },
+              { cmd: '"Create a cron job to back up the DB nightly"', tag: 'Automate', color: 'text-purple-400' },
+              { cmd: '"Query the production database for active users"', tag: 'Database', color: 'text-orange-400' },
+              { cmd: '"Build me a CLI tool that converts CSV to JSON"', tag: 'Build', color: 'text-cyan-400' },
+              { cmd: '"Post a deploy update to the #engineering Slack"', tag: 'Slack', color: 'text-pink-400' },
+              { cmd: '"Find all files over 100MB and list them"', tag: 'Files', color: 'text-emerald-400' },
+              { cmd: '"Scrape product prices from this URL"', tag: 'Web', color: 'text-red-400' },
+            ].map((ex) => (
+              <div key={ex.cmd} className="rounded-lg border border-border bg-surface p-4 transition-all hover:border-morpheus-dark">
+                <span className={`text-xs font-semibold ${ex.color} uppercase tracking-wider`}>{ex.tag}</span>
+                <p className="mt-2 text-sm text-zinc-300 font-mono">{ex.cmd}</p>
+              </div>
+            ))}
+          </div>
+          <p className="mt-8 text-center text-sm text-zinc-500">
+            ...and literally anything else you can describe in plain English.
+          </p>
+        </div>
+      </section>
+
       {/* Features */}
       <section id="features" aria-labelledby="features-heading" className="border-t border-border py-24">
         <div className="mx-auto max-w-6xl px-6">
           <h2 id="features-heading" className="text-center text-3xl font-bold sm:text-4xl">
-            <span className="text-morpheus" aria-hidden="true">&gt;</span> Everything You Need
+            <span className="text-morpheus" aria-hidden="true">&gt;</span> Limitless Capabilities
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-center text-zinc-400">
-            A complete mobile-to-desktop AI control system, built with privacy
-            and security at its core.
+            Morpheus turns your phone into a remote control for your entire computer.
+            Powered by AI, secured with end-to-end encryption.
           </p>
           <div className="mt-16 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {features.map((feature) => (
@@ -205,11 +238,11 @@ export default function Home() {
       <section aria-labelledby="usecases-heading" className="border-t border-border py-24">
         <div className="mx-auto max-w-6xl px-6">
           <h2 id="usecases-heading" className="text-center text-3xl font-bold sm:text-4xl">
-            <span className="text-morpheus" aria-hidden="true">&gt;</span> Built For Developers
+            <span className="text-morpheus" aria-hidden="true">&gt;</span> Built For Doers
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-center text-zinc-400">
-            Whether you&apos;re a solo dev, a DevOps engineer, or leading a team
-            — Morpheus gives you remote control over your AI agent.
+            Whether you&apos;re building an app, running a business, or automating your life
+            — Morpheus puts the power of your entire computer in your pocket.
           </p>
           <div className="mt-16 grid grid-cols-1 gap-6 sm:grid-cols-3">
             {useCases.map((uc) => (
@@ -264,11 +297,11 @@ export default function Home() {
       <section aria-labelledby="pricing-preview-heading" className="border-t border-border py-24">
         <div className="mx-auto max-w-6xl px-6 text-center">
           <h2 id="pricing-preview-heading" className="text-3xl font-bold sm:text-4xl">
-            <span className="text-morpheus" aria-hidden="true">&gt;</span> Plans for Every Developer
+            <span className="text-morpheus" aria-hidden="true">&gt;</span> Plans That Scale With You
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-zinc-400">
-            Start free with your own Claude subscription, go Pro for the full
-            experience, or get Team for your dev shop.
+            Start free with your own Claude subscription, go Pro for voice and
+            remote access, or get Team for your organization.
           </p>
           <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-3">
             {/* Free */}

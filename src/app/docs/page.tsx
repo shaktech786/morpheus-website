@@ -4,10 +4,24 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Documentation",
   description:
-    "Morpheus documentation — setup guides, pairing, MCP servers, voice mode, and API reference.",
+    "Morpheus documentation — capabilities, setup guides, pairing, MCP servers, voice mode, and more.",
 };
 
 const guides = [
+  {
+    title: "What Can Morpheus Do?",
+    slug: "capabilities",
+    description: "Everything Morpheus can do — from coding and research to emails, automation, and beyond.",
+    icon: "[*]",
+    sections: [
+      "Build & code in any language",
+      "Research & summarize information",
+      "Send emails & messages",
+      "Automate with scripts & cron jobs",
+      "Manage files, databases & systems",
+      "Browse the web & call APIs",
+    ],
+  },
   {
     title: "Getting Started",
     slug: "getting-started",
