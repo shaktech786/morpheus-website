@@ -11,7 +11,7 @@ export default function TermsPage() {
     <div className="py-24">
       <div className="prose prose-invert prose-morpheus mx-auto max-w-3xl px-6">
         <h1>Terms of Service</h1>
-        <p className="lead">Last Updated: January 2026</p>
+        <p className="lead">Last Updated: March 2026</p>
 
         <h2>1. Acceptance of Terms</h2>
         <p>

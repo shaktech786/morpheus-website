@@ -11,7 +11,7 @@ export default function PrivacyPage() {
     <div className="py-24">
       <div className="prose prose-invert prose-morpheus mx-auto max-w-3xl px-6">
         <h1>Privacy Policy</h1>
-        <p className="lead">Last Updated: January 2026</p>
+        <p className="lead">Last Updated: March 2026</p>
 
         <h2>1. Introduction</h2>
         <p>
