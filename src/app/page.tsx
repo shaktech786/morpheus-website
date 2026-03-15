@@ -91,7 +91,7 @@ const jsonLd = {
   "@type": "SoftwareApplication",
   name: "Morpheus",
   description:
-    "Your personal Jarvis — control your entire computer from your phone. Code, research, send emails, automate tasks, and more with AI. End-to-end encrypted.",
+    "Your personal AI assistant — control your entire computer from your phone. Code, research, send emails, automate tasks, and more with AI. End-to-end encrypted.",
   url: "https://getmorphe.us",
   applicationCategory: "UtilitiesApplication",
   operatingSystem: "macOS, Windows, Linux, iOS, Android",
@@ -136,7 +136,7 @@ export default function Home() {
             &gt; initializing morpheus protocol...
           </p>
           <h1 id="hero-heading" className="text-5xl font-bold tracking-tight sm:text-7xl">
-            Your Personal Jarvis,
+            Your AI Assistant,
             <br />
             <span className="text-morpheus glow-green">
               In Your Pocket
