@@ -6,7 +6,7 @@ const features = [
   {
     title: "Do Anything",
     description:
-      "Code, research, send emails, manage files, query databases, automate workflows — if you can do it at a keyboard, Morpheus can do it from your phone.",
+      "Send emails, research topics, manage files, organize your calendar, automate workflows — if you can do it at a keyboard, Morpheus can do it from your phone.",
     icon: "terminal",
   },
   {
@@ -18,19 +18,19 @@ const features = [
   {
     title: "End-to-End Encryption",
     description:
-      "ECDH key exchange with TweetNaCl encryption. Your commands and data stay between your devices — fully end-to-end encrypted.",
+      "Military-grade encryption keeps your commands and data between your devices — fully end-to-end encrypted. No one else can see what you do.",
     icon: "lock",
   },
   {
     title: "Remote Access",
     description:
-      "Connect from anywhere via Cloudflare tunnels. No port forwarding, no static IPs. Just scan a QR code and you're paired.",
+      "Connect from anywhere — no technical setup needed. Just scan a QR code and your phone is paired to your computer.",
     icon: "globe",
   },
   {
-    title: "Extensible with MCP",
+    title: "Connects to Your Apps",
     description:
-      "Connect to GitHub, Slack, Notion, PostgreSQL, Redis, AWS, and more through 18+ Model Context Protocol servers. Add your own.",
+      "Works with Gmail, Slack, Notion, Google Calendar, your file system, and 18+ other integrations out of the box. Add your own.",
     icon: "layers",
   },
   {
@@ -46,7 +46,7 @@ const featureIcons: Record<string, string> = {
   mic: "[mic]",
   lock: "[enc]",
   globe: "[net]",
-  layers: "[mcp]",
+  layers: "[app]",
   shield: "[own]",
 };
 
@@ -64,24 +64,24 @@ const steps = [
   {
     step: "03",
     title: "Do Anything",
-    description: "Code, research, email, automate — tell Morpheus what to do and it handles the rest.",
+    description: "Send emails, research, organize files, automate tasks — tell Morpheus what to do and it handles the rest.",
   },
 ];
 
 const useCases = [
   {
-    persona: "The Builder",
-    quote: "Deploy from the couch. Fix bugs from bed. Scaffold a new app from the coffee shop. Your desktop is always within reach.",
-    icon: "[dev]",
+    persona: "The Busy Professional",
+    quote: "Draft emails from the couch. Research from bed. Organize your files from the coffee shop. Your desktop is always within reach.",
+    icon: "[pro]",
   },
   {
     persona: "The Multitasker",
-    quote: "Research competitors, draft emails, update Notion, query the database — all from one conversation on your phone.",
+    quote: "Research competitors, draft emails, update Notion, manage your calendar — all from one conversation on your phone.",
     icon: "[ops]",
   },
   {
     persona: "The Automator",
-    quote: "Set up cron jobs, write scripts, build workflows, and manage infrastructure without ever opening a laptop.",
+    quote: "Schedule backups, set reminders, build workflows, and keep your digital life organized without ever opening a laptop.",
     icon: "[mgr]",
   },
 ];
@@ -91,7 +91,7 @@ const jsonLd = {
   "@type": "SoftwareApplication",
   name: "Morpheus",
   description:
-    "Your personal AI assistant — control your entire computer from your phone. Code, research, send emails, automate tasks, and more with AI. End-to-end encrypted.",
+    "Your personal AI assistant — control your entire computer from your phone. Send emails, research anything, manage files, automate tasks, and more. End-to-end encrypted.",
   url: "https://getmorphe.us",
   applicationCategory: "UtilitiesApplication",
   operatingSystem: "macOS, Windows, Linux, iOS, Android",
@@ -144,7 +144,7 @@ export default function Home() {
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg text-zinc-400">
             Morpheus gives you full control of your computer from your phone.
-            Code, research, send emails, automate tasks, manage files — anything you
+            Send emails, research anything, manage files, automate tasks — anything you
             could do at your keyboard, now from anywhere.
           </p>
           <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
@@ -181,15 +181,15 @@ export default function Home() {
           </p>
           <div className="mt-16 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {[
-              { cmd: '"Research the top 5 competitors for my SaaS"', tag: 'Research', color: 'text-blue-400' },
-              { cmd: '"Fix the TypeScript errors and push to main"', tag: 'Code', color: 'text-morpheus' },
-              { cmd: '"Send my team an email about the release"', tag: 'Email', color: 'text-yellow-400' },
-              { cmd: '"Create a cron job to back up the DB nightly"', tag: 'Automate', color: 'text-purple-400' },
-              { cmd: '"Query the production database for active users"', tag: 'Database', color: 'text-orange-400' },
-              { cmd: '"Build me a CLI tool that converts CSV to JSON"', tag: 'Build', color: 'text-cyan-400' },
-              { cmd: '"Post a deploy update to the #engineering Slack"', tag: 'Slack', color: 'text-pink-400' },
-              { cmd: '"Find all files over 100MB and list them"', tag: 'Files', color: 'text-emerald-400' },
-              { cmd: '"Scrape product prices from this URL"', tag: 'Web', color: 'text-red-400' },
+              { cmd: '"Send my team an email about tomorrow\'s meeting"', tag: 'Email', color: 'text-yellow-400' },
+              { cmd: '"Research the best flights to Tokyo next month"', tag: 'Travel', color: 'text-blue-400' },
+              { cmd: '"Organize my Downloads folder by file type"', tag: 'Files', color: 'text-emerald-400' },
+              { cmd: '"Compare prices for the new MacBook across stores"', tag: 'Shopping', color: 'text-orange-400' },
+              { cmd: '"Create a spreadsheet of my monthly expenses"', tag: 'Documents', color: 'text-cyan-400' },
+              { cmd: '"Schedule a reminder to call Mom every Sunday"', tag: 'Automate', color: 'text-purple-400' },
+              { cmd: '"Find all duplicate photos and free up space"', tag: 'Cleanup', color: 'text-red-400' },
+              { cmd: '"Summarize this 30-page PDF for me"', tag: 'Research', color: 'text-morpheus' },
+              { cmd: '"Post an update to the team Slack channel"', tag: 'Messaging', color: 'text-pink-400' },
             ].map((ex) => (
               <div key={ex.cmd} className="rounded-lg border border-border bg-surface p-4 transition-all hover:border-morpheus-dark">
                 <span className={`text-xs font-semibold ${ex.color} uppercase tracking-wider`}>{ex.tag}</span>
@@ -241,7 +241,7 @@ export default function Home() {
             <span className="text-morpheus" aria-hidden="true">&gt;</span> Built For Doers
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-center text-zinc-400">
-            Whether you&apos;re building an app, running a business, or automating your life
+            Whether you&apos;re running a business, managing your life, or just getting things done
             — Morpheus puts the power of your entire computer in your pocket.
           </p>
           <div className="mt-16 grid grid-cols-1 gap-6 sm:grid-cols-3">
@@ -320,7 +320,7 @@ export default function Home() {
             <div className="rounded-xl border border-morpheus/40 bg-surface p-6 text-left shadow-[0_0_30px_rgba(0,255,0,0.08)]">
               <h3 className="text-lg font-semibold text-morpheus">Pro</h3>
               <p className="mt-1 text-2xl font-bold text-white">{PRICING.monthly} <span className="text-sm font-normal text-zinc-400">/ month</span></p>
-              <p className="mt-2 text-xs text-morpheus-muted">Full power for individual developers</p>
+              <p className="mt-2 text-xs text-morpheus-muted">Full power for individuals</p>
               <ul className="mt-4 space-y-2 text-sm text-zinc-400">
                 <li><span className="text-morpheus font-bold mr-2" aria-hidden="true">[+]</span>Everything in Free</li>
                 <li><span className="text-morpheus font-bold mr-2" aria-hidden="true">[+]</span>Voice mode &amp; remote access</li>
@@ -332,7 +332,7 @@ export default function Home() {
             <div className="rounded-xl border border-[#00ccff]/30 bg-surface p-6 text-left shadow-[0_0_30px_rgba(0,204,255,0.06)]">
               <h3 className="text-lg font-semibold text-[#00ccff]">Team</h3>
               <p className="mt-1 text-2xl font-bold text-white">{PRICING.teamMonthly} <span className="text-sm font-normal text-zinc-400">/ seat / mo</span></p>
-              <p className="mt-2 text-xs text-[#00ccff]/70">Built for dev teams</p>
+              <p className="mt-2 text-xs text-[#00ccff]/70">Built for teams</p>
               <ul className="mt-4 space-y-2 text-sm text-zinc-400">
                 <li><span className="text-[#00ccff] font-bold mr-2" aria-hidden="true">[+]</span>Everything in Pro</li>
                 <li><span className="text-[#00ccff] font-bold mr-2" aria-hidden="true">[+]</span>Shared device pools &amp; audit logs</li>
