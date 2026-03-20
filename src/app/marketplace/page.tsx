@@ -67,7 +67,7 @@ export default function MarketplacePage() {
         </p>
 
         {/* Stats */}
-        <div className="mt-10 flex justify-center gap-8">
+        <div className="mt-10 flex flex-wrap justify-center gap-4 sm:gap-8">
           <div className="text-center">
             <div className="text-2xl font-bold text-morpheus">{tools.length}</div>
             <div className="text-xs text-zinc-500">Total Servers</div>

@@ -65,7 +65,7 @@ function Header() {
   return (
     <header className="fixed top-0 z-50 w-full border-b border-border bg-black/90 backdrop-blur-md">
       <nav aria-label="Main navigation" className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-        <Link href="/" aria-label="Morpheus home" className="logo-header-wrap flex items-center gap-3 text-xl font-bold tracking-tight text-morpheus glow-green">
+        <Link href="/" scroll={true} aria-label="Morpheus home" className="logo-header-wrap flex items-center gap-3 text-xl font-bold tracking-tight text-morpheus glow-green">
           <Image src="/logo-transparent.png" alt="Morpheus logo" width={56} height={26} className="logo-header-intro" />
           <span>morpheus<span className="cursor-blink" aria-hidden="true" /></span>
         </Link>
@@ -96,7 +96,7 @@ function Footer() {
   return (
     <footer className="border-t border-border bg-black py-12">
       <div className="mx-auto max-w-6xl px-6">
-        <div className="grid grid-cols-1 gap-8 sm:grid-cols-4">
+        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
           <div>
             <h3 className="font-semibold text-morpheus">morpheus</h3>
             <p className="mt-2 text-sm text-zinc-400">

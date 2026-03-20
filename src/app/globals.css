@@ -54,10 +54,11 @@
 }
 
 .cursor-blink::after {
-  content: '█';
+  content: '|';
   color: #00ff00;
   animation: blink 0.8s step-end infinite;
-  margin-left: 2px;
+  margin-left: 1px;
+  font-weight: 300;
 }
 
 /* Glow effect for accent elements */
@@ -129,6 +130,7 @@
   position: relative;
   overflow: hidden;
   border-radius: 8px;
+  padding: 12px;
 }
 
 .logo-hero-wrap img {
@@ -136,6 +138,7 @@
   transition: filter 0.5s ease;
   position: relative;
   z-index: 1;
+  will-change: filter;
 }
 
 /* Load flare — ::before */

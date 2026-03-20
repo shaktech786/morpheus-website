@@ -164,17 +164,17 @@ export default function Home() {
           <div className="logo-hero-wrap mx-auto mb-8 w-fit">
             <Image src="/logo-transparent.png" alt="Morpheus logo" width={320} height={149} priority />
           </div>
-          <h1 id="hero-heading" className="text-5xl font-bold tracking-tight sm:text-7xl">
-            Your AI Assistant,
+          <h1 id="hero-heading" className="text-3xl font-bold tracking-tight sm:text-5xl lg:text-7xl">
+            Your Computer.
             <br />
             <span className="text-morpheus glow-green">
-              In Your Pocket
+              Your Phone. One Command.
             </span>
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg text-zinc-400">
-            Morpheus gives you full control of your computer from your phone.
-            Send emails, research anything, manage files, automate tasks — anything you
-            could do at your keyboard, now from anywhere.
+            Morpheus turns your phone into a remote control for your always-on
+            computer. Run scripts, send emails, manage servers, automate
+            workflows — all by telling it what to do. Your desktop never sleeps.
           </p>
           <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
             <Link
@@ -231,7 +231,7 @@ export default function Home() {
             ].map((ex) => (
               <div key={ex.cmd} className="rounded-lg border border-border bg-surface p-4 transition-all hover:border-morpheus-dark">
                 <span className={`text-xs font-semibold ${ex.color} uppercase tracking-wider`}>{ex.tag}</span>
-                <p className="mt-2 text-sm text-zinc-300 font-mono">{ex.cmd}</p>
+                <p className="mt-2 text-sm text-zinc-300 font-mono break-words">{ex.cmd}</p>
               </div>
             ))}
           </div>
@@ -282,7 +282,7 @@ export default function Home() {
             Whether you&apos;re running a business, managing your life, or just getting things done
             — Morpheus puts the power of your entire computer in your pocket.
           </p>
-          <div className="mt-16 grid grid-cols-1 gap-6 sm:grid-cols-3">
+          <div className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-3">
             {useCases.map((uc) => (
               <div
                 key={uc.persona}
@@ -309,7 +309,7 @@ export default function Home() {
           <h2 id="steps-heading" className="text-center text-3xl font-bold sm:text-4xl">
             <span className="text-morpheus" aria-hidden="true">&gt;</span> Get Started in 3 Steps
           </h2>
-          <div className="mt-16 grid grid-cols-1 gap-8 sm:grid-cols-3">
+          <div className="mt-16 grid grid-cols-1 gap-8 md:grid-cols-3">
             {steps.map((s) => (
               <div key={s.step} className="text-center">
                 <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-lg border border-morpheus-dark bg-morpheus/10 text-sm font-bold text-morpheus">
@@ -341,7 +341,7 @@ export default function Home() {
             Free forever. Go Pro for voice, remote access, and
             remote access, or get Team for your organization.
           </p>
-          <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-3">
+          <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3">
             {/* Free */}
             <div className="rounded-xl border border-border bg-surface p-6 text-left">
               <h3 className="text-lg font-semibold text-zinc-300">Free</h3>

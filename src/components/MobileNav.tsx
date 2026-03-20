@@ -98,7 +98,7 @@ export default function MobileNav() {
                     <Link
                       href={link.href}
                       onClick={() => setOpen(false)}
-                      className="block py-2 text-sm text-zinc-400 transition-colors hover:text-morpheus"
+                      className="block py-3 text-sm text-zinc-400 transition-colors hover:text-morpheus"
                     >
                       {link.label}
                     </Link>
