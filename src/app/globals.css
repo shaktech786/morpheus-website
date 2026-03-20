@@ -193,9 +193,13 @@
   animation: lens-flare-hover 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
 }
 
-/* Header logo */
-.logo-header-wrap {
+/* Header logo — load animation only on the image */
+.logo-header-intro {
   animation: logo-fade-in 0.6s ease-out both;
+}
+
+/* Header wrap — hover flare spans full link */
+.logo-header-wrap {
   position: relative;
   overflow: hidden;
   border-radius: 4px;

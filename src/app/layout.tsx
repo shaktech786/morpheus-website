@@ -65,8 +65,8 @@ function Header() {
   return (
     <header className="fixed top-0 z-50 w-full border-b border-border bg-black/90 backdrop-blur-md">
       <nav aria-label="Main navigation" className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-        <Link href="/" aria-label="Morpheus home" className="flex items-center gap-3 text-xl font-bold tracking-tight text-morpheus glow-green">
-          <span className="logo-header-wrap"><Image src="/logo-transparent.png" alt="Morpheus logo" width={56} height={26} /></span>
+        <Link href="/" aria-label="Morpheus home" className="logo-header-wrap flex items-center gap-3 text-xl font-bold tracking-tight text-morpheus glow-green">
+          <Image src="/logo-transparent.png" alt="Morpheus logo" width={56} height={26} className="logo-header-intro" />
           <span>morpheus<span className="cursor-blink" aria-hidden="true" /></span>
         </Link>
         <div className="hidden sm:flex items-center gap-6 text-sm text-zinc-400">
