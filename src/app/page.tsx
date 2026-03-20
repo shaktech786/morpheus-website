@@ -236,7 +236,7 @@ export default function Home() {
             ))}
           </div>
           <p className="mt-8 text-center text-sm text-zinc-500">
-            Your computer is always on. Morpheus is always listening. You&apos;re always in control — from anywhere.
+            If you can describe it, Morpheus can do it. From your phone. While you do literally anything else.
           </p>
         </div>
       </section>

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import Link from "next/link";
 
 const links = [
@@ -15,11 +16,19 @@ const links = [
 
 export default function MobileNav() {
   const [open, setOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const navRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  useEffect(() => {
     if (!open) return;
+
+    // Lock body scroll
+    document.body.style.overflow = "hidden";
 
     function onKeyDown(e: KeyboardEvent) {
       if (e.key === "Escape") {
@@ -46,8 +55,60 @@ export default function MobileNav() {
     }
 
     document.addEventListener("keydown", onKeyDown);
-    return () => document.removeEventListener("keydown", onKeyDown);
+    return () => {
+      document.removeEventListener("keydown", onKeyDown);
+      document.body.style.overflow = "";
+    };
   }, [open]);
+
+  const menu = open && mounted ? createPortal(
+    <>
+      {/* Overlay */}
+      <div
+        className="fixed inset-0 bg-black/70 backdrop-blur-sm"
+        style={{ zIndex: 9998 }}
+        onClick={() => setOpen(false)}
+        aria-hidden="true"
+      />
+
+      {/* Nav panel */}
+      <div
+        ref={navRef}
+        id="mobile-nav"
+        role="dialog"
+        aria-label="Navigation menu"
+        className="fixed right-0 top-0 flex h-full w-64 flex-col border-l border-border bg-[#0a0a0a] p-6 shadow-2xl"
+        style={{ zIndex: 9999 }}
+      >
+        <button
+          onClick={() => {
+            setOpen(false);
+            buttonRef.current?.focus();
+          }}
+          aria-label="Close navigation menu"
+          className="mb-8 self-end text-2xl text-zinc-400 hover:text-morpheus"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <nav aria-label="Mobile navigation">
+          <ul className="space-y-2">
+            {links.map((link) => (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  onClick={() => setOpen(false)}
+                  className="block py-3 text-base text-zinc-400 transition-colors hover:text-morpheus"
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      </div>
+    </>,
+    document.body
+  ) : null;
 
   return (
     <div className="sm:hidden">
@@ -64,51 +125,7 @@ export default function MobileNav() {
         </span>
       </button>
 
-      {open && (
-        <>
-          {/* Overlay */}
-          <div
-            className="fixed inset-0 z-40 bg-black/60"
-            onClick={() => setOpen(false)}
-            aria-hidden="true"
-          />
-
-          {/* Nav panel */}
-          <div
-            ref={navRef}
-            id="mobile-nav"
-            role="dialog"
-            aria-label="Navigation menu"
-            className="fixed right-0 top-0 z-50 flex h-full w-64 flex-col border-l border-border bg-[#0a0a0a] p-6"
-          >
-            <button
-              onClick={() => {
-                setOpen(false);
-                buttonRef.current?.focus();
-              }}
-              aria-label="Close navigation menu"
-              className="mb-8 self-end text-2xl text-zinc-400 hover:text-morpheus"
-            >
-              <span aria-hidden="true">&times;</span>
-            </button>
-            <nav aria-label="Mobile navigation">
-              <ul className="space-y-4">
-                {links.map((link) => (
-                  <li key={link.href}>
-                    <Link
-                      href={link.href}
-                      onClick={() => setOpen(false)}
-                      className="block py-3 text-sm text-zinc-400 transition-colors hover:text-morpheus"
-                    >
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </nav>
-          </div>
-        </>
-      )}
+      {menu}
     </div>
   );
 }
