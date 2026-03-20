@@ -7,7 +7,7 @@ export const metadata: Metadata = {
     "Browse and install Model Context Protocol servers for Morpheus. GitHub, Slack, databases, cloud providers, and more.",
 };
 
-type McpCategory = "developer" | "databases" | "communication" | "cloud" | "ai_ml" | "monitoring";
+type McpCategory = "developer" | "databases" | "communication" | "cloud" | "ai_ml" | "monitoring" | "smart_home";
 
 interface McpTool {
   id: string;
@@ -24,6 +24,7 @@ const CATEGORY_META: Record<McpCategory, { label: string; color: string; icon: s
   cloud: { label: "Cloud", color: "#aa66ff", icon: "~" },
   ai_ml: { label: "AI / ML", color: "#ff66aa", icon: "*" },
   monitoring: { label: "Monitoring", color: "#ffcc00", icon: "!" },
+  smart_home: { label: "Smart Home", color: "#66ffcc", icon: "H" },
 };
 
 const tools: McpTool[] = [
@@ -45,6 +46,7 @@ const tools: McpTool[] = [
   { id: "huggingface", name: "Hugging Face", description: "Search models, datasets, and run inference", category: "ai_ml", premium: true },
   { id: "sentry", name: "Sentry", description: "Query errors, issues, and performance data", category: "monitoring", premium: true },
   { id: "datadog", name: "Datadog", description: "Query metrics, logs, and monitor infrastructure", category: "monitoring", premium: true },
+  { id: "home-assistant", name: "Home Assistant", description: "Control your smart home devices with natural language", category: "smart_home", premium: true },
 ];
 
 const categories = Object.keys(CATEGORY_META) as McpCategory[];

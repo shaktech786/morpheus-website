@@ -971,6 +971,243 @@ const guides: Record<string, Guide> = {
       },
     ],
   },
+
+  /* ---------------------------------------------------------------- */
+  /*  7. Proactive Monitoring                                          */
+  /* ---------------------------------------------------------------- */
+  "proactive-monitoring": {
+    title: "Proactive Monitoring",
+    description:
+      "How Morpheus watches your system and alerts you to problems",
+    sections: [
+      {
+        id: "overview",
+        title: "Overview",
+        content: (
+          <p>
+            Morpheus includes a proactive monitoring daemon that runs in the
+            background on your desktop. Instead of waiting for you to ask
+            &ldquo;how&apos;s my disk space?&rdquo;, it continuously watches key
+            metrics and pushes alerts to your phone when something needs
+            attention.
+          </p>
+        ),
+      },
+      {
+        id: "built-in-watchers",
+        title: "Built-in Watchers",
+        content: (
+          <>
+            <div className="space-y-4">
+              <div>
+                <h3 className="text-base font-semibold text-zinc-200">
+                  System Health Monitor
+                </h3>
+                <p className="mt-1 text-zinc-400">
+                  Tracks CPU usage, memory usage, and disk space. Configurable
+                  thresholds (default: CPU 90%, memory 85%, disk 90%). Alerts
+                  include suggested actions and have a 5-minute cooldown to
+                  prevent notification spam.
+                </p>
+              </div>
+              <div>
+                <h3 className="text-base font-semibold text-zinc-200">
+                  File System Monitor
+                </h3>
+                <p className="mt-1 text-zinc-400">
+                  Watches configured directories for changes. Useful for
+                  monitoring config files, deployment directories, or shared
+                  folders. Supports include/exclude patterns and debouncing.
+                </p>
+              </div>
+              <div>
+                <h3 className="text-base font-semibold text-zinc-200">
+                  Process Monitor
+                </h3>
+                <p className="mt-1 text-zinc-400">
+                  Tracks named processes and alerts when they stop or start.
+                  Perfect for monitoring database servers, web servers, or any
+                  critical daemon.
+                </p>
+              </div>
+              <div>
+                <h3 className="text-base font-semibold text-zinc-200">
+                  MCP Health Monitor
+                </h3>
+                <p className="mt-1 text-zinc-400">
+                  Watches your installed MCP servers. If one crashes, Morpheus
+                  auto-restarts it (up to 3 attempts) and notifies you.
+                </p>
+              </div>
+            </div>
+          </>
+        ),
+      },
+      {
+        id: "self-healing",
+        title: "Self-Healing",
+        content: (
+          <>
+            <p>
+              Morpheus doesn&apos;t just detect problems &mdash; it fixes them.
+              The Health Manager supervises all desktop services (WebSocket,
+              Claude CLI, tunnel, MCP servers) and auto-restarts any that crash.
+              It uses exponential backoff and tracks restart counts to avoid
+              infinite loops.
+            </p>
+            <p className="mt-3">
+              The Failure Tracker records every error with classification (rate
+              limit, timeout, network, tool error, etc.) and builds adaptive
+              retry strategies. Instead of fixed 1s/2s/4s delays, Morpheus
+              learns the optimal retry timing for each error type from
+              historical data.
+            </p>
+          </>
+        ),
+      },
+      {
+        id: "configuration",
+        title: "Configuration",
+        content: (
+          <>
+            <p>
+              All watchers are disabled by default. Enable them from the mobile
+              app&apos;s settings:
+            </p>
+            <ol className="mt-4 space-y-2 text-zinc-400 list-decimal list-inside">
+              <li>Open Morpheus on your phone</li>
+              <li>
+                Go to Settings &rarr; Monitoring
+              </li>
+              <li>Enable the watchers you want</li>
+              <li>Configure thresholds to your preferences</li>
+            </ol>
+            <p className="mt-4 text-zinc-400">
+              Watcher configuration is persisted on the desktop and survives
+              restarts. Notifications are queued when your phone is disconnected
+              and delivered on reconnect.
+            </p>
+          </>
+        ),
+      },
+    ],
+  },
+
+  /* ---------------------------------------------------------------- */
+  /*  8. Workflows                                                     */
+  /* ---------------------------------------------------------------- */
+  "workflows": {
+    title: "Workflow Templates",
+    description:
+      "Chain commands into reusable multi-step automations",
+    sections: [
+      {
+        id: "what-are-workflows",
+        title: "What are Workflows?",
+        content: (
+          <p>
+            Workflows let you chain multiple Morpheus commands into a single,
+            reusable automation. Each step is a natural language instruction
+            &mdash; the same format you&apos;d use in a regular conversation.
+            Steps can have conditions, failure handlers, and variables.
+          </p>
+        ),
+      },
+      {
+        id: "built-in-templates",
+        title: "Built-in Templates",
+        content: (
+          <>
+            <p>Morpheus ships with three built-in workflow templates:</p>
+            <div className="mt-4 space-y-4">
+              <div>
+                <h3 className="text-base font-semibold text-zinc-200">
+                  Morning Briefing
+                </h3>
+                <p className="mt-1 text-zinc-400">
+                  Checks your calendar, system health, and git status, then
+                  summarizes everything in a quick briefing.
+                </p>
+              </div>
+              <div>
+                <h3 className="text-base font-semibold text-zinc-200">
+                  Deploy &amp; Notify
+                </h3>
+                <p className="mt-1 text-zinc-400">
+                  Runs tests, builds for production, deploys, and sends a
+                  notification. Each step depends on the previous one succeeding.
+                </p>
+              </div>
+              <div>
+                <h3 className="text-base font-semibold text-zinc-200">
+                  Backup Routine
+                </h3>
+                <p className="mt-1 text-zinc-400">
+                  Creates a system snapshot, backs up important config files, and
+                  verifies the backup.
+                </p>
+              </div>
+            </div>
+          </>
+        ),
+      },
+      {
+        id: "creating-custom-workflows",
+        title: "Creating Custom Workflows",
+        content: (
+          <>
+            <p>You can create workflows in two ways:</p>
+            <div className="mt-4 space-y-4">
+              <div>
+                <h3 className="text-base font-semibold text-zinc-200">
+                  From conversation history
+                </h3>
+                <p className="mt-1 text-zinc-400">
+                  After completing a series of commands, say &ldquo;save that as
+                  a workflow.&rdquo; Morpheus converts your recent commands into
+                  a replayable template.
+                </p>
+              </div>
+              <div>
+                <h3 className="text-base font-semibold text-zinc-200">
+                  From scratch
+                </h3>
+                <p className="mt-1 text-zinc-400">
+                  Define steps, variables, conditions, and triggers through the
+                  workflow editor in the mobile app.
+                </p>
+              </div>
+            </div>
+          </>
+        ),
+      },
+      {
+        id: "triggers",
+        title: "Triggers",
+        content: (
+          <>
+            <p>Workflows can be triggered three ways:</p>
+            <ul className="mt-4 space-y-2 text-zinc-400">
+              <li>
+                <strong className="text-zinc-200">Manual</strong> &mdash; Run
+                from the mobile app or by voice (&ldquo;run my morning
+                briefing&rdquo;)
+              </li>
+              <li>
+                <strong className="text-zinc-200">Scheduled</strong> &mdash; Set
+                a cron schedule (e.g., every weekday at 8am)
+              </li>
+              <li>
+                <strong className="text-zinc-200">Event-based</strong> &mdash;
+                Triggered by watcher events (e.g., &ldquo;run backup when disk
+                exceeds 80%&rdquo;)
+              </li>
+            </ul>
+          </>
+        ),
+      },
+    ],
+  },
 };
 
 const validSlugs = Object.keys(guides);

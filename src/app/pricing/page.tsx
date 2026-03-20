@@ -7,7 +7,7 @@ import { PLAN_FEATURES, TOKEN_PACKS } from "@/lib/pricing";
 export const metadata: Metadata = {
   title: "Pricing",
   description:
-    "Morpheus pricing — free to start, Pro for individuals, Team for dev shops. Voice, remote access, unlimited devices, and AI token packs.",
+    "Morpheus pricing — free to start, Pro for individuals, Team for organizations. Voice, remote access, unlimited devices, and AI token packs.",
 };
 
 const faqs = [
@@ -25,7 +25,7 @@ const faqs = [
   },
   {
     q: "What's the Team plan?",
-    a: "The Team plan is designed for dev shops and engineering teams. It includes shared device pools, audit logs, admin controls, SSO, and a shared token pool. Pricing is per-seat with up to 25 members. Contact us for larger teams.",
+    a: "The Team plan is designed for organizations and workgroups. It includes shared device pools, audit logs, admin controls, SSO, and a shared token pool. Pricing is per-seat with up to 25 members. Contact us for larger teams.",
   },
   {
     q: "What's the Lifetime plan?",

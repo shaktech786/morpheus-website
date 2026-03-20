@@ -39,6 +39,30 @@ const features = [
       "No cloud storage, no tracking. Everything runs locally on your devices. You own your data completely.",
     icon: "shield",
   },
+  {
+    title: "Proactive Monitoring",
+    description:
+      "Morpheus watches your system health, files, processes, and MCP servers — and alerts you before problems become emergencies.",
+    icon: "eye",
+  },
+  {
+    title: "Self-Healing",
+    description:
+      "Crashed service? Morpheus auto-detects failures, restarts services, and adapts its retry strategies based on historical patterns.",
+    icon: "heal",
+  },
+  {
+    title: "Workflow Automation",
+    description:
+      "Chain commands into reusable workflows. Morning briefings, deploy pipelines, backup routines — triggered manually, on schedule, or by events.",
+    icon: "flow",
+  },
+  {
+    title: "Vision & Screenshots",
+    description:
+      "Send photos from your phone or capture desktop screenshots. Morpheus sees and understands visual context through Claude Vision.",
+    icon: "cam",
+  },
 ];
 
 const featureIcons: Record<string, string> = {
@@ -48,6 +72,10 @@ const featureIcons: Record<string, string> = {
   globe: "[net]",
   layers: "[app]",
   shield: "[own]",
+  eye: "[eye]",
+  heal: "[heal]",
+  flow: "[flow]",
+  cam: "[cam]",
 };
 
 const steps = [
@@ -190,6 +218,9 @@ export default function Home() {
               { cmd: '"Find all duplicate photos and free up space"', tag: 'Cleanup', color: 'text-red-400' },
               { cmd: '"Summarize this 30-page PDF for me"', tag: 'Research', color: 'text-morpheus' },
               { cmd: '"Post an update to the team Slack channel"', tag: 'Messaging', color: 'text-pink-400' },
+              { cmd: '"Alert me if CPU goes above 90% or disk gets below 10GB free"', tag: 'Monitoring', color: 'text-yellow-300' },
+              { cmd: '"Run my morning briefing — calendar, git status, system health"', tag: 'Workflows', color: 'text-violet-400' },
+              { cmd: '"Take a screenshot and tell me what apps are open"', tag: 'Vision', color: 'text-teal-400' },
             ].map((ex) => (
               <div key={ex.cmd} className="rounded-lg border border-border bg-surface p-4 transition-all hover:border-morpheus-dark">
                 <span className={`text-xs font-semibold ${ex.color} uppercase tracking-wider`}>{ex.tag}</span>

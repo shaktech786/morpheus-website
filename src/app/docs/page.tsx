@@ -98,6 +98,30 @@ const guides = [
       "BYOK vs managed Claude",
     ],
   },
+  {
+    title: "Proactive Monitoring",
+    slug: "proactive-monitoring",
+    description: "How Morpheus watches your system and alerts you to problems.",
+    icon: "[eye]",
+    sections: [
+      "Overview",
+      "Built-in watchers",
+      "Self-healing",
+      "Configuration",
+    ],
+  },
+  {
+    title: "Workflow Templates",
+    slug: "workflows",
+    description: "Chain commands into reusable multi-step automations.",
+    icon: "[flow]",
+    sections: [
+      "What are workflows?",
+      "Built-in templates",
+      "Creating custom workflows",
+      "Triggers",
+    ],
+  },
 ];
 
 export default function DocsPage() {

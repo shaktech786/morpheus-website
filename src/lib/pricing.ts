@@ -31,6 +31,10 @@ export const PLAN_FEATURES: PlanFeature[] = [
   { name: "Team Members", free: false, pro: false, team: "Up to 25" },
   { name: "SSO (SAML / Google)", free: false, pro: false, team: true },
   { name: "Priority Support", free: false, pro: true, team: "Dedicated" },
+  { name: "Proactive System Monitoring", free: false, pro: true, team: true },
+  { name: "Self-Healing Service Recovery", free: false, pro: true, team: true },
+  { name: "Workflow Templates", free: false, pro: true, team: true },
+  { name: "Vision & Screenshot Analysis", free: false, pro: true, team: true },
 ];
 
 export interface TokenPack {
