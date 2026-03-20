@@ -548,7 +548,7 @@ const guides: Record<string, Guide> = {
   "voice-mode": {
     title: "Voice Mode",
     description:
-      "Set up push-to-talk voice commands with the OpenAI Realtime API.",
+      "Set up push-to-talk voice commands with on-device STT and ElevenLabs TTS.",
     sections: [
       {
         id: "enabling",
@@ -559,14 +559,11 @@ const guides: Record<string, Guide> = {
               <span className="rounded bg-morpheus/10 px-2 py-0.5 text-xs font-semibold text-morpheus">
                 PRO
               </span>{" "}
-              Voice mode requires an OpenAI Realtime API key configured on the
-              desktop agent.
+              Voice mode uses on-device speech recognition
+              (expo-speech-recognition) for STT and ElevenLabs for TTS, proxied
+              through Supabase Edge Functions.
             </p>
             <ol className="mt-4 space-y-2 text-zinc-400 list-decimal list-inside">
-              <li>
-                On the <strong className="text-zinc-200">desktop app</strong>,
-                go to Settings &rarr; Voice and enter your OpenAI API key.
-              </li>
               <li>
                 On the <strong className="text-zinc-200">mobile app</strong>,
                 go to Settings &rarr; Voice Mode &rarr; Enable.
@@ -589,9 +586,10 @@ const guides: Record<string, Guide> = {
               transcribed text to Claude.
             </p>
             <p className="mt-3 text-zinc-400">
-              The audio is streamed to the OpenAI Realtime API for
-              transcription. The resulting text command is then processed by
-              Claude on the desktop agent exactly as if you had typed it.
+              Speech is transcribed on-device using the platform&apos;s native
+              speech recognition engine. The resulting text command is then
+              processed by Claude on the desktop agent exactly as if you had
+              typed it. Responses are spoken aloud via ElevenLabs TTS.
             </p>
           </>
         ),
@@ -635,9 +633,9 @@ const guides: Record<string, Guide> = {
                   Transcription not responding
                 </h3>
                 <p className="mt-1 text-zinc-400">
-                  Verify your OpenAI API key is valid on the desktop agent. Go to
-                  Desktop Settings &rarr; Voice and test the key. Also ensure the
-                  desktop has an active internet connection for the Realtime API.
+                  Ensure the mobile device has an active internet connection for
+                  ElevenLabs TTS. Check that speech recognition permissions are
+                  granted in your device settings.
                 </p>
               </div>
               <div>

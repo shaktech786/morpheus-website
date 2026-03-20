@@ -99,10 +99,10 @@ export default function PrivacyPage() {
         <h2>7. Voice Data</h2>
         <p>Voice mode is <strong>opt-in and disabled by default</strong>. When enabled:</p>
         <ul>
-          <li>Audio is sent to the OpenAI Realtime API for processing</li>
-          <li>OpenAI returns text transcriptions and voice responses</li>
+          <li>Speech is transcribed on-device using the platform&apos;s native speech recognition engine</li>
+          <li>Text-to-speech responses are generated via ElevenLabs, proxied through Supabase Edge Functions</li>
           <li>No audio is stored locally by Morpheus beyond the active session</li>
-          <li>See <a href="https://openai.com/privacy" target="_blank" rel="noopener noreferrer">OpenAI&apos;s Privacy Policy</a></li>
+          <li>See <a href="https://elevenlabs.io/privacy" target="_blank" rel="noopener noreferrer">ElevenLabs&apos; Privacy Policy</a></li>
         </ul>
 
         <h2>8. Third-Party Services</h2>
@@ -157,7 +157,7 @@ export default function PrivacyPage() {
 
         <h2>15. Contact</h2>
         <p>
-          For questions about this Privacy Policy: <a href="mailto:hi@shak-tech.com">hi@shak-tech.com</a>
+          For questions about this Privacy Policy: <a href="mailto:team@getmorphe.us">team@getmorphe.us</a>
         </p>
         <p>
           Website: <a href="https://getmorphe.us">getmorphe.us</a>

@@ -64,7 +64,7 @@ const guides = [
   {
     title: "Voice Mode",
     slug: "voice-mode",
-    description: "Set up push-to-talk voice commands with the OpenAI Realtime API.",
+    description: "Set up push-to-talk voice commands with on-device STT and ElevenLabs TTS.",
     icon: "[mic]",
     sections: [
       "Enabling voice mode (Pro)",

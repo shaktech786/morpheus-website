@@ -25,7 +25,7 @@ export default function TermsPage() {
           <li>Executes AI-powered commands on your desktop</li>
           <li>Provides encrypted communication between your mobile and desktop</li>
           <li>Optionally enables remote access through Cloudflare Quick Tunnels</li>
-          <li>Optionally supports voice commands via OpenAI&apos;s Realtime API</li>
+          <li>Optionally supports voice commands via on-device STT and ElevenLabs TTS</li>
         </ul>
 
         <h2>3. User Responsibilities</h2>
@@ -106,7 +106,7 @@ export default function TermsPage() {
 
         <h2>12. Contact</h2>
         <p>
-          For questions about these Terms: <a href="mailto:hi@shak-tech.com">hi@shak-tech.com</a>
+          For questions about these Terms: <a href="mailto:team@getmorphe.us">team@getmorphe.us</a>
         </p>
         <p>
           Website: <a href="https://getmorphe.us">getmorphe.us</a>
