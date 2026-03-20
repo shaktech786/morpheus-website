@@ -115,6 +115,14 @@
   100% { transform: translateX(200%) skewX(-15deg); }
 }
 
+/* Hover lens flare — slower, more visible */
+@keyframes lens-flare-hover {
+  0% { left: -50%; opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { left: 120%; opacity: 0; }
+}
+
 /* Hero logo */
 .logo-hero-wrap {
   animation: logo-fade-in 1s ease-out both;
@@ -130,43 +138,59 @@
   z-index: 1;
 }
 
-/* Initial lens flare on load */
-.logo-hero-wrap::after {
+/* Load flare — ::before */
+.logo-hero-wrap::before {
   content: '';
   position: absolute;
   top: 0;
-  left: 0;
-  width: 40%;
+  left: -50%;
+  width: 35%;
   height: 100%;
   background: linear-gradient(
     90deg,
     transparent,
-    rgba(0, 255, 0, 0.08),
+    rgba(0, 255, 0, 0.06),
     rgba(255, 255, 255, 0.12),
-    rgba(0, 255, 0, 0.08),
+    rgba(0, 255, 0, 0.06),
     transparent
   );
   z-index: 2;
   pointer-events: none;
-  animation: lens-flare 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.6s both;
-  opacity: 0;
-}
-
-/* After initial flare, hide it */
-.logo-hero-wrap::after {
+  transform: skewX(-15deg);
   animation: lens-flare 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.6s forwards;
 }
 
-/* Hover: another sweep + glow intensify */
+/* Hover flare — ::after */
+.logo-hero-wrap::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 30%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(0, 255, 0, 0.1),
+    rgba(255, 255, 255, 0.18),
+    rgba(0, 255, 0, 0.1),
+    transparent
+  );
+  z-index: 3;
+  pointer-events: none;
+  transform: skewX(-12deg);
+  opacity: 0;
+}
+
 .logo-hero-wrap:hover img {
   animation: none;
-  filter: drop-shadow(0 0 14px rgba(0, 255, 0, 0.45))
-          drop-shadow(0 0 36px rgba(0, 255, 0, 0.12))
+  filter: drop-shadow(0 0 14px rgba(0, 255, 0, 0.4))
+          drop-shadow(0 0 36px rgba(0, 255, 0, 0.1))
           brightness(1.08);
 }
 
 .logo-hero-wrap:hover::after {
-  animation: lens-flare 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  animation: lens-flare-hover 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
 }
 
 /* Header logo */
