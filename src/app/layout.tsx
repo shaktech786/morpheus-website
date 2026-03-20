@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { JetBrains_Mono } from "next/font/google";
+import Image from "next/image";
 import Link from "next/link";
 import MobileNav from "@/components/MobileNav";
 import "./globals.css";
@@ -64,7 +65,8 @@ function Header() {
   return (
     <header className="fixed top-0 z-50 w-full border-b border-border bg-black/90 backdrop-blur-md">
       <nav aria-label="Main navigation" className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-        <Link href="/" aria-label="Morpheus home" className="text-xl font-bold tracking-tight text-morpheus glow-green">
+        <Link href="/" aria-label="Morpheus home" className="flex items-center gap-2 text-xl font-bold tracking-tight text-morpheus glow-green">
+          <Image src="/logo-400.png" alt="Morpheus logo" width={32} height={32} className="rounded-md" />
           morpheus<span className="cursor-blink" aria-hidden="true" />
         </Link>
         <div className="hidden sm:flex items-center gap-6 text-sm text-zinc-400">

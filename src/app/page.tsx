@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import WaitlistForm from "@/components/WaitlistForm";
 import { PRICING } from "@/lib/pricing";
@@ -160,9 +161,7 @@ export default function Home() {
       <section aria-labelledby="hero-heading" className="scanlines relative overflow-hidden py-32 sm:py-40">
         <div className="absolute inset-0 bg-gradient-to-b from-morpheus-dim to-transparent" />
         <div className="relative mx-auto max-w-6xl px-6 text-center">
-          <p className="mb-4 text-sm text-morpheus-muted tracking-widest uppercase">
-            &gt; initializing morpheus protocol...
-          </p>
+          <Image src="/logo-400.png" alt="Morpheus logo" width={120} height={120} className="mx-auto mb-8 rounded-2xl" priority />
           <h1 id="hero-heading" className="text-5xl font-bold tracking-tight sm:text-7xl">
             Your AI Assistant,
             <br />
