@@ -161,8 +161,8 @@ export default function Home() {
       <section aria-labelledby="hero-heading" className="scanlines relative overflow-hidden py-32 sm:py-40">
         <div className="absolute inset-0 bg-gradient-to-b from-morpheus-dim to-transparent" />
         <div className="relative mx-auto max-w-6xl px-6 text-center">
-          <div className="logo-hero-wrap mx-auto mb-8 w-fit">
-            <Image src="/logo-transparent.png" alt="Morpheus logo" width={320} height={149} priority />
+          <div className="logo-hero-wrap mx-auto mb-8 w-fit max-w-[80vw] sm:max-w-none">
+            <Image src="/logo-transparent.png" alt="Morpheus logo" width={320} height={149} className="w-full h-auto" priority />
           </div>
           <h1 id="hero-heading" className="text-3xl font-bold tracking-tight sm:text-5xl lg:text-7xl">
             Your Computer.
