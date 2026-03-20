@@ -165,16 +165,16 @@ export default function Home() {
             <Image src="/logo-transparent.png" alt="Morpheus logo" width={320} height={149} className="w-full h-auto" priority />
           </div>
           <h1 id="hero-heading" className="text-3xl font-bold tracking-tight sm:text-5xl lg:text-7xl">
-            Talk to Your Computer
+            Your Desktop,
             <br />
             <span className="text-morpheus glow-green">
-              From Anywhere
+              Controlled by Your Phone
             </span>
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg text-zinc-400">
-            Your desktop is always running. Morpheus lets you command it
-            from your phone — deploy code, send emails, manage files,
-            run scripts, monitor servers. If you can say it, it gets done.
+            Morpheus turns your phone into a command center for your
+            always-on computer. Deploy code, send emails, manage files,
+            run scripts, automate anything. If you can say it, it gets done.
           </p>
           <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
             <Link
@@ -193,7 +193,7 @@ export default function Home() {
           <div className="mt-6 flex items-center justify-center gap-2">
             <span className="inline-block h-2 w-2 rounded-full bg-morpheus pulse-dot" aria-hidden="true" />
             <span className="text-xs text-zinc-400">
-              Free forever — optional Pro upgrade for voice &amp; remote access
+              Free forever — Pro unlocks voice, remote access &amp; more
             </span>
           </div>
         </div>
@@ -339,7 +339,7 @@ export default function Home() {
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-zinc-400">
             Free forever. Go Pro for voice, remote access, and
-            remote access, or get Team for your organization.
+            unlimited devices, or get Team for your organization.
           </p>
           <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3">
             {/* Free */}
