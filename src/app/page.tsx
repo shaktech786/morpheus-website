@@ -161,7 +161,7 @@ export default function Home() {
       <section aria-labelledby="hero-heading" className="scanlines relative overflow-hidden py-32 sm:py-40">
         <div className="absolute inset-0 bg-gradient-to-b from-morpheus-dim to-transparent" />
         <div className="relative mx-auto max-w-6xl px-6 text-center">
-          <Image src="/logo-400.png" alt="Morpheus logo" width={120} height={120} className="mx-auto mb-8 rounded-2xl" priority />
+          <Image src="/logo-transparent.png" alt="Morpheus logo" width={280} height={130} className="mx-auto mb-6" priority />
           <h1 id="hero-heading" className="text-5xl font-bold tracking-tight sm:text-7xl">
             Your AI Assistant,
             <br />
