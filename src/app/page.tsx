@@ -213,15 +213,21 @@ export default function Home() {
               { cmd: '"Email my boss that I\'ll be 5 minutes late" — sent from bed, obviously', tag: 'Email', color: 'text-yellow-400' },
               { cmd: '"Find me flights to Tokyo that won\'t bankrupt me"', tag: 'Travel', color: 'text-blue-400' },
               { cmd: '"My Downloads folder is a war zone. Fix it."', tag: 'Files', color: 'text-emerald-400' },
-              { cmd: '"How much is the new MacBook? And should I wait?"', tag: 'Shopping', color: 'text-orange-400' },
-              { cmd: '"Make a spreadsheet of where my money keeps disappearing to"', tag: 'Documents', color: 'text-cyan-400' },
-              { cmd: '"Remind me to call Mom every Sunday. Yes, every Sunday."', tag: 'Automate', color: 'text-purple-400' },
-              { cmd: '"I have 47 copies of the same photo. Please help."', tag: 'Cleanup', color: 'text-red-400' },
-              { cmd: '"Summarize this 30-page PDF because I\'m not going to"', tag: 'Research', color: 'text-morpheus' },
-              { cmd: '"Tell the team standup is moved to 3pm. I don\'t want to type it out."', tag: 'Messaging', color: 'text-pink-400' },
-              { cmd: '"Yell at me if my CPU melts or my disk fills up"', tag: 'Monitoring', color: 'text-yellow-300' },
-              { cmd: '"Morning briefing — calendar, git status, how badly did I break prod?"', tag: 'Workflows', color: 'text-violet-400' },
+              { cmd: '"Spin up a Docker container, run my test suite, and tell me what failed"', tag: 'DevOps', color: 'text-orange-400' },
+              { cmd: '"Download that YouTube video, extract the audio, and save it as an MP3"', tag: 'Media', color: 'text-cyan-400' },
+              { cmd: '"I left a Python script running. Is it done yet or is it still eating my RAM?"', tag: 'Remote Check', color: 'text-purple-400' },
+              { cmd: '"Clone that repo, install deps, and have it ready to demo by the time I get home"', tag: 'Dev Setup', color: 'text-red-400' },
+              { cmd: '"Scrape Zillow for 2-bed apartments under $2k in Austin and put them in a spreadsheet"', tag: 'Scraping', color: 'text-morpheus' },
+              { cmd: '"My server\'s been up for 47 days. Check if anything is silently on fire"', tag: 'Server Health', color: 'text-pink-400' },
+              { cmd: '"Resize every image in /photos to 1080p and upload them to Google Drive"', tag: 'Batch Ops', color: 'text-yellow-300' },
+              { cmd: '"Train that ML model overnight. Text me when it\'s done. Or when it crashes."', tag: 'Long Jobs', color: 'text-violet-400' },
               { cmd: '"Take a screenshot of my desktop. What chaos am I walking into?"', tag: 'Vision', color: 'text-teal-400' },
+              { cmd: '"SSH into my Raspberry Pi and restart the media server"', tag: 'Remote Access', color: 'text-amber-400' },
+              { cmd: '"Diff the last two git commits and explain what changed like I\'m five"', tag: 'Code Review', color: 'text-lime-400' },
+              { cmd: '"Back up my entire project folder to S3 before I do something I regret"', tag: 'Backups', color: 'text-sky-400' },
+              { cmd: '"Monitor Hacker News for mentions of my startup and alert me"', tag: 'Surveillance', color: 'text-rose-400' },
+              { cmd: '"Convert this Figma export to actual HTML/CSS. Yes, all of it."', tag: 'Design to Code', color: 'text-fuchsia-400' },
+              { cmd: '"Run a speed test, check my DNS, and tell me why my internet feels slow"', tag: 'Diagnostics', color: 'text-indigo-400' },
             ].map((ex) => (
               <div key={ex.cmd} className="rounded-lg border border-border bg-surface p-4 transition-all hover:border-morpheus-dark">
                 <span className={`text-xs font-semibold ${ex.color} uppercase tracking-wider`}>{ex.tag}</span>
@@ -230,7 +236,7 @@ export default function Home() {
             ))}
           </div>
           <p className="mt-8 text-center text-sm text-zinc-500">
-            ...and literally anything else. We don&apos;t judge.
+            Your computer is always on. Morpheus is always listening. You&apos;re always in control — from anywhere.
           </p>
         </div>
       </section>
