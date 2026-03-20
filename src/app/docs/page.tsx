@@ -29,7 +29,7 @@ const guides = [
     icon: "[>_]",
     sections: [
       "System requirements",
-      "Installing the desktop agent",
+      "Installing the Morpheus Agent",
       "Installing the mobile app",
       "Pairing via QR code",
       "Your first command",

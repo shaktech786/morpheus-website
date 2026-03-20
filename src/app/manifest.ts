@@ -5,7 +5,7 @@ export default function manifest(): MetadataRoute.Manifest {
     name: "Morpheus",
     short_name: "Morpheus",
     description:
-      "Control your desktop AI agent from anywhere. Voice commands, encrypted pairing, and remote access.",
+      "Control any machine from your phone. Voice commands, encrypted pairing, and remote access.",
     start_url: "/",
     display: "standalone",
     background_color: "#0a0a0a",

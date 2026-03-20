@@ -22,7 +22,7 @@ const posts: BlogPost[] = [
     slug: "introducing-morpheus",
     title: "Introducing Morpheus: Control Your AI Agent From Your Phone",
     description:
-      "We built Morpheus because we wanted to run Claude Code on our desktop from anywhere — securely, with voice commands, and without leaving the couch.",
+      "We built Morpheus because we wanted to run Claude Code on any machine from anywhere — securely, with voice commands, and without leaving the couch.",
     tag: "Launch",
     date: "2026-03-05",
     readTime: "5 min",
@@ -36,12 +36,12 @@ const posts: BlogPost[] = [
         </p>
         <p>
           Maybe you&apos;re on the couch, maybe you&apos;re grabbing coffee, maybe
-          you&apos;re on a train. Your desktop is still running. Claude Code is
+          you&apos;re on a train. Your machine is still running. Claude Code is
           still ready. But you have no way to talk to it from your phone.
         </p>
         <p>
           That is exactly the problem Morpheus solves. It turns your mobile
-          device into a secure remote control for your desktop AI agent.
+          device into a secure remote control for your AI agent on any machine.
         </p>
 
         <h2>The problem</h2>
@@ -55,18 +55,18 @@ const posts: BlogPost[] = [
 
         <h2>How it works</h2>
         <p>
-          Morpheus has two halves: a lightweight desktop companion (Electron)
+          Morpheus has two halves: a lightweight agent (Electron)
           and a mobile app (React Native / Expo). Pairing takes about five
           seconds:
         </p>
         <ol>
           <li>
-            <strong>QR scan</strong> — The desktop app displays a QR code
+            <strong>QR scan</strong> — The agent displays a QR code
             containing a WebSocket URL and the server&apos;s public key.
           </li>
           <li>
             <strong>Encrypted handshake</strong> — The mobile app generates its
-            own key pair, sends its public key to the desktop, and both sides
+            own key pair, sends its public key to the agent, and both sides
             derive a shared secret via ECDH (NaCl box).
           </li>
           <li>
@@ -77,7 +77,7 @@ const posts: BlogPost[] = [
           <li>
             <strong>Mobile commands</strong> — Type or speak an instruction on
             your phone. It is encrypted, sent over the WebSocket, decrypted on
-            the desktop, and forwarded to Claude Code. Responses stream back in
+            the agent, and forwarded to Claude Code. Responses stream back in
             real time.
           </li>
         </ol>
@@ -94,7 +94,7 @@ const posts: BlogPost[] = [
             transcribes and sends the instruction automatically.
           </li>
           <li>
-            <strong>MCP servers</strong> — The desktop agent can use any
+            <strong>MCP servers</strong> — The Morpheus Agent can use any
             configured MCP server (file system, browser, database, etc.) and
             Morpheus surfaces the results on your phone.
           </li>
@@ -127,8 +127,8 @@ const posts: BlogPost[] = [
 
         <h2>Get started</h2>
         <p>
-          Morpheus is available now for macOS, Windows, and Linux on the
-          desktop, and iOS and Android on mobile. Download the desktop app, scan
+          Morpheus is available now for macOS, Windows, and Linux (desktops
+          and servers), and iOS and Android on mobile. Download the agent, scan
           the QR code with your phone, and you&apos;re paired in seconds.
         </p>
         <p>
@@ -146,7 +146,7 @@ const posts: BlogPost[] = [
   /* ---- E2E Encryption ---- */
   {
     slug: "e2e-encryption",
-    title: "How We Built E2E Encryption for Mobile-to-Desktop AI Control",
+    title: "How We Built E2E Encryption for Mobile-to-Machine AI Control",
     description:
       "A deep dive into our ECDH key exchange, TweetNaCl encryption, and challenge-response pairing protocol.",
     tag: "Engineering",
@@ -163,7 +163,7 @@ const posts: BlogPost[] = [
           severe — arbitrary code execution on your workstation.
         </p>
         <p>
-          That is why every message between the mobile app and the desktop
+          That is why every message between the mobile app and the Morpheus Agent
           companion is end-to-end encrypted. Not TLS-only. Not &quot;encrypted
           in transit.&quot; Full NaCl secretbox encryption where only the two
           paired devices hold the key.
@@ -177,7 +177,7 @@ const posts: BlogPost[] = [
         </p>
         <div className="bg-zinc-900 border border-border rounded-lg p-4 overflow-x-auto text-sm">
           <pre className="text-zinc-300">
-{`// Desktop generates a key pair on startup
+{`// Agent generates a key pair on startup
 const serverKeyPair = nacl.box.keyPair();
 
 // QR code encodes the WebSocket URL + server public key
@@ -189,7 +189,7 @@ const qrPayload = JSON.stringify({
 // Mobile scans QR, generates its own key pair
 const clientKeyPair = nacl.box.keyPair();
 
-// Mobile sends its public key to the desktop
+// Mobile sends its public key to the agent
 ws.send(JSON.stringify({
   type: "pair_request",
   publicKey: encodeBase64(clientKeyPair.publicKey),
@@ -209,11 +209,11 @@ const sharedSecret = nacl.box.before(
         </p>
 
         <h2>What is in the QR code</h2>
-        <p>The QR code displayed on the desktop contains a JSON payload with:</p>
+        <p>The QR code displayed by the agent contains a JSON payload with:</p>
         <ul>
           <li>
             <strong>WebSocket URL</strong> — The LAN address (or Cloudflare
-            tunnel URL for remote pairing) where the desktop is listening.
+            tunnel URL for remote pairing) where the agent is listening.
           </li>
           <li>
             <strong>Server public key</strong> — Base64-encoded Curve25519
@@ -237,7 +237,7 @@ const sharedSecret = nacl.box.before(
         </p>
         <div className="bg-zinc-900 border border-border rounded-lg p-4 overflow-x-auto text-sm">
           <pre className="text-zinc-300">
-{`// Desktop sends a challenge on reconnect
+{`// Agent sends a challenge on reconnect
 const challenge = nacl.randomBytes(32);
 const expected = encodeBase64(nacl.hash(challenge));
 
@@ -256,7 +256,7 @@ ws.send(JSON.stringify({
   solution,
 }));
 
-// Desktop verifies: solution === expected`}
+// Agent verifies: solution === expected`}
           </pre>
         </div>
         <p>
@@ -318,7 +318,7 @@ const plaintext = nacl.secretbox.open(
         </p>
         <p>
           This is defense in depth. Even if an attacker somehow compromised the
-          encrypted channel, the desktop agent would still reject malformed
+          encrypted channel, the Morpheus Agent would still reject malformed
           instructions before they reach the AI model.
         </p>
       </>
@@ -354,8 +354,8 @@ const plaintext = nacl.secretbox.open(
           Supabase edge function that acts as a proxy to the Anthropic API. The
           edge function handles authentication, token metering, and streaming
           responses back to your device. Your instructions are still end-to-end
-          encrypted between your phone and your desktop — the proxy only sees
-          the request after your desktop decrypts it and forwards it.
+          encrypted between your phone and your machine — the proxy only sees
+          the request after the agent decrypts it and forwards it.
         </p>
 
         <h2>50K free starter tokens</h2>
@@ -426,7 +426,7 @@ const plaintext = nacl.secretbox.open(
         <h2>BYOK mode</h2>
         <p>
           If you already have an Anthropic API key, you can use Morpheus for
-          free with unlimited usage. Just enter your key in the desktop app
+          free with unlimited usage. Just enter your key in the agent
           settings and all requests go directly to the Anthropic API. No proxy,
           no token metering, no cost from us. This is the free tier — you only
           pay Anthropic directly for what you use.

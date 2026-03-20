@@ -12,14 +12,14 @@ const posts = [
     slug: "introducing-morpheus",
     title: "Introducing Morpheus: Control Your AI Agent From Your Phone",
     excerpt:
-      "We built Morpheus because we wanted to run Claude Code on our desktop from anywhere — securely, with voice commands, and without leaving the couch.",
+      "We built Morpheus because we wanted to run Claude Code on any machine from anywhere — securely, with voice commands, and without leaving the couch.",
     date: "2026-03-05",
     tag: "Launch",
     readTime: "5 min",
   },
   {
     slug: "e2e-encryption",
-    title: "How We Built E2E Encryption for Mobile-to-Desktop AI Control",
+    title: "How We Built E2E Encryption for Mobile-to-Machine AI Control",
     excerpt:
       "A deep dive into our ECDH key exchange, TweetNaCl encryption, and challenge-response pairing protocol.",
     date: "2026-03-05",

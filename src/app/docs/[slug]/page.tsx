@@ -33,7 +33,7 @@ const guides: Record<string, Guide> = {
         content: (
           <>
             <p>
-              Morpheus requires a desktop machine and a mobile device. The
+              Morpheus requires a computer or server and a mobile device. The
               minimum supported platforms are:
             </p>
             <div className="mt-4 overflow-x-auto">
@@ -72,8 +72,8 @@ const guides: Record<string, Guide> = {
         ),
       },
       {
-        id: "installing-desktop",
-        title: "Installing the Desktop Agent",
+        id: "installing-agent",
+        title: "Installing the Morpheus Agent",
         content: (
           <>
             <p>
@@ -105,7 +105,7 @@ const guides: Record<string, Guide> = {
               </li>
             </ul>
             <p className="mt-4">
-              On first launch, the desktop agent starts a local WebSocket server
+              On first launch, the agent starts a local WebSocket server
               on port <code>3847</code> and displays a QR code for pairing.
             </p>
           </>
@@ -149,11 +149,11 @@ const guides: Record<string, Guide> = {
           <>
             <p>
               Pairing establishes an end-to-end encrypted channel between your
-              desktop and mobile device using ECDH key exchange.
+              machine and mobile device using ECDH key exchange.
             </p>
             <ol className="mt-4 space-y-3 text-zinc-400 list-decimal list-inside">
               <li>
-                Open the <strong className="text-zinc-200">desktop app</strong>.
+                Open the <strong className="text-zinc-200">Morpheus Agent</strong>.
                 It displays a QR code containing the WebSocket URL and the
                 server&apos;s public key.
               </li>
@@ -164,7 +164,7 @@ const guides: Record<string, Guide> = {
               </li>
               <li>
                 The mobile app generates its own keypair and sends its public key
-                to the desktop. Both sides derive a shared secret via{" "}
+                to the agent. Both sides derive a shared secret via{" "}
                 <code>nacl.box.before()</code>.
               </li>
               <li>
@@ -198,7 +198,7 @@ const guides: Record<string, Guide> = {
               <p className="mt-1 text-zinc-300">hello</p>
             </div>
             <p className="mt-4">
-              The command is encrypted, sent to the desktop agent over WebSocket,
+              The command is encrypted, sent to the Morpheus Agent over WebSocket,
               executed by the AI agent (Claude), and the output is streamed back
               to your phone. Try <code>ls</code>, <code>pwd</code>, or ask
               Claude a question to see it in action.
@@ -224,7 +224,7 @@ const guides: Record<string, Guide> = {
           <>
             <p>
               The default and fastest connection mode. Both devices must be on
-              the same WiFi network. The desktop agent listens on port{" "}
+              the same WiFi network. The agent listens on port{" "}
               <code>3847</code> and the mobile app connects directly via the
               local IP address.
             </p>
@@ -283,8 +283,8 @@ const guides: Record<string, Guide> = {
               <span className="rounded bg-morpheus/10 px-2 py-0.5 text-xs font-semibold text-morpheus">
                 PRO
               </span>{" "}
-              Remote access lets you control your desktop from anywhere. The
-              desktop agent creates a Cloudflare Tunnel that proxies WebSocket
+              Remote access lets you control your machine from anywhere. The
+              Morpheus Agent creates a Cloudflare Tunnel that proxies WebSocket
               traffic through Cloudflare&apos;s network.
             </p>
             <ul className="mt-4 space-y-2 text-zinc-400">
@@ -424,7 +424,7 @@ const guides: Record<string, Guide> = {
                 them in the server&apos;s settings panel.
               </li>
               <li>
-                The configuration is synced to the desktop agent, which
+                The configuration is synced to the Morpheus Agent, which
                 starts the MCP server process.
               </li>
             </ol>
@@ -511,7 +511,7 @@ const guides: Record<string, Guide> = {
             </div>
             <p className="mt-4 text-zinc-400">
               Credentials entered in the mobile app are encrypted and sent to the
-              desktop agent. They are stored in the desktop&apos;s secure storage
+              Morpheus Agent. They are stored in the agent&apos;s secure storage
               (Keychain on macOS, Credential Manager on Windows, libsecret on
               Linux) and never leave your devices.
             </p>
@@ -588,7 +588,7 @@ const guides: Record<string, Guide> = {
             <p className="mt-3 text-zinc-400">
               Speech is transcribed on-device using the platform&apos;s native
               speech recognition engine. The resulting text command is then
-              processed by Claude on the desktop agent exactly as if you had
+              processed by Claude on the Morpheus Agent exactly as if you had
               typed it. Responses are spoken aloud via ElevenLabs TTS.
             </p>
           </>
@@ -673,12 +673,12 @@ const guides: Record<string, Guide> = {
             </p>
             <ol className="mt-4 space-y-2 text-zinc-400 list-decimal list-inside">
               <li>
-                The QR code encodes the WebSocket URL and the desktop&apos;s{" "}
+                The QR code encodes the WebSocket URL and the agent&apos;s{" "}
                 <strong className="text-zinc-200">Curve25519 public key</strong>.
               </li>
               <li>
                 The mobile app generates its own Curve25519 keypair and sends
-                its public key to the desktop.
+                its public key to the agent.
               </li>
               <li>
                 Both sides compute a shared secret using{" "}
@@ -751,7 +751,7 @@ const guides: Record<string, Guide> = {
             </p>
             <ol className="mt-4 space-y-2 text-zinc-400 list-decimal list-inside">
               <li>
-                The desktop generates <strong className="text-zinc-200">32 random bytes</strong>{" "}
+                The agent generates <strong className="text-zinc-200">32 random bytes</strong>{" "}
                 and sends them to the mobile app.
               </li>
               <li>
@@ -760,7 +760,7 @@ const guides: Record<string, Guide> = {
                 base64-encoded result.
               </li>
               <li>
-                The desktop independently computes the same hash and compares.
+                The agent independently computes the same hash and compares.
                 If they match, the device is authenticated.
               </li>
             </ol>
@@ -781,7 +781,7 @@ const guides: Record<string, Guide> = {
             </p>
             <ul className="mt-4 space-y-2 text-zinc-400">
               <li>
-                <strong className="text-zinc-200">Desktop</strong> &mdash;
+                <strong className="text-zinc-200">Agent (Desktop/Server)</strong> &mdash;
                 SQLite database with Electron&apos;s safeStorage encryption.
               </li>
               <li>
@@ -947,7 +947,7 @@ const guides: Record<string, Guide> = {
                   BYOK (Bring Your Own Key)
                 </h3>
                 <p className="mt-2 text-sm text-zinc-400">
-                  Enter your Anthropic API key in Desktop Settings &rarr; API
+                  Enter your Anthropic API key in Agent Settings &rarr; API
                   Key. All API calls go directly to Anthropic. No token limits,
                   no markup &mdash; you pay Anthropic directly at their rates.
                 </p>
@@ -984,7 +984,7 @@ const guides: Record<string, Guide> = {
         content: (
           <p>
             Morpheus includes a proactive monitoring daemon that runs in the
-            background on your desktop. Instead of waiting for you to ask
+            background on your machine. Instead of waiting for you to ask
             &ldquo;how&apos;s my disk space?&rdquo;, it continuously watches key
             metrics and pushes alerts to your phone when something needs
             attention.
@@ -1048,7 +1048,7 @@ const guides: Record<string, Guide> = {
           <>
             <p>
               Morpheus doesn&apos;t just detect problems &mdash; it fixes them.
-              The Health Manager supervises all desktop services (WebSocket,
+              The Health Manager supervises all agent services (WebSocket,
               Claude CLI, tunnel, MCP servers) and auto-restarts any that crash.
               It uses exponential backoff and tracks restart counts to avoid
               infinite loops.
@@ -1081,7 +1081,7 @@ const guides: Record<string, Guide> = {
               <li>Configure thresholds to your preferences</li>
             </ol>
             <p className="mt-4 text-zinc-400">
-              Watcher configuration is persisted on the desktop and survives
+              Watcher configuration is persisted on the agent and survives
               restarts. Notifications are queued when your phone is disconnected
               and delivered on reconnect.
             </p>

@@ -127,7 +127,7 @@ function buildWelcomeEmail(): string {
       </div>
 
       <p style="color:#b0b0b0;font-size:14px;line-height:1.6;margin:0;">
-        Morpheus lets you control your desktop AI agent from your phone &mdash; voice commands, encrypted pairing, and remote access from anywhere.
+        Morpheus lets you control any machine from your phone &mdash; voice commands, encrypted pairing, and remote access from anywhere.
       </p>
     </div>
 

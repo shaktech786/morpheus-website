@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     template: "%s | Morpheus",
   },
   description:
-    "Control your entire computer from your phone. Send emails, research anything, manage files, automate tasks — all with voice commands and end-to-end encryption.",
+    "Control any machine from your phone. Send emails, research anything, manage files, automate tasks — all with voice commands and end-to-end encryption.",
   keywords: [
     "AI assistant",
     "personal assistant",
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Morpheus - Your AI Assistant, In Your Pocket",
     description:
-      "Control your entire computer from your phone. Send emails, research anything, manage files, and automate tasks with AI.",
+      "Control any machine from your phone. Send emails, research anything, manage files, and automate tasks with AI.",
     url: "https://getmorphe.us",
     siteName: "Morpheus",
     locale: "en_US",
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Morpheus - Your AI Assistant, In Your Pocket",
     description:
-      "Control your entire computer from your phone. Send emails, research anything, manage files, and automate tasks with AI.",
+      "Control any machine from your phone. Send emails, research anything, manage files, and automate tasks with AI.",
   },
   robots: {
     index: true,

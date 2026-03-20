@@ -192,7 +192,7 @@ export default function MarketplacePage() {
               them
             </li>
             <li>
-              The server is installed on your desktop agent automatically via{" "}
+              The server is installed on your Morpheus Agent automatically via{" "}
               <code className="rounded bg-zinc-800 px-1 text-xs text-morpheus">npx</code>
             </li>
             <li>Your AI agent can now use the tools provided by that server</li>

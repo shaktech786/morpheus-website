@@ -61,7 +61,7 @@ const features = [
   {
     title: "Vision & Screenshots",
     description:
-      "Send photos from your phone or capture desktop screenshots. Morpheus sees and understands visual context through Claude Vision.",
+      "Send photos from your phone or capture screenshots from your machine. Morpheus sees and understands visual context through Claude Vision.",
     icon: "cam",
   },
 ];
@@ -82,13 +82,13 @@ const featureIcons: Record<string, string> = {
 const steps = [
   {
     step: "01",
-    title: "Install Desktop Agent",
-    description: "Download and run Morpheus Agent on your Mac, Windows, or Linux machine.",
+    title: "Install the Agent",
+    description: "Install the Morpheus Agent on your Mac, PC, Linux machine, or server.",
   },
   {
     step: "02",
     title: "Scan QR Code",
-    description: "Open the mobile app and scan the QR code displayed on your desktop.",
+    description: "Open the mobile app and scan the QR code displayed by the agent.",
   },
   {
     step: "03",
@@ -120,7 +120,7 @@ const jsonLd = {
   "@type": "SoftwareApplication",
   name: "Morpheus",
   description:
-    "Your personal AI assistant — control your entire computer from your phone. Send emails, research anything, manage files, automate tasks, and more. End-to-end encrypted.",
+    "Your personal AI assistant — control any machine from your phone. Send emails, research anything, manage files, automate tasks, and more. End-to-end encrypted.",
   url: "https://getmorphe.us",
   applicationCategory: "UtilitiesApplication",
   operatingSystem: "macOS, Windows, Linux, iOS, Android",
@@ -165,15 +165,15 @@ export default function Home() {
             <Image src="/logo-transparent.png" alt="Morpheus logo" width={320} height={149} className="w-full h-auto" priority />
           </div>
           <h1 id="hero-heading" className="text-3xl font-bold tracking-tight sm:text-5xl lg:text-7xl">
-            Your Desktop,
+            Any Machine,
             <br />
             <span className="text-morpheus glow-green">
               Controlled by Your Phone
             </span>
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg text-zinc-400">
-            Morpheus turns your phone into a command center for your
-            always-on computer. Deploy code, send emails, manage files,
+            Morpheus turns your phone into a command center for any
+            always-on machine. Deploy code, send emails, manage files,
             run scripts, automate anything. If you can say it, it gets done.
           </p>
           <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
@@ -221,7 +221,7 @@ export default function Home() {
               { cmd: '"My server\'s been up for 47 days. Check if anything is silently on fire"', tag: 'Server Health', color: 'text-pink-400' },
               { cmd: '"Resize every image in /photos to 1080p and upload them to Google Drive"', tag: 'Batch Ops', color: 'text-yellow-300' },
               { cmd: '"Train that ML model overnight. Text me when it\'s done. Or when it crashes."', tag: 'Long Jobs', color: 'text-violet-400' },
-              { cmd: '"Take a screenshot of my desktop. What chaos am I walking into?"', tag: 'Vision', color: 'text-teal-400' },
+              { cmd: '"Take a screenshot of my screen. What chaos am I walking into?"', tag: 'Vision', color: 'text-teal-400' },
               { cmd: '"SSH into my Raspberry Pi and restart the media server"', tag: 'Remote Access', color: 'text-amber-400' },
               { cmd: '"Diff the last two git commits and explain what changed like I\'m five"', tag: 'Code Review', color: 'text-lime-400' },
               { cmd: '"Back up my entire project folder to S3 before I do something I regret"', tag: 'Backups', color: 'text-sky-400' },
@@ -248,7 +248,7 @@ export default function Home() {
             <span className="text-morpheus" aria-hidden="true">&gt;</span> Limitless Capabilities
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-center text-zinc-400">
-            Morpheus turns your phone into a remote control for your entire computer.
+            Morpheus turns your phone into a remote control for any machine you own.
             Powered by AI, secured with end-to-end encryption.
           </p>
           <div className="mt-16 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -280,7 +280,7 @@ export default function Home() {
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-center text-zinc-400">
             Whether you&apos;re running a business, managing your life, or just getting things done
-            — Morpheus puts the power of your entire computer in your pocket.
+            — Morpheus puts the power of your entire machine in your pocket.
           </p>
           <div className="mt-16 grid grid-cols-1 gap-6 md:grid-cols-3">
             {useCases.map((uc) => (

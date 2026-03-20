@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 const faqs = [
   {
     q: "What's included in the free plan?",
-    a: "The free plan lets you use Morpheus as a remote control for your existing AI setup. It includes LAN connection, text commands, end-to-end encryption, one paired device, basic MCP servers, and 24-hour command history. You'll need your own Claude subscription (Pro, Max, or API key) on the desktop side — or you can purchase AI token packs.",
+    a: "The free plan lets you use Morpheus as a remote control for your existing AI setup. It includes LAN connection, text commands, end-to-end encryption, one paired device, basic MCP servers, and 24-hour command history. You'll need your own Claude subscription (Pro, Max, or API key) on the agent side — or you can purchase AI token packs.",
   },
   {
     q: "What if I don't have a Claude subscription?",
@@ -37,7 +37,7 @@ const faqs = [
   },
   {
     q: "Is my data encrypted?",
-    a: "Yes. All communication between your phone and desktop uses ECDH key exchange with TweetNaCl encryption. Your data never passes through our servers — it stays between your devices, fully end-to-end encrypted.",
+    a: "Yes. All communication between your phone and the Morpheus Agent uses ECDH key exchange with TweetNaCl encryption. Your data never passes through our servers — it stays between your devices, fully end-to-end encrypted.",
   },
   {
     q: "What are AI token packs?",

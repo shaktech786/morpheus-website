@@ -88,7 +88,7 @@ function DownloadInner() {
                 </p>
                 <p className="mt-1 text-sm text-zinc-400">
                   You&apos;re here from the mobile app. Download and install the
-                  desktop agent below, then go back to the app to scan the QR
+                  Morpheus Agent below, then go back to the app to scan the QR
                   code and pair.
                 </p>
               </div>
@@ -100,7 +100,7 @@ function DownloadInner() {
           <span className="text-morpheus">&gt;</span> Download Morpheus
         </h1>
         <p className="mx-auto mt-4 max-w-xl text-center text-zinc-400">
-          Get the desktop agent and mobile app. Pair once, control from
+          Get the Morpheus Agent and mobile app. Pair once, control from
           anywhere.
         </p>
 
@@ -110,7 +110,7 @@ function DownloadInner() {
             <span className="flex h-6 w-6 items-center justify-center rounded-full border border-morpheus text-xs font-bold text-morpheus">
               1
             </span>
-            Install desktop agent
+            Install the agent
           </div>
           <span className="hidden text-zinc-600 sm:inline" aria-hidden="true">
             &rarr;
@@ -139,6 +139,7 @@ function DownloadInner() {
           </h2>
           <p className="mt-2 text-sm text-zinc-400">
             The AI agent that runs on your computer and executes your commands.
+            Also runs on headless Linux servers.
             {fromMobile && " Pick the right version for your machine:"}
           </p>
           <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
@@ -216,7 +217,7 @@ function DownloadInner() {
         <div className="mt-16" id="mobile">
           <h2 className="text-2xl font-semibold text-morpheus">Mobile App</h2>
           <p className="mt-2 text-sm text-zinc-400">
-            The remote control for your desktop agent.
+            The remote control for your Morpheus Agent.
           </p>
           <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
             <div className="flex items-center justify-between gap-4 rounded-xl border border-border bg-surface p-4 opacity-60">
@@ -272,8 +273,8 @@ function DownloadInner() {
           </h2>
           <ul className="mt-4 space-y-2 text-sm text-zinc-400">
             <li>
-              <strong className="text-zinc-300">Desktop:</strong> macOS 10.12+,
-              Windows 10+, or Linux (glibc 2.17+)
+              <strong className="text-zinc-300">Agent:</strong> macOS 10.12+,
+              Windows 10+, or Linux (glibc 2.17+) — desktops and headless servers
             </li>
             <li>
               <strong className="text-zinc-300">Mobile:</strong> iOS 13+ or
@@ -309,7 +310,7 @@ function DownloadInner() {
           <ol className="mt-4 list-inside list-decimal space-y-3 text-sm text-zinc-400">
             <li>
               Download and install the{" "}
-              <strong className="text-zinc-300">Desktop Agent</strong> on the
+              <strong className="text-zinc-300">Morpheus Agent</strong> on the
               machine you want to control
             </li>
             <li>
@@ -318,7 +319,7 @@ function DownloadInner() {
               phone
             </li>
             <li>
-              Open the desktop agent &mdash; it will display a{" "}
+              Open the agent &mdash; it will display a{" "}
               <strong className="text-zinc-300">QR code</strong>
             </li>
             <li>

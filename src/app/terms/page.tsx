@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Terms of Service",
   description:
-    "Morpheus Terms of Service. Usage terms for the mobile-to-desktop AI agent control application.",
+    "Morpheus Terms of Service. Usage terms for the mobile-to-machine AI agent control application.",
 };
 
 export default function TermsPage() {
@@ -20,10 +20,10 @@ export default function TermsPage() {
         </p>
 
         <h2>2. Description of Service</h2>
-        <p>Morpheus is an application that allows you to remotely control your desktop computer from a mobile device. The Software:</p>
+        <p>Morpheus is an application that allows you to remotely control your computer or server from a mobile device. The Software:</p>
         <ul>
-          <li>Executes AI-powered commands on your desktop</li>
-          <li>Provides encrypted communication between your mobile and desktop</li>
+          <li>Executes AI-powered commands on your machine</li>
+          <li>Provides encrypted communication between your mobile device and the Morpheus Agent</li>
           <li>Optionally enables remote access through Cloudflare Quick Tunnels</li>
           <li>Optionally supports voice commands via on-device STT and ElevenLabs TTS</li>
         </ul>
@@ -51,7 +51,7 @@ export default function TermsPage() {
         <h2>5. Remote Access</h2>
         <p>When Remote Access is enabled:</p>
         <ul>
-          <li>Your desktop&apos;s WebSocket server is exposed via a Cloudflare Quick Tunnel</li>
+          <li>The agent&apos;s WebSocket server is exposed via a Cloudflare Quick Tunnel</li>
           <li>Network traffic is routed through Cloudflare&apos;s infrastructure</li>
           <li>All messages remain end-to-end encrypted regardless of transport</li>
           <li>You are responsible for ensuring only authorized devices are paired</li>
