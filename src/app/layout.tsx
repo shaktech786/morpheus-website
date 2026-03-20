@@ -65,9 +65,9 @@ function Header() {
   return (
     <header className="fixed top-0 z-50 w-full border-b border-border bg-black/90 backdrop-blur-md">
       <nav aria-label="Main navigation" className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-        <Link href="/" aria-label="Morpheus home" className="flex items-center gap-2 text-xl font-bold tracking-tight text-morpheus glow-green">
-          <Image src="/logo-transparent.png" alt="Morpheus logo" width={48} height={22} className="mr-1" />
-          morpheus<span className="cursor-blink" aria-hidden="true" />
+        <Link href="/" aria-label="Morpheus home" className="flex items-center gap-3 text-xl font-bold tracking-tight text-morpheus glow-green">
+          <Image src="/logo-transparent.png" alt="Morpheus logo" width={56} height={26} style={{ verticalAlign: 'middle' }} />
+          <span>morpheus<span className="cursor-blink" aria-hidden="true" /></span>
         </Link>
         <div className="hidden sm:flex items-center gap-6 text-sm text-zinc-400">
           <Link href="/download" className="py-2 hover:text-morpheus transition-colors">

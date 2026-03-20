@@ -161,7 +161,7 @@ export default function Home() {
       <section aria-labelledby="hero-heading" className="scanlines relative overflow-hidden py-32 sm:py-40">
         <div className="absolute inset-0 bg-gradient-to-b from-morpheus-dim to-transparent" />
         <div className="relative mx-auto max-w-6xl px-6 text-center">
-          <Image src="/logo-transparent.png" alt="Morpheus logo" width={280} height={130} className="mx-auto mb-6" priority />
+          <Image src="/logo-transparent.png" alt="Morpheus logo" width={320} height={149} className="mx-auto mb-8 drop-shadow-[0_0_30px_rgba(0,255,0,0.3)]" priority />
           <h1 id="hero-heading" className="text-5xl font-bold tracking-tight sm:text-7xl">
             Your AI Assistant,
             <br />
@@ -179,7 +179,7 @@ export default function Home() {
               href="/download"
               className="rounded-lg border border-morpheus bg-morpheus/10 px-8 py-3 text-sm font-semibold text-morpheus transition-all hover:bg-morpheus/20 hover:shadow-[0_0_20px_rgba(0,255,0,0.15)]"
             >
-              Download for Free
+              Download
             </Link>
             <Link
               href="/pricing"
@@ -191,7 +191,7 @@ export default function Home() {
           <div className="mt-6 flex items-center justify-center gap-2">
             <span className="inline-block h-2 w-2 rounded-full bg-morpheus pulse-dot" aria-hidden="true" />
             <span className="text-xs text-zinc-400">
-              Free to start — no credit card required
+              Free forever — optional Pro upgrade for voice &amp; remote access
             </span>
           </div>
         </div>
@@ -330,7 +330,7 @@ export default function Home() {
             <span className="text-morpheus" aria-hidden="true">&gt;</span> Plans That Scale With You
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-zinc-400">
-            Start free with your own Claude subscription, go Pro for voice and
+            Free forever. Go Pro for voice, remote access, and
             remote access, or get Team for your organization.
           </p>
           <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-3">

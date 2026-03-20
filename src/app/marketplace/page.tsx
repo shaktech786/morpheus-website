@@ -228,7 +228,7 @@ export default function MarketplacePage() {
               href="/download"
               className="rounded-lg bg-morpheus px-6 py-3 text-sm font-bold text-black transition-all hover:brightness-110"
             >
-              Download Free
+              Download
             </Link>
             <Link
               href="/pricing"

@@ -7,7 +7,7 @@ import { PLAN_FEATURES, TOKEN_PACKS } from "@/lib/pricing";
 export const metadata: Metadata = {
   title: "Pricing",
   description:
-    "Morpheus pricing — free to start, Pro for individuals, Team for organizations. Voice, remote access, unlimited devices, and AI token packs.",
+    "Morpheus pricing — free forever, Pro for voice and remote access, Team for organizations. Unlimited devices and AI token packs.",
 };
 
 const faqs = [
@@ -71,7 +71,7 @@ export default function PricingPage() {
             <span className="text-morpheus glow-green">Pricing</span>
           </h1>
           <p className="mx-auto mt-6 max-w-xl text-lg text-zinc-400">
-            Start free. Upgrade when you need voice, remote access,
+            Free forever. Upgrade when you want voice, remote access,
             unlimited devices, or team features.
           </p>
 
@@ -183,15 +183,15 @@ export default function PricingPage() {
             <span className="text-morpheus" aria-hidden="true">&gt;</span> Ready to Take Control?
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-zinc-400">
-            Download Morpheus free and start commanding your AI agent from your
-            phone. Upgrade to Pro when you need the full power.
+            Download Morpheus and start commanding your AI agent from your
+            phone. The free plan works forever — upgrade to Pro when you want more.
           </p>
           <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
             <Link
               href="/download"
               className="rounded-lg border border-morpheus bg-morpheus/10 px-8 py-3 text-sm font-semibold text-morpheus transition-all hover:bg-morpheus/20 hover:shadow-[0_0_20px_rgba(0,255,0,0.15)]"
             >
-              Download Free
+              Download
             </Link>
             <Link
               href="mailto:team@getmorphe.us?subject=Morpheus Team Plan"
