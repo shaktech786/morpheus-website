@@ -165,16 +165,16 @@ export default function Home() {
             <Image src="/logo-transparent.png" alt="Morpheus logo" width={320} height={149} className="w-full h-auto" priority />
           </div>
           <h1 id="hero-heading" className="text-3xl font-bold tracking-tight sm:text-5xl lg:text-7xl">
-            Your Computer.
+            Talk to Your Computer
             <br />
             <span className="text-morpheus glow-green">
-              Your Phone. One Command.
+              From Anywhere
             </span>
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg text-zinc-400">
-            Morpheus turns your phone into a remote control for your always-on
-            computer. Run scripts, send emails, manage servers, automate
-            workflows — all by telling it what to do. Your desktop never sleeps.
+            Your desktop is always running. Morpheus lets you command it
+            from your phone — deploy code, send emails, manage files,
+            run scripts, monitor servers. If you can say it, it gets done.
           </p>
           <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
             <Link
