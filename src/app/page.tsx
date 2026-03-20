@@ -99,18 +99,18 @@ const steps = [
 
 const useCases = [
   {
-    persona: "The Busy Professional",
-    quote: "Draft emails from the couch. Research from bed. Organize your files from the coffee shop. Your desktop is always within reach.",
+    persona: "The Couch Commander",
+    quote: "You haven't touched your laptop in 3 hours. Emails are sent, files are organized, and your boss thinks you're at your desk. You're eating chips.",
     icon: "[pro]",
   },
   {
-    persona: "The Multitasker",
-    quote: "Research competitors, draft emails, update Notion, manage your calendar — all from one conversation on your phone.",
+    persona: "The Chaos Wrangler",
+    quote: "12 tabs, 4 Slack threads, a Notion doc, and a calendar that looks like a Tetris board. One conversation from your phone and it's handled.",
     icon: "[ops]",
   },
   {
-    persona: "The Automator",
-    quote: "Schedule backups, set reminders, build workflows, and keep your digital life organized without ever opening a laptop.",
+    persona: "The Set-It-And-Forget-It",
+    quote: "Morning briefings, automated backups, server monitoring, Mom reminders. Everything just... runs. You barely remember setting it up.",
     icon: "[mgr]",
   },
 ];
@@ -206,22 +206,22 @@ export default function Home() {
             <span className="text-morpheus" aria-hidden="true">&gt;</span> What Can Morpheus Do?
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-center text-zinc-400">
-            Anything you could do at your keyboard. Here are just a few examples.
+            Anything you could do at your keyboard — except now you&apos;re on the couch.
           </p>
           <div className="mt-16 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {[
-              { cmd: '"Send my team an email about tomorrow\'s meeting"', tag: 'Email', color: 'text-yellow-400' },
-              { cmd: '"Research the best flights to Tokyo next month"', tag: 'Travel', color: 'text-blue-400' },
-              { cmd: '"Organize my Downloads folder by file type"', tag: 'Files', color: 'text-emerald-400' },
-              { cmd: '"Compare prices for the new MacBook across stores"', tag: 'Shopping', color: 'text-orange-400' },
-              { cmd: '"Create a spreadsheet of my monthly expenses"', tag: 'Documents', color: 'text-cyan-400' },
-              { cmd: '"Schedule a reminder to call Mom every Sunday"', tag: 'Automate', color: 'text-purple-400' },
-              { cmd: '"Find all duplicate photos and free up space"', tag: 'Cleanup', color: 'text-red-400' },
-              { cmd: '"Summarize this 30-page PDF for me"', tag: 'Research', color: 'text-morpheus' },
-              { cmd: '"Post an update to the team Slack channel"', tag: 'Messaging', color: 'text-pink-400' },
-              { cmd: '"Alert me if CPU goes above 90% or disk gets below 10GB free"', tag: 'Monitoring', color: 'text-yellow-300' },
-              { cmd: '"Run my morning briefing — calendar, git status, system health"', tag: 'Workflows', color: 'text-violet-400' },
-              { cmd: '"Take a screenshot and tell me what apps are open"', tag: 'Vision', color: 'text-teal-400' },
+              { cmd: '"Email my boss that I\'ll be 5 minutes late" — sent from bed, obviously', tag: 'Email', color: 'text-yellow-400' },
+              { cmd: '"Find me flights to Tokyo that won\'t bankrupt me"', tag: 'Travel', color: 'text-blue-400' },
+              { cmd: '"My Downloads folder is a war zone. Fix it."', tag: 'Files', color: 'text-emerald-400' },
+              { cmd: '"How much is the new MacBook? And should I wait?"', tag: 'Shopping', color: 'text-orange-400' },
+              { cmd: '"Make a spreadsheet of where my money keeps disappearing to"', tag: 'Documents', color: 'text-cyan-400' },
+              { cmd: '"Remind me to call Mom every Sunday. Yes, every Sunday."', tag: 'Automate', color: 'text-purple-400' },
+              { cmd: '"I have 47 copies of the same photo. Please help."', tag: 'Cleanup', color: 'text-red-400' },
+              { cmd: '"Summarize this 30-page PDF because I\'m not going to"', tag: 'Research', color: 'text-morpheus' },
+              { cmd: '"Tell the team standup is moved to 3pm. I don\'t want to type it out."', tag: 'Messaging', color: 'text-pink-400' },
+              { cmd: '"Yell at me if my CPU melts or my disk fills up"', tag: 'Monitoring', color: 'text-yellow-300' },
+              { cmd: '"Morning briefing — calendar, git status, how badly did I break prod?"', tag: 'Workflows', color: 'text-violet-400' },
+              { cmd: '"Take a screenshot of my desktop. What chaos am I walking into?"', tag: 'Vision', color: 'text-teal-400' },
             ].map((ex) => (
               <div key={ex.cmd} className="rounded-lg border border-border bg-surface p-4 transition-all hover:border-morpheus-dark">
                 <span className={`text-xs font-semibold ${ex.color} uppercase tracking-wider`}>{ex.tag}</span>
@@ -230,7 +230,7 @@ export default function Home() {
             ))}
           </div>
           <p className="mt-8 text-center text-sm text-zinc-500">
-            ...and literally anything else you can describe in plain English.
+            ...and literally anything else. We don&apos;t judge.
           </p>
         </div>
       </section>
