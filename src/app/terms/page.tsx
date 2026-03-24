@@ -16,26 +16,30 @@ export default function TermsPage() {
         <h2>1. Acceptance of Terms</h2>
         <p>
           By using Morpheus (&quot;the Software&quot;), you agree to these Terms of Service.
-          If you do not agree, do not use the Software.
+          If you do not agree, do not use the Software. Morpheus is open-source software licensed
+          under the MIT License. These Terms supplement (but do not replace) the MIT License.
         </p>
 
         <h2>2. Description of Service</h2>
-        <p>Morpheus is an application that allows you to remotely control your computer or server from a mobile device. The Software:</p>
+        <p>Morpheus is a mobile-to-desktop AI agent control application. The Software:</p>
         <ul>
-          <li>Executes AI-powered commands on your machine</li>
-          <li>Provides encrypted communication between your mobile device and the Morpheus Agent</li>
+          <li>Executes AI-powered commands on your machine via an agent with elevated permissions</li>
+          <li>Provides end-to-end encrypted communication between your mobile device and the Morpheus Agent</li>
           <li>Optionally enables remote access through Cloudflare Quick Tunnels</li>
           <li>Optionally supports voice commands via on-device STT and ElevenLabs TTS</li>
+          <li>Optionally syncs settings and history via Supabase cloud</li>
+          <li>Offers free and premium subscription tiers via RevenueCat</li>
         </ul>
 
         <h2>3. User Responsibilities</h2>
         <p>You are solely responsible for:</p>
         <ul>
           <li>Ensuring you have authorized access to any computer you connect to</li>
-          <li>Understanding and accepting the risks of AI-executed commands on your system</li>
-          <li>Reviewing and approving commands before they are executed</li>
-          <li>Maintaining the security of your devices and pairing credentials</li>
+          <li>Understanding that the AI agent operates with broad system access and can read, modify, and delete files, execute commands, and install software</li>
+          <li>Reviewing and understanding the actions the AI agent takes on your behalf</li>
+          <li>Maintaining the security of your devices, pairing credentials, and OAuth tokens</li>
           <li>Complying with all applicable laws and regulations</li>
+          <li>Not using the Software on production systems without understanding the risks</li>
         </ul>
 
         <h2>4. Prohibited Uses</h2>
@@ -46,6 +50,7 @@ export default function TermsPage() {
           <li>Conduct illegal activities of any kind</li>
           <li>Circumvent security measures on systems you do not own</li>
           <li>Violate the rights of any third party</li>
+          <li>Abuse the managed API proxy or token system</li>
         </ul>
 
         <h2>5. Remote Access</h2>
@@ -57,28 +62,34 @@ export default function TermsPage() {
           <li>You are responsible for ensuring only authorized devices are paired</li>
         </ul>
 
-        <h2>6. Voice Mode</h2>
-        <p>When Voice Mode is enabled:</p>
+        <h2>6. Subscriptions and Billing</h2>
         <ul>
-          <li>Audio data is transmitted to OpenAI for processing</li>
-          <li>OpenAI&apos;s terms and privacy policy apply to voice data</li>
-          <li>Morpheus does not control how OpenAI processes or retains voice data</li>
+          <li>Subscriptions are managed through <strong>RevenueCat</strong> and processed via the Apple App Store or Google Play Store</li>
+          <li>Morpheus does not directly collect or store your payment information</li>
+          <li>The managed Claude API proxy deducts usage from your token balance</li>
+          <li>Refund policies are governed by the respective app store</li>
         </ul>
 
         <h2>7. Third-Party Services</h2>
         <p>Morpheus integrates with third-party services that have their own terms:</p>
         <ul>
-          <li><strong>Anthropic</strong> — AI model provider. Subject to <a href="https://www.anthropic.com/terms" target="_blank" rel="noopener noreferrer">Anthropic&apos;s Terms</a></li>
-          <li><strong>OpenAI</strong> — Voice processing. Subject to <a href="https://openai.com/terms" target="_blank" rel="noopener noreferrer">OpenAI&apos;s Terms</a></li>
-          <li><strong>Cloudflare</strong> — Remote access tunnels. Subject to <a href="https://www.cloudflare.com/terms/" target="_blank" rel="noopener noreferrer">Cloudflare&apos;s Terms</a></li>
+          <li><strong>Anthropic (Claude)</strong> &mdash; Core AI agent. Your instructions and context sent for processing. (<a href="https://www.anthropic.com/terms" target="_blank" rel="noopener noreferrer">Terms</a>)</li>
+          <li><strong>ElevenLabs</strong> &mdash; Voice TTS (optional). AI response text sent for synthesis. (<a href="https://elevenlabs.io/privacy" target="_blank" rel="noopener noreferrer">Privacy</a>)</li>
+          <li><strong>Supabase</strong> &mdash; Auth, sync, token management. (<a href="https://supabase.com/privacy" target="_blank" rel="noopener noreferrer">Privacy</a>)</li>
+          <li><strong>RevenueCat</strong> &mdash; Subscription management. (<a href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener noreferrer">Privacy</a>)</li>
+          <li><strong>Cloudflare</strong> &mdash; Remote access tunnels. (<a href="https://www.cloudflare.com/terms/" target="_blank" rel="noopener noreferrer">Terms</a>)</li>
+          <li><strong>Sentry</strong> &mdash; Anonymous crash reporting. (<a href="https://sentry.io/privacy/" target="_blank" rel="noopener noreferrer">Privacy</a>)</li>
+          <li><strong>Google</strong> &mdash; Email/calendar watchers (optional, requires OAuth consent). (<a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Privacy</a>)</li>
+          <li><strong>Slack</strong> &mdash; Slack watcher (optional, requires OAuth consent). (<a href="https://slack.com/privacy-policy" target="_blank" rel="noopener noreferrer">Privacy</a>)</li>
         </ul>
 
-        <h2>8. Intellectual Property</h2>
-        <p>
-          Morpheus and its source code are the property of its creators. You may use the Software
-          in accordance with these Terms. Unauthorized reproduction, distribution, or modification
-          of the Software is prohibited.
-        </p>
+        <h2>8. Data Handling</h2>
+        <ul>
+          <li>Morpheus uses a local-first architecture &mdash; most data stays on your devices</li>
+          <li>Some features (auth, sync, token management, API proxy) use Supabase cloud storage</li>
+          <li>End-to-end encryption protects all device-to-device communications</li>
+          <li>See our <a href="/privacy">Privacy Policy</a> for full details</li>
+        </ul>
 
         <h2>9. Disclaimer of Warranties</h2>
         <p>
@@ -95,16 +106,22 @@ export default function TermsPage() {
         </p>
         <p>
           This includes but is not limited to: data loss, system damage, unauthorized access resulting
-          from compromised credentials, or actions taken by the AI agent.
+          from compromised credentials, token balance discrepancies, or actions taken by the AI agent.
         </p>
 
-        <h2>11. Changes to Terms</h2>
+        <h2>11. Open Source License</h2>
+        <p>
+          Morpheus is released under the MIT License. You are free to use, copy, modify, and distribute
+          the Software subject to the MIT License conditions.
+        </p>
+
+        <h2>12. Changes to Terms</h2>
         <p>
           We may update these Terms from time to time. Changes will be reflected in the
           &quot;Last Updated&quot; date. Continued use of the Software after changes constitutes acceptance.
         </p>
 
-        <h2>12. Contact</h2>
+        <h2>13. Contact</h2>
         <p>
           For questions about these Terms: <a href="mailto:team@getmorphe.us">team@getmorphe.us</a>
         </p>
