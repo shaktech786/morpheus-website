@@ -31,7 +31,7 @@ const features = [
   {
     title: "Connects to Your Apps",
     description:
-      "Works with Gmail, Slack, Notion, Google Calendar, your file system, and 18+ other integrations out of the box. Add your own.",
+      "Works with Gmail, Slack, Notion, Google Calendar, your file system, and 20+ other integrations out of the box — including smart home control. Add your own.",
     icon: "layers",
   },
   {

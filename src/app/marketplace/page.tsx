@@ -46,7 +46,7 @@ const tools: McpTool[] = [
   { id: "huggingface", name: "Hugging Face", description: "Search models, datasets, and run inference", category: "ai_ml", premium: true },
   { id: "sentry", name: "Sentry", description: "Query errors, issues, and performance data", category: "monitoring", premium: true },
   { id: "datadog", name: "Datadog", description: "Query metrics, logs, and monitor infrastructure", category: "monitoring", premium: true },
-  { id: "home-assistant", name: "Home Assistant", description: "Control your smart home devices with natural language", category: "smart_home", premium: true },
+  { id: "morpheus-nest", name: "Morpheus Nest", description: "Control your entire home — lights, thermostat, locks, cameras, speakers, scenes, and routines via Home Assistant", category: "smart_home", premium: false },
 ];
 
 const categories = Object.keys(CATEGORY_META) as McpCategory[];

@@ -1,36 +1,45 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# morpheus-website
 
-## Getting Started
+Marketing website for [Morpheus](https://getmorphe.us) — Any Machine, Controlled by Your Phone.
 
-First, run the development server:
+Built with Next.js 15 (App Router), Tailwind CSS, TypeScript. Deployed on Vercel.
+
+## Pages
+
+| Route | Description |
+|-------|-------------|
+| `/` | Homepage — hero, features, capabilities, pricing preview |
+| `/pricing` | Full pricing page with billing toggle (monthly/annual/lifetime) |
+| `/marketplace` | MCP server marketplace — all 20+ integrations |
+| `/download` | Download links for macOS, Windows, Linux |
+| `/docs/[slug]` | Documentation articles |
+| `/blog/[slug]` | Blog posts |
+| `/privacy` | Privacy policy |
+| `/terms` | Terms of service |
+
+## Dev
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev       # http://localhost:3000
+npm run build     # production build
+npm run lint
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Environment
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+No required environment variables for the static site. The `/api/waitlist` route uses:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+RESEND_API_KEY=    # email for newsletter signups
+```
 
-## Learn More
+Copy `.env.example` to `.env.local` and fill in as needed.
 
-To learn more about Next.js, take a look at the following resources:
+## Pricing
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+All prices are defined in `src/lib/pricing.ts` — single source of truth for both the pricing page and homepage preview cards.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Deployment
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Auto-deploys to Vercel on push to `main`. Domain: `getmorphe.us`.
