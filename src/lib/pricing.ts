@@ -1,12 +1,17 @@
 export const PRICING = {
-  monthly: "$4.99",
-  annual: "$39.99",
-  annualMonthly: "$3.33",
+  /** Pro tier */
+  monthly: "$9.99",
+  annual: "$99.99",
+  annualMonthly: "$8.33",
   lifetime: "$79.99",
-  earlyBird: "$2.49",
-  teamMonthly: "$19.99",
-  teamAnnual: "$179.99",
-  teamAnnualMonthly: "$14.99",
+  /** Power tier */
+  powerMonthly: "$19.99",
+  powerAnnual: "$179.99",
+  powerAnnualMonthly: "$14.99",
+  /** Team tier */
+  teamMonthly: "$49.99",
+  teamAnnual: "$479.99",
+  teamAnnualMonthly: "$39.99",
 } as const;
 
 export interface PlanFeature {
