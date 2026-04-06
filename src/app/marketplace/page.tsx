@@ -28,24 +28,39 @@ const CATEGORY_META: Record<McpCategory, { label: string; color: string; icon: s
 };
 
 const tools: McpTool[] = [
+  // Developer
   { id: "github", name: "GitHub", description: "Manage repos, issues, PRs, and code search", category: "developer", premium: false },
   { id: "filesystem", name: "Filesystem", description: "Read, write, and search files on the host", category: "developer", premium: false },
   { id: "git", name: "Git", description: "Clone, commit, diff, and manage Git repositories", category: "developer", premium: false },
   { id: "sequential-thinking", name: "Sequential Thinking", description: "Step-by-step reasoning for complex problem solving", category: "developer", premium: false },
   { id: "fetch", name: "Fetch", description: "Retrieve and process content from web URLs", category: "developer", premium: false },
+  { id: "playwright", name: "Playwright Browser", description: "Full browser automation — navigate, click, fill forms, scrape data, take screenshots", category: "developer", premium: false },
+  { id: "puppeteer", name: "Puppeteer", description: "Headless Chrome automation for screenshots, PDFs, and scraping", category: "developer", premium: false },
+  { id: "brave-search", name: "Brave Search", description: "Web search with AI-powered results and research", category: "developer", premium: false },
+  // Databases
   { id: "postgres", name: "PostgreSQL", description: "Query and manage PostgreSQL databases", category: "databases", premium: false },
   { id: "sqlite", name: "SQLite", description: "Query and manage local SQLite databases", category: "databases", premium: false },
   { id: "redis", name: "Redis", description: "Interact with Redis key-value stores", category: "databases", premium: false },
-  { id: "slack", name: "Slack", description: "Send messages, search channels, and manage Slack", category: "communication", premium: false },
+  // Communication
+  { id: "slack", name: "Slack", description: "Send messages, manage channels, search conversations", category: "communication", premium: false },
+  { id: "discord", name: "Discord", description: "Send messages, manage servers, interact with channels and threads", category: "communication", premium: false },
+  { id: "gmail", name: "Gmail", description: "Read, send, search, and manage emails via Gmail API", category: "communication", premium: false },
+  { id: "twilio-sms", name: "Twilio SMS", description: "Send and receive SMS/MMS messages via Twilio", category: "communication", premium: false },
   { id: "linear", name: "Linear", description: "Create and manage Linear issues and projects", category: "communication", premium: false },
   { id: "notion", name: "Notion", description: "Search and manage Notion pages and databases", category: "communication", premium: false },
-  { id: "puppeteer", name: "Puppeteer", description: "Browser automation, screenshots, and scraping", category: "monitoring", premium: false },
-  { id: "aws", name: "AWS", description: "Manage AWS resources via CLI commands", category: "cloud", premium: true },
-  { id: "google-cloud", name: "Google Cloud", description: "Interact with Google Cloud Platform services", category: "cloud", premium: true },
+  // AI & ML
+  { id: "whisper-stt", name: "Whisper STT", description: "Transcribe audio files and real-time speech using OpenAI Whisper", category: "ai_ml", premium: false },
+  { id: "elevenlabs-tts", name: "ElevenLabs TTS", description: "Generate natural-sounding speech from text with multiple voices", category: "ai_ml", premium: false },
+  { id: "memory-vector", name: "Semantic Memory", description: "Persistent vector memory — store, search, and recall information across sessions", category: "ai_ml", premium: false },
   { id: "openai", name: "OpenAI", description: "Access OpenAI models and embeddings", category: "ai_ml", premium: true },
   { id: "huggingface", name: "Hugging Face", description: "Search models, datasets, and run inference", category: "ai_ml", premium: true },
+  // Cloud
+  { id: "aws", name: "AWS", description: "Manage AWS resources via CLI commands", category: "cloud", premium: true },
+  { id: "google-cloud", name: "Google Cloud", description: "Interact with Google Cloud Platform services", category: "cloud", premium: true },
+  // Monitoring
   { id: "sentry", name: "Sentry", description: "Query errors, issues, and performance data", category: "monitoring", premium: true },
   { id: "datadog", name: "Datadog", description: "Query metrics, logs, and monitor infrastructure", category: "monitoring", premium: true },
+  // Smart Home
   { id: "morpheus-nest", name: "Morpheus Nest", description: "Control your entire home — lights, thermostat, locks, cameras, speakers, scenes, and routines via Home Assistant", category: "smart_home", premium: false },
 ];
 

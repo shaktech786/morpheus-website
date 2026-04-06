@@ -17,6 +17,83 @@ interface BlogPost {
 }
 
 const posts: BlogPost[] = [
+  /* ---- v1.0.32 Release ---- */
+  {
+    slug: "v1-0-32-adaptive-intelligence",
+    title: "v1.0.32: Morpheus Now Learns, Adapts, and Improves Itself",
+    description:
+      "The biggest update yet — parallel execution, correction memory, auto-approval learning, and a self-improvement agent.",
+    tag: "Release",
+    date: "2026-04-06",
+    readTime: "6 min",
+    content: (
+      <>
+        <h2>Morpheus gets smarter every time you use it</h2>
+        <p>
+          v1.0.32 is the most ambitious Morpheus release yet. Instead of just
+          executing commands, Morpheus now <strong>learns from every interaction</strong> and
+          adapts its behavior to match how you work.
+        </p>
+
+        <h2>Correction Memory</h2>
+        <p>
+          Say &quot;no, use pnpm not npm&quot; and Morpheus remembers. Next time
+          you ask it to install packages, it automatically applies your
+          preference. Corrections are stored as fuzzy-matchable patterns with
+          confidence scoring — they reinforce when you confirm them and decay
+          when unused.
+        </p>
+
+        <h2>Auto-Approval Learning</h2>
+        <p>
+          Tired of approving the same file-write operation for the 50th time?
+          Morpheus now tracks your approval patterns. After 20+ consistent
+          approvals with a 95%+ rate, it auto-approves that operation type.
+          Critical and sudo operations are <em>never</em> auto-approved.
+        </p>
+
+        <h2>Parallel Execution</h2>
+        <p>
+          Morpheus can now run <strong>3 commands simultaneously</strong>. Send
+          &quot;run tests&quot; while a deployment is still running. Additional
+          tasks queue automatically when all slots are full.
+        </p>
+
+        <h2>Self-Improvement Agent</h2>
+        <p>
+          The most experimental feature: Morpheus can analyze its own
+          performance data, identify weaknesses, and propose code changes to
+          fix them. With your explicit approval, it uses Claude Code to modify
+          its own codebase — every change is git-committed for clean rollback.
+        </p>
+
+        <h2>Behavioral Intelligence</h2>
+        <p>
+          The behavior engine now detects temporal patterns (&quot;you always
+          check git status at 9am&quot;), command sequences that should be
+          workflows, approval fatigue, and productivity windows. It generates
+          daily briefings and proactive suggestions.
+        </p>
+
+        <h2>10 New MCP Capabilities</h2>
+        <p>
+          Playwright for browser automation, Whisper for speech-to-text,
+          Slack/Discord/Gmail/Twilio for outbound communication, ElevenLabs
+          for text-to-speech, semantic vector memory for cross-session recall,
+          and Brave Search for web research. Credential-free servers are
+          auto-installed when Morpheus detects a capability gap.
+        </p>
+
+        <h2>Bulletproof Pairing</h2>
+        <p>
+          Network scan now works without generating a QR code first. Version
+          negotiation prevents silent protocol mismatches. Lost crypto state
+          after app updates is automatically recovered. Device deduplication
+          prevents ghost entries.
+        </p>
+      </>
+    ),
+  },
   /* ---- Introducing Morpheus ---- */
   {
     slug: "introducing-morpheus",

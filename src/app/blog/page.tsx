@@ -9,6 +9,15 @@ export const metadata: Metadata = {
 
 const posts = [
   {
+    slug: "v1-0-32-adaptive-intelligence",
+    title: "v1.0.32: Morpheus Now Learns, Adapts, and Improves Itself",
+    excerpt:
+      "The biggest update yet — parallel execution, correction memory that learns from your feedback, auto-approval that eliminates repetitive prompts, and a self-improvement agent that can modify its own code.",
+    date: "2026-04-06",
+    tag: "Release",
+    readTime: "6 min",
+  },
+  {
     slug: "introducing-morpheus",
     title: "Introducing Morpheus: Control Your AI Agent From Your Phone",
     excerpt:

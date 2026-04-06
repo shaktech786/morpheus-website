@@ -31,7 +31,7 @@ const features = [
   {
     title: "Connects to Your Apps",
     description:
-      "Works with Gmail, Slack, Notion, Google Calendar, your file system, and 20+ other integrations out of the box — including smart home control. Add your own.",
+      "Gmail, Slack, Discord, Notion, Google Calendar, browser automation, speech-to-text, and 30+ other integrations out of the box — including smart home control. Add your own.",
     icon: "layers",
   },
   {
@@ -49,7 +49,7 @@ const features = [
   {
     title: "Self-Healing",
     description:
-      "Crashed service? Morpheus auto-detects failures, restarts services, and adapts its retry strategies based on historical patterns.",
+      "Crashed service? Morpheus auto-detects failures, restarts services, and pushes real-time health alerts to your phone with recovery suggestions.",
     icon: "heal",
   },
   {
@@ -64,6 +64,24 @@ const features = [
       "Send photos from your phone or capture screenshots from your machine. Morpheus sees and understands visual context through Claude Vision.",
     icon: "cam",
   },
+  {
+    title: "Learns & Adapts",
+    description:
+      "Morpheus learns from every interaction. Corrects itself when you say \"no, do it this way\", remembers your preferences, and auto-approves trusted operations over time.",
+    icon: "brain",
+  },
+  {
+    title: "Self-Improving",
+    description:
+      "Morpheus analyzes its own performance, identifies weaknesses, and proposes code improvements to itself — with your approval. It literally gets better over time.",
+    icon: "rocket",
+  },
+  {
+    title: "Parallel Execution",
+    description:
+      "Run up to 3 commands simultaneously. Queue additional tasks when all slots are full. No more waiting for one task to finish before starting the next.",
+    icon: "parallel",
+  },
 ];
 
 const featureIcons: Record<string, string> = {
@@ -77,6 +95,9 @@ const featureIcons: Record<string, string> = {
   heal: "[heal]",
   flow: "[flow]",
   cam: "[cam]",
+  brain: "[mem]",
+  rocket: "[evo]",
+  parallel: "[|||]",
 };
 
 const steps = [

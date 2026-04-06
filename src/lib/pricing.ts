@@ -35,6 +35,10 @@ export const PLAN_FEATURES: PlanFeature[] = [
   { name: "Self-Healing Service Recovery", free: false, pro: true, team: true },
   { name: "Workflow Templates", free: false, pro: true, team: true },
   { name: "Vision & Screenshot Analysis", free: false, pro: true, team: true },
+  { name: "Parallel Execution", free: "1 task", pro: "3 concurrent", team: "3 concurrent" },
+  { name: "Auto-Approval Learning", free: false, pro: true, team: true },
+  { name: "Adaptive Intelligence", free: false, pro: true, team: true },
+  { name: "Daily Briefings", free: false, pro: true, team: true },
 ];
 
 export interface TokenPack {
