@@ -215,7 +215,7 @@ const guides: Record<string, Guide> = {
   "connection-modes": {
     title: "Connection Modes",
     description:
-      "LAN, USB/ADB, and Cloudflare Tunnel -- how Morpheus connects your devices.",
+      "LAN, USB/ADB, and peer-to-peer WebRTC — how Morpheus connects your devices.",
     sections: [
       {
         id: "lan",
@@ -275,32 +275,37 @@ const guides: Record<string, Guide> = {
         ),
       },
       {
-        id: "remote-tunnel",
-        title: "Remote Access via Cloudflare Tunnel",
+        id: "remote-webrtc",
+        title: "Remote Access via Peer-to-Peer WebRTC",
         content: (
           <>
             <p>
               <span className="rounded bg-morpheus/10 px-2 py-0.5 text-xs font-semibold text-morpheus">
                 PRO
               </span>{" "}
-              Remote access lets you control your machine from anywhere. The
-              Morpheus Agent creates a Cloudflare Tunnel that proxies WebSocket
-              traffic through Cloudflare&apos;s network.
+              When your phone leaves the agent&apos;s LAN, Morpheus establishes a
+              direct peer-to-peer WebRTC data channel between the two devices
+              &mdash; no tunneling service, no proxy, no vendor in the hot path.
             </p>
             <ul className="mt-4 space-y-2 text-zinc-400">
-              <li>No port forwarding or static IP required.</li>
               <li>
-                Traffic is still end-to-end encrypted &mdash; Cloudflare sees
-                connection metadata but cannot read message contents.
+                <strong className="text-zinc-200">Signaling</strong>: SDP
+                offer/answer and ICE candidates are signed with the pairing
+                shared secret and relayed through Supabase Realtime. The relay
+                sees only opaque signed envelopes.
               </li>
-              <li>Tunnels are temporary and created on demand.</li>
+              <li>
+                <strong className="text-zinc-200">NAT traversal</strong>: Google
+                public STUN for most networks; Open Relay TURN fallback only
+                when both sides are behind symmetric NATs.
+              </li>
+              <li>
+                <strong className="text-zinc-200">Encryption</strong>: DTLS-SRTP
+                at the WebRTC layer plus Morpheus&apos;s own TweetNaCl at the
+                application layer. End-to-end, no middle box.
+              </li>
+              <li>No port forwarding, no static IP, no long-lived tunnel.</li>
             </ul>
-            <div className="mt-4 rounded-lg border border-border bg-zinc-900 p-4 font-mono text-sm">
-              <span className="text-zinc-500">wss://</span>
-              <span className="text-zinc-300">
-                abc123-example.trycloudflare.com
-              </span>
-            </div>
           </>
         ),
       },
@@ -323,13 +328,15 @@ const guides: Record<string, Guide> = {
                 <code>ws://127.0.0.1:3847</code>
               </li>
               <li>
-                <strong className="text-zinc-200">Cloudflare Tunnel</strong>{" "}
-                &mdash; <code>wss://xxx.trycloudflare.com</code>
+                <strong className="text-zinc-200">WebRTC (P2P)</strong>{" "}
+                &mdash; direct data channel via Supabase signaling
               </li>
             </ol>
             <p className="mt-4 text-zinc-400">
-              This happens automatically. No manual configuration is needed
-              unless you want to force a specific mode in settings.
+              This happens automatically and fails over on network transitions
+              (WiFi↔cellular) within a couple of seconds. No manual
+              configuration is needed unless you want to force a specific mode
+              in settings.
             </p>
           </>
         ),
@@ -643,9 +650,10 @@ const guides: Record<string, Guide> = {
                   High latency or dropped audio
                 </h3>
                 <p className="mt-1 text-zinc-400">
-                  Voice commands require a stable network connection. If using a
-                  Cloudflare Tunnel, latency may be higher. For best results, use
-                  LAN mode.
+                  Voice commands require a stable network connection. On LAN,
+                  latency is effectively zero. On remote WebRTC, latency depends
+                  on whether your connection uses a direct path (fast) or TURN
+                  relay fallback (slower). For best results, use LAN mode.
                 </p>
               </div>
             </div>
@@ -1049,7 +1057,7 @@ const guides: Record<string, Guide> = {
             <p>
               Morpheus doesn&apos;t just detect problems &mdash; it fixes them.
               The Health Manager supervises all agent services (WebSocket,
-              Claude CLI, tunnel, MCP servers) and auto-restarts any that crash.
+              Claude CLI, WebRTC peer, MCP servers) and auto-restarts any that crash.
               It uses exponential backoff and tracks restart counts to avoid
               infinite loops.
             </p>

@@ -31,7 +31,7 @@ export default function PrivacyPage() {
         <ul>
           <li>Device names you assign to paired devices</li>
           <li>ECDH public keys for end-to-end encryption</li>
-          <li>Connection URLs (local network addresses or Cloudflare tunnel URLs)</li>
+          <li>Connection endpoints (local network addresses, WebRTC peer identifiers)</li>
           <li>Temporary pairing codes</li>
         </ul>
         <h3>Command and Session Data</h3>
@@ -112,13 +112,14 @@ export default function PrivacyPage() {
           <li><strong>Key Storage</strong>: Platform-specific secure storage (Keychain, Keystore, safeStorage)</li>
         </ul>
 
-        <h2>7. Remote Access (Cloudflare Tunnels)</h2>
-        <p>When remote access is active:</p>
+        <h2>7. Remote Access (WebRTC Peer-to-Peer)</h2>
+        <p>When your phone is off the agent&apos;s local network, Morpheus establishes a direct peer-to-peer WebRTC connection:</p>
         <ul>
-          <li>Encrypted WebSocket traffic passes through Cloudflare&apos;s infrastructure</li>
-          <li>Cloudflare can see connection metadata (IPs, timestamps) but not encrypted content</li>
-          <li>Tunnels are temporary and on-demand &mdash; no persistent infrastructure</li>
-          <li>See <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener noreferrer">Cloudflare&apos;s Privacy Policy</a></li>
+          <li>Session setup (SDP offer/answer + ICE candidates) is signed with the pairing shared secret and exchanged through <strong>Supabase Realtime</strong> &mdash; Supabase only relays opaque signed envelopes and cannot read the contents</li>
+          <li>The actual data channel is encrypted end-to-end by DTLS-SRTP (required by the WebRTC spec) on top of Morpheus&apos;s own TweetNaCl layer</li>
+          <li><strong>STUN</strong> (Google&apos;s public STUN) is used for NAT discovery; it receives no traffic content, only a connectivity probe</li>
+          <li><strong>TURN fallback</strong> (Open Relay Project, openrelay.metered.ca) is used only when both peers are behind symmetric NATs that block direct connection &mdash; the relay sees encrypted bytes, never the contents</li>
+          <li>No persistent tunneling infrastructure. Each connection lasts only for the session.</li>
         </ul>
 
         <h2>8. Voice Data</h2>
@@ -159,7 +160,8 @@ export default function PrivacyPage() {
           <li><strong>Supabase</strong> &mdash; Auth, sync, tokens. Anonymous user data stored. (<a href="https://supabase.com/privacy" target="_blank" rel="noopener noreferrer">Privacy</a>)</li>
           <li><strong>ElevenLabs</strong> &mdash; Voice TTS (optional). Response text sent. (<a href="https://elevenlabs.io/privacy" target="_blank" rel="noopener noreferrer">Privacy</a>)</li>
           <li><strong>RevenueCat</strong> &mdash; Subscriptions. Customer ID and purchase events. (<a href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener noreferrer">Privacy</a>)</li>
-          <li><strong>Cloudflare</strong> &mdash; Remote access (optional). Encrypted traffic routed. (<a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener noreferrer">Privacy</a>)</li>
+          <li><strong>Google STUN</strong> &mdash; NAT discovery for WebRTC. Connectivity probes only, no content. (<a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Privacy</a>)</li>
+          <li><strong>Open Relay Project</strong> &mdash; TURN fallback when direct WebRTC isn&apos;t possible. Relays encrypted bytes only. (<a href="https://www.metered.ca/privacy" target="_blank" rel="noopener noreferrer">Privacy</a>)</li>
           <li><strong>Sentry</strong> &mdash; Crash reporting. Technical data only. (<a href="https://sentry.io/privacy/" target="_blank" rel="noopener noreferrer">Privacy</a>)</li>
           <li><strong>Grafana Cloud</strong> &mdash; Telemetry (optional, desktop). Performance data only. (<a href="https://grafana.com/legal/privacy-policy/" target="_blank" rel="noopener noreferrer">Privacy</a>)</li>
           <li><strong>Google</strong> &mdash; Email/calendar watchers (optional). Read-only API access. (<a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Privacy</a>)</li>
@@ -179,7 +181,7 @@ export default function PrivacyPage() {
         <ul>
           <li><strong>Lawful basis</strong>: Legitimate interest (local data, sync), consent (optional features), contract (subscriptions)</li>
           <li><strong>Your rights</strong>: Access, rectification, erasure, restriction, portability, objection &mdash; local data directly on your device, cloud data via contacting us</li>
-          <li><strong>Data transfers</strong>: AI data to Anthropic (US); voice text to ElevenLabs; sync to Supabase; metadata via Cloudflare</li>
+          <li><strong>Data transfers</strong>: AI data to Anthropic (US); voice text to ElevenLabs; sync to Supabase; WebRTC signaling envelopes relayed (encrypted) via Supabase Realtime</li>
         </ul>
 
         <h2>15. California Users (CCPA)</h2>

@@ -25,7 +25,7 @@ export default function TermsPage() {
         <ul>
           <li>Executes AI-powered commands on your machine via an agent with elevated permissions</li>
           <li>Provides end-to-end encrypted communication between your mobile device and the Morpheus Agent</li>
-          <li>Optionally enables remote access through Cloudflare Quick Tunnels</li>
+          <li>Enables remote access via peer-to-peer WebRTC (STUN/TURN for NAT traversal) with Supabase Realtime as the signed-envelope signaling channel</li>
           <li>Optionally supports voice commands via on-device STT and ElevenLabs TTS</li>
           <li>Optionally syncs settings and history via Supabase cloud</li>
           <li>Offers free and premium subscription tiers via RevenueCat</li>
@@ -54,11 +54,12 @@ export default function TermsPage() {
         </ul>
 
         <h2>5. Remote Access</h2>
-        <p>When Remote Access is enabled:</p>
+        <p>When your phone is off the agent&apos;s local network:</p>
         <ul>
-          <li>The agent&apos;s WebSocket server is exposed via a Cloudflare Quick Tunnel</li>
-          <li>Network traffic is routed through Cloudflare&apos;s infrastructure</li>
-          <li>All messages remain end-to-end encrypted regardless of transport</li>
+          <li>A direct peer-to-peer WebRTC data channel is established between your phone and the agent</li>
+          <li>Session setup (SDP, ICE candidates) is signed with your pairing shared secret and relayed via Supabase Realtime &mdash; relays see only opaque envelopes</li>
+          <li>Google&apos;s public STUN performs NAT discovery; Open Relay Project TURN is used only if direct connection is blocked by symmetric NAT</li>
+          <li>All messages remain end-to-end encrypted (TweetNaCl at the application layer, DTLS-SRTP at the WebRTC transport layer)</li>
           <li>You are responsible for ensuring only authorized devices are paired</li>
         </ul>
 
@@ -77,7 +78,8 @@ export default function TermsPage() {
           <li><strong>ElevenLabs</strong> &mdash; Voice TTS (optional). AI response text sent for synthesis. (<a href="https://elevenlabs.io/privacy" target="_blank" rel="noopener noreferrer">Privacy</a>)</li>
           <li><strong>Supabase</strong> &mdash; Auth, sync, token management. (<a href="https://supabase.com/privacy" target="_blank" rel="noopener noreferrer">Privacy</a>)</li>
           <li><strong>RevenueCat</strong> &mdash; Subscription management. (<a href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener noreferrer">Privacy</a>)</li>
-          <li><strong>Cloudflare</strong> &mdash; Remote access tunnels. (<a href="https://www.cloudflare.com/terms/" target="_blank" rel="noopener noreferrer">Terms</a>)</li>
+          <li><strong>Google STUN</strong> &mdash; NAT discovery for WebRTC (connectivity probes, no content). (<a href="https://policies.google.com/terms" target="_blank" rel="noopener noreferrer">Terms</a>)</li>
+          <li><strong>Open Relay Project</strong> &mdash; WebRTC TURN fallback for symmetric NATs. (<a href="https://www.metered.ca/tools/openrelay/" target="_blank" rel="noopener noreferrer">About</a>)</li>
           <li><strong>Sentry</strong> &mdash; Anonymous crash reporting. (<a href="https://sentry.io/privacy/" target="_blank" rel="noopener noreferrer">Privacy</a>)</li>
           <li><strong>Google</strong> &mdash; Email/calendar watchers (optional, requires OAuth consent). (<a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Privacy</a>)</li>
           <li><strong>Slack</strong> &mdash; Slack watcher (optional, requires OAuth consent). (<a href="https://slack.com/privacy-policy" target="_blank" rel="noopener noreferrer">Privacy</a>)</li>

@@ -38,12 +38,12 @@ const guides = [
   {
     title: "Connection Modes",
     slug: "connection-modes",
-    description: "LAN, USB/ADB, and Cloudflare Tunnel — how Morpheus connects your devices.",
+    description: "LAN, USB/ADB, and peer-to-peer WebRTC — how Morpheus connects your devices.",
     icon: "[net]",
     sections: [
       "LAN (local network)",
       "USB / ADB (Android)",
-      "Remote access via Cloudflare Tunnel",
+      "Remote access via peer-to-peer WebRTC",
       "Connection fallback order",
       "Troubleshooting connections",
     ],

@@ -289,8 +289,9 @@ const sharedSecret = nacl.box.before(
         <p>The QR code displayed by the agent contains a JSON payload with:</p>
         <ul>
           <li>
-            <strong>WebSocket URL</strong> — The LAN address (or Cloudflare
-            tunnel URL for remote pairing) where the agent is listening.
+            <strong>WebSocket URL</strong> — The LAN address where the agent is
+            listening. Remote pairing uses a persistent agent device ID for the
+            WebRTC signaling channel, not a tunnel URL.
           </li>
           <li>
             <strong>Server public key</strong> — Base64-encoded Curve25519
