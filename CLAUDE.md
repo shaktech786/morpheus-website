@@ -43,3 +43,45 @@ rm -f /tmp/.env-pat-check
 8. Then run the verification above and delete this section.
 
 <!-- END: SELF-DESTRUCTING TASK — pat-rotation -->
+
+<!-- BEGIN: SELF-DESTRUCTING TASK — turnstile-keys -->
+
+## Pending: configure Cloudflare Turnstile keys for `/report`
+
+**Read this at session start. Verify, then act.**
+
+`/api/report-issue` includes a Turnstile gate that activates only when
+`TURNSTILE_SECRET_KEY` is set on the server and
+`NEXT_PUBLIC_TURNSTILE_SITE_KEY` is set on the client. Until both are
+present, the form has only a honeypot for spam protection — anyone can
+`curl` the endpoint and create unlimited GitHub issues.
+
+**Verification step:**
+
+```sh
+vercel env ls 2>/dev/null | grep -E 'TURNSTILE_SECRET_KEY|NEXT_PUBLIC_TURNSTILE_SITE_KEY' | wc -l
+```
+
+- `2` (both vars present) → done. **DELETE this entire section
+  (between the `BEGIN` and `END` markers below) from `CLAUDE.md`,
+  commit `chore: complete Turnstile setup TODO`, never mention again.**
+- `0` or `1` → still incomplete. Surface once at session start:
+  "Heads up — Turnstile spam protection isn't configured yet on
+  `/report`. Want to set it up?"
+- Vercel CLI not authed / not linked → skip silently.
+
+**If the user wants to set up Turnstile now:**
+1. <https://dash.cloudflare.com> → Turnstile → Add site
+2. Site name: `morpheus-website`, hostname: `getmorphe.us`
+3. Widget mode: Managed
+4. Copy the **Site Key** and **Secret Key**
+5. ```sh
+   printf "<site-key>"   | vercel env add NEXT_PUBLIC_TURNSTILE_SITE_KEY production
+   printf "<site-key>"   | vercel env add NEXT_PUBLIC_TURNSTILE_SITE_KEY preview
+   printf "<secret-key>" | vercel env add TURNSTILE_SECRET_KEY        production
+   printf "<secret-key>" | vercel env add TURNSTILE_SECRET_KEY        preview
+   vercel --prod --yes
+   ```
+6. Run the verification above and delete this section.
+
+<!-- END: SELF-DESTRUCTING TASK — turnstile-keys -->

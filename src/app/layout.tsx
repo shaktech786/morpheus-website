@@ -82,6 +82,9 @@ function Header() {
           <Link href="/blog" className="py-2 hover:text-morpheus transition-colors">
             Blog
           </Link>
+          <Link href="/report" className="py-2 text-zinc-500 hover:text-morpheus transition-colors">
+            Support
+          </Link>
         </div>
         <MobileNav />
       </nav>

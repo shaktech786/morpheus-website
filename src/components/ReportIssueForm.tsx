@@ -1,11 +1,14 @@
 "use client";
 
-import { useState, type ChangeEvent, type FormEvent } from "react";
+import { useEffect, useRef, useState, type ChangeEvent, type FormEvent } from "react";
+import Script from "next/script";
 
 const MAX_DESCRIPTION_LEN = 8000;
 const MAX_SCREENSHOTS = 5;
 const MAX_SCREENSHOT_BYTES = 5 * 1024 * 1024;
 const ALLOWED_MIME = ["image/png", "image/jpeg", "image/webp", "image/gif"];
+
+const TURNSTILE_SITE_KEY = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY ?? "";
 
 type Status =
   | { kind: "idle" }
@@ -13,11 +16,44 @@ type Status =
   | { kind: "success"; issueUrl: string; issueNumber: number }
   | { kind: "error"; message: string };
 
+declare global {
+  interface Window {
+    turnstile?: {
+      render: (
+        el: HTMLElement,
+        options: { sitekey: string; callback?: (token: string) => void; theme?: "dark" | "light" | "auto" }
+      ) => string;
+      reset: (id?: string) => void;
+    };
+  }
+}
+
 export default function ReportIssueForm() {
   const [description, setDescription] = useState("");
   const [email, setEmail] = useState("");
   const [screenshots, setScreenshots] = useState<File[]>([]);
   const [status, setStatus] = useState<Status>({ kind: "idle" });
+  const [turnstileToken, setTurnstileToken] = useState<string>("");
+  const turnstileEl = useRef<HTMLDivElement | null>(null);
+  const turnstileWidgetId = useRef<string | null>(null);
+
+  const turnstileEnabled = TURNSTILE_SITE_KEY.length > 0;
+
+  useEffect(() => {
+    if (!turnstileEnabled) return;
+    const tryRender = () => {
+      if (window.turnstile && turnstileEl.current && !turnstileWidgetId.current) {
+        turnstileWidgetId.current = window.turnstile.render(turnstileEl.current, {
+          sitekey: TURNSTILE_SITE_KEY,
+          theme: "dark",
+          callback: (token) => setTurnstileToken(token),
+        });
+      } else if (!window.turnstile) {
+        setTimeout(tryRender, 200);
+      }
+    };
+    tryRender();
+  }, [turnstileEnabled]);
 
   function handleScreenshotChange(e: ChangeEvent<HTMLInputElement>) {
     const files = Array.from(e.target.files ?? []);
@@ -50,8 +86,10 @@ export default function ReportIssueForm() {
     try {
       const fd = new FormData();
       fd.append("description", description.trim());
+      fd.append("source", "website");
       if (email.trim()) fd.append("email", email.trim());
       fd.append("userAgent", navigator.userAgent);
+      if (turnstileEnabled) fd.append("cf-turnstile-response", turnstileToken);
       for (const file of screenshots) {
         fd.append("screenshots", file);
       }
@@ -68,8 +106,16 @@ export default function ReportIssueForm() {
         setDescription("");
         setEmail("");
         setScreenshots([]);
+        setTurnstileToken("");
+        if (turnstileEnabled && window.turnstile && turnstileWidgetId.current) {
+          window.turnstile.reset(turnstileWidgetId.current);
+        }
       } else {
         setStatus({ kind: "error", message: data.error ?? "Something went wrong." });
+        if (turnstileEnabled && window.turnstile && turnstileWidgetId.current) {
+          window.turnstile.reset(turnstileWidgetId.current);
+          setTurnstileToken("");
+        }
       }
     } catch {
       setStatus({ kind: "error", message: "Network error. Please try again." });
@@ -177,6 +223,13 @@ export default function ReportIssueForm() {
         />
       </div>
 
+      {turnstileEnabled && (
+        <>
+          <Script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer />
+          <div ref={turnstileEl} className="cf-turnstile" />
+        </>
+      )}
+
       {status.kind === "error" && (
         <p role="alert" aria-live="assertive" className="text-xs text-red-400">
           {status.message}
@@ -185,7 +238,11 @@ export default function ReportIssueForm() {
 
       <button
         type="submit"
-        disabled={status.kind === "loading" || !description.trim()}
+        disabled={
+          status.kind === "loading" ||
+          !description.trim() ||
+          (turnstileEnabled && !turnstileToken)
+        }
         className="w-full rounded-lg border border-morpheus bg-morpheus/10 px-6 py-3 text-sm font-semibold text-morpheus transition-all hover:bg-morpheus/20 hover:shadow-[0_0_20px_rgba(0,255,0,0.15)] disabled:opacity-50 disabled:cursor-not-allowed"
       >
         {status.kind === "loading" ? (
