@@ -4,9 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "predev": "node scripts/check-setup.mjs",
     "build": "next build",
-    "prebuild": "node scripts/check-setup.mjs",
     "start": "next start"
   },
   "dependencies": {
