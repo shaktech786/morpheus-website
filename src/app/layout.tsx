@@ -138,6 +138,11 @@ function Footer() {
                   Contact Sales
                 </Link>
               </li>
+              <li>
+                <Link href="/report" className="hover:text-morpheus transition-colors">
+                  Report an Issue
+                </Link>
+              </li>
             </ul>
           </nav>
           <nav aria-label="Legal links">
