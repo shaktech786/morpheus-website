@@ -98,13 +98,13 @@ function buildWelcomeEmail(): string {
   <div style="max-width:600px;margin:0 auto;padding:40px 24px;">
 
     <div style="text-align:center;margin-bottom:32px;">
-      <h1 style="color:#00ff00;font-size:28px;margin:0;text-shadow:0 0 10px rgba(0,255,0,0.5);">
+      <h1 style="color:#00ff88;font-size:28px;margin:0;text-shadow:0 0 10px rgba(0,255,136,0.5);">
         morpheus
       </h1>
     </div>
 
     <div style="background-color:#141414;border:1px solid #333;border-radius:12px;padding:32px;margin-bottom:24px;">
-      <p style="color:#00ff00;font-size:14px;margin:0 0 16px 0;letter-spacing:2px;">
+      <p style="color:#00ff88;font-size:14px;margin:0 0 16px 0;letter-spacing:2px;">
         &gt; ACCESS GRANTED
       </p>
       <h2 style="color:#ffffff;font-size:22px;margin:0 0 16px 0;font-weight:600;">
@@ -114,11 +114,11 @@ function buildWelcomeEmail(): string {
         Thanks for signing up. When Morpheus launches, you'll be the first to know &mdash; and you'll get an exclusive deal.
       </p>
 
-      <div style="background-color:#0a0a0a;border:1px solid #00ff00;border-radius:8px;padding:24px;text-align:center;margin-bottom:24px;">
+      <div style="background-color:#0a0a0a;border:1px solid #00ff88;border-radius:8px;padding:24px;text-align:center;margin-bottom:24px;">
         <p style="color:#00cc00;font-size:13px;margin:0 0 8px 0;letter-spacing:1px;">
           EARLY BIRD DISCOUNT
         </p>
-        <p style="color:#00ff00;font-size:48px;font-weight:bold;margin:0 0 8px 0;">
+        <p style="color:#00ff88;font-size:48px;font-weight:bold;margin:0 0 8px 0;">
           50% OFF
         </p>
         <p style="color:#888;font-size:13px;margin:0;">

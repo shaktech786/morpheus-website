@@ -97,7 +97,7 @@ export default function BillingToggle() {
           </div>
 
           {/* Pro Tier */}
-          <div className="relative flex flex-col rounded-xl border border-morpheus/40 bg-surface p-8 shadow-[0_0_30px_rgba(0,255,0,0.08)]">
+          <div className="relative flex flex-col rounded-xl border border-morpheus/40 bg-surface p-8 shadow-[0_0_30px_rgba(0,255,136,0.08)]">
             <div className="absolute -top-3 left-1/2 -translate-x-1/2">
               <span className="rounded-full border border-morpheus bg-morpheus/20 px-4 py-1 text-xs font-bold uppercase tracking-wider text-morpheus">
                 Most Popular
@@ -132,7 +132,7 @@ export default function BillingToggle() {
             </div>
             <Link
               href="/download"
-              className="mt-8 block rounded-lg border border-morpheus bg-morpheus/10 px-6 py-3 text-center text-sm font-semibold text-morpheus transition-all hover:bg-morpheus/20 hover:shadow-[0_0_20px_rgba(0,255,0,0.15)]"
+              className="mt-8 block rounded-lg border border-morpheus bg-morpheus/10 px-6 py-3 text-center text-sm font-semibold text-morpheus transition-all hover:bg-morpheus/20 hover:shadow-[0_0_20px_rgba(0,255,136,0.15)]"
             >
               Get Pro
             </Link>
@@ -157,15 +157,15 @@ export default function BillingToggle() {
           </div>
 
           {/* Team Tier */}
-          <div className="relative flex flex-col rounded-xl border border-[#00ccff]/30 bg-surface p-8 shadow-[0_0_30px_rgba(0,204,255,0.06)]">
+          <div className="relative flex flex-col rounded-xl border border-pill/30 bg-surface p-8 shadow-[0_0_30px_rgba(0,204,255,0.06)]">
             <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-              <span className="rounded-full border border-[#00ccff]/50 bg-[#00ccff]/10 px-4 py-1 text-xs font-bold uppercase tracking-wider text-[#00ccff]">
+              <span className="rounded-full border border-pill/50 bg-pill/10 px-4 py-1 text-xs font-bold uppercase tracking-wider text-pill">
                 For Teams
               </span>
             </div>
 
             <div>
-              <h3 className="text-lg font-semibold text-[#00ccff]">Team</h3>
+              <h3 className="text-lg font-semibold text-pill">Team</h3>
               <p className="mt-1 text-sm text-zinc-400">
                 Shared devices, audit logs, admin controls.
               </p>
@@ -177,7 +177,7 @@ export default function BillingToggle() {
                     {PRICING.teamAnnual}
                   </span>
                   <span className="text-sm text-zinc-400"> / seat / year</span>
-                  <p className="mt-1 text-sm text-[#00ccff]/70">
+                  <p className="mt-1 text-sm text-pill/70">
                     {PRICING.teamAnnualMonthly}/seat/mo billed annually
                   </p>
                 </>
@@ -192,7 +192,7 @@ export default function BillingToggle() {
             </div>
             <Link
               href="mailto:team@getmorphe.us?subject=Morpheus Team Plan"
-              className="mt-8 block rounded-lg border border-[#00ccff]/40 bg-[#00ccff]/10 px-6 py-3 text-center text-sm font-semibold text-[#00ccff] transition-all hover:bg-[#00ccff]/20 hover:shadow-[0_0_20px_rgba(0,204,255,0.15)]"
+              className="mt-8 block rounded-lg border border-pill/40 bg-pill/10 px-6 py-3 text-center text-sm font-semibold text-pill transition-all hover:bg-pill/20 hover:shadow-[0_0_20px_rgba(0,204,255,0.15)]"
             >
               Contact Sales
             </Link>
@@ -218,7 +218,7 @@ export default function BillingToggle() {
         </div>
 
         {/* Lifetime Option */}
-        <div className="mt-8 rounded-xl border border-morpheus/30 bg-surface p-6 shadow-[0_0_20px_rgba(0,255,0,0.05)]">
+        <div className="mt-8 rounded-xl border border-morpheus/30 bg-surface p-6 shadow-[0_0_20px_rgba(0,255,136,0.05)]">
           <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
             <div>
               <div className="flex items-center gap-3">

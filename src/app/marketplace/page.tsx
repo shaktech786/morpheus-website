@@ -18,7 +18,7 @@ interface McpTool {
 }
 
 const CATEGORY_META: Record<McpCategory, { label: string; color: string; icon: string }> = {
-  developer: { label: "Developer", color: "#00ff00", icon: ">" },
+  developer: { label: "Developer", color: "#00ff88", icon: ">" },
   databases: { label: "Databases", color: "#00aaff", icon: "db" },
   communication: { label: "Communication", color: "#ff9900", icon: "@" },
   cloud: { label: "Cloud", color: "#aa66ff", icon: "~" },

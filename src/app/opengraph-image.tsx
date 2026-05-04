@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
-export const alt = "Morpheus - AI Agent Control From Your Phone";
+export const alt = "Morpheus — Any Machine, Controlled by Your Phone";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -29,7 +29,7 @@ export default function Image() {
             position: "absolute",
             inset: 0,
             backgroundImage:
-              "linear-gradient(rgba(0,255,0,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0,255,0,0.03) 1px, transparent 1px)",
+              "linear-gradient(rgba(0,255,136,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0,255,136,0.03) 1px, transparent 1px)",
             backgroundSize: "40px 40px",
           }}
         />
@@ -44,9 +44,9 @@ export default function Image() {
           style={{
             fontSize: 72,
             fontWeight: 700,
-            color: "#00ff00",
+            color: "#00ff88",
             textShadow:
-              "0 0 20px rgba(0,255,0,0.5), 0 0 40px rgba(0,255,0,0.2)",
+              "0 0 20px rgba(0,255,136,0.5), 0 0 40px rgba(0,255,136,0.2)",
             display: "flex",
           }}
         >
@@ -60,12 +60,12 @@ export default function Image() {
             display: "flex",
           }}
         >
-          AI Agent Control From Your Phone
+          Any Machine, Controlled by Your Phone
         </div>
         <div
           style={{
             fontSize: 18,
-            color: "#00cc00",
+            color: "#00cc77",
             marginTop: 32,
             display: "flex",
             gap: 24,

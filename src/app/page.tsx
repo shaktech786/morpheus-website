@@ -200,7 +200,7 @@ export default function Home() {
           <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
             <Link
               href="/download"
-              className="rounded-lg border border-morpheus bg-morpheus/10 px-8 py-3 text-sm font-semibold text-morpheus transition-all hover:bg-morpheus/20 hover:shadow-[0_0_20px_rgba(0,255,0,0.15)]"
+              className="rounded-lg border border-morpheus bg-morpheus/10 px-8 py-3 text-sm font-semibold text-morpheus transition-all hover:bg-morpheus/20 hover:shadow-[0_0_20px_rgba(0,255,136,0.15)]"
             >
               Download
             </Link>
@@ -344,7 +344,7 @@ export default function Home() {
           <div className="mt-12 text-center">
             <Link
               href="/download"
-              className="rounded-lg border border-morpheus bg-morpheus/10 px-8 py-3 text-sm font-semibold text-morpheus transition-all hover:bg-morpheus/20 hover:shadow-[0_0_20px_rgba(0,255,0,0.15)]"
+              className="rounded-lg border border-morpheus bg-morpheus/10 px-8 py-3 text-sm font-semibold text-morpheus transition-all hover:bg-morpheus/20 hover:shadow-[0_0_20px_rgba(0,255,136,0.15)]"
             >
               Download Morpheus
             </Link>
@@ -376,7 +376,7 @@ export default function Home() {
               </ul>
             </div>
             {/* Pro */}
-            <div className="rounded-xl border border-morpheus/40 bg-surface p-6 text-left shadow-[0_0_30px_rgba(0,255,0,0.08)]">
+            <div className="rounded-xl border border-morpheus/40 bg-surface p-6 text-left shadow-[0_0_30px_rgba(0,255,136,0.08)]">
               <h3 className="text-lg font-semibold text-morpheus">Pro</h3>
               <p className="mt-1 text-2xl font-bold text-white">{PRICING.monthly} <span className="text-sm font-normal text-zinc-400">/ month</span></p>
               <p className="mt-2 text-xs text-morpheus-muted">Full power for individuals</p>
@@ -388,22 +388,22 @@ export default function Home() {
               </ul>
             </div>
             {/* Team */}
-            <div className="rounded-xl border border-[#00ccff]/30 bg-surface p-6 text-left shadow-[0_0_30px_rgba(0,204,255,0.06)]">
-              <h3 className="text-lg font-semibold text-[#00ccff]">Team</h3>
+            <div className="rounded-xl border border-pill/30 bg-surface p-6 text-left shadow-[0_0_30px_rgba(0,204,255,0.06)]">
+              <h3 className="text-lg font-semibold text-pill">Team</h3>
               <p className="mt-1 text-2xl font-bold text-white">{PRICING.teamMonthly} <span className="text-sm font-normal text-zinc-400">/ seat / mo</span></p>
-              <p className="mt-2 text-xs text-[#00ccff]/70">Built for teams</p>
+              <p className="mt-2 text-xs text-pill/70">Built for teams</p>
               <ul className="mt-4 space-y-2 text-sm text-zinc-400">
-                <li><span className="text-[#00ccff] font-bold mr-2" aria-hidden="true">[+]</span>Everything in Pro</li>
-                <li><span className="text-[#00ccff] font-bold mr-2" aria-hidden="true">[+]</span>Shared device pools &amp; audit logs</li>
-                <li><span className="text-[#00ccff] font-bold mr-2" aria-hidden="true">[+]</span>Admin controls &amp; SSO</li>
-                <li><span className="text-[#00ccff] font-bold mr-2" aria-hidden="true">[+]</span>Shared token pool &amp; up to 25 seats</li>
+                <li><span className="text-pill font-bold mr-2" aria-hidden="true">[+]</span>Everything in Pro</li>
+                <li><span className="text-pill font-bold mr-2" aria-hidden="true">[+]</span>Shared device pools &amp; audit logs</li>
+                <li><span className="text-pill font-bold mr-2" aria-hidden="true">[+]</span>Admin controls &amp; SSO</li>
+                <li><span className="text-pill font-bold mr-2" aria-hidden="true">[+]</span>Shared token pool &amp; up to 25 seats</li>
               </ul>
             </div>
           </div>
           <div className="mt-10">
             <Link
               href="/pricing"
-              className="rounded-lg border border-morpheus bg-morpheus/10 px-8 py-3 text-sm font-semibold text-morpheus transition-all hover:bg-morpheus/20 hover:shadow-[0_0_20px_rgba(0,255,0,0.15)]"
+              className="rounded-lg border border-morpheus bg-morpheus/10 px-8 py-3 text-sm font-semibold text-morpheus transition-all hover:bg-morpheus/20 hover:shadow-[0_0_20px_rgba(0,255,136,0.15)]"
             >
               View Full Pricing
             </Link>
@@ -414,7 +414,7 @@ export default function Home() {
       {/* Newsletter CTA (replaces early access / waitlist) */}
       <section id="newsletter" aria-labelledby="newsletter-heading" className="border-t border-border py-24">
         <div className="mx-auto max-w-4xl px-6">
-          <div className="rounded-2xl border border-morpheus/30 bg-gradient-to-b from-morpheus/5 to-transparent p-8 sm:p-12 text-center shadow-[0_0_60px_rgba(0,255,0,0.05)]">
+          <div className="rounded-2xl border border-morpheus/30 bg-gradient-to-b from-morpheus/5 to-transparent p-8 sm:p-12 text-center shadow-[0_0_60px_rgba(0,255,136,0.05)]">
             <p className="text-sm text-morpheus-muted tracking-widest uppercase mb-4">
               &gt; stay updated
             </p>

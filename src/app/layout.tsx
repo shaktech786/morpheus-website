@@ -12,11 +12,11 @@ const jetbrains = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Morpheus - Your AI Assistant, In Your Pocket",
+    default: "Morpheus — Any Machine, Controlled by Your Phone",
     template: "%s | Morpheus",
   },
   description:
-    "Control any machine from your phone. Send emails, research anything, manage files, automate tasks — all with voice commands and end-to-end encryption.",
+    "Control any machine from your phone. Deploy code, send emails, manage files, automate anything — voice-first, end-to-end encrypted, no cloud required.",
   keywords: [
     "AI assistant",
     "personal assistant",
@@ -31,9 +31,9 @@ export const metadata: Metadata = {
   creator: "Shakeel Bhamani",
   metadataBase: new URL("https://getmorphe.us"),
   openGraph: {
-    title: "Morpheus - Your AI Assistant, In Your Pocket",
+    title: "Morpheus — Any Machine, Controlled by Your Phone",
     description:
-      "Control any machine from your phone. Send emails, research anything, manage files, and automate tasks with AI.",
+      "Deploy code, send emails, manage files, automate anything — voice-first, end-to-end encrypted, no cloud required.",
     url: "https://getmorphe.us",
     siteName: "Morpheus",
     locale: "en_US",
@@ -41,9 +41,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Morpheus - Your AI Assistant, In Your Pocket",
+    title: "Morpheus — Any Machine, Controlled by Your Phone",
     description:
-      "Control any machine from your phone. Send emails, research anything, manage files, and automate tasks with AI.",
+      "Deploy code, send emails, manage files, automate anything — voice-first, end-to-end encrypted, no cloud required.",
   },
   robots: {
     index: true,
@@ -100,7 +100,7 @@ function Footer() {
           <div>
             <h3 className="font-semibold text-morpheus">morpheus</h3>
             <p className="mt-2 text-sm text-zinc-400">
-              AI agent control from your mobile device.
+              Control any machine from your phone.
             </p>
           </div>
           <nav aria-label="Product links">

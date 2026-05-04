@@ -115,17 +115,17 @@ async function sendConfirmationEmail(
       html: `<!DOCTYPE html><html><body style="margin:0;padding:0;background:#0a0a0a;font-family:'Courier New',monospace;color:#b0b0b0;">
 <div style="max-width:600px;margin:0 auto;padding:40px 24px;">
   <div style="text-align:center;margin-bottom:32px;">
-    <h1 style="color:#00ff00;font-size:28px;margin:0;text-shadow:0 0 10px rgba(0,255,0,0.5);">morpheus</h1>
+    <h1 style="color:#00ff88;font-size:28px;margin:0;text-shadow:0 0 10px rgba(0,255,136,0.5);">morpheus</h1>
   </div>
   <div style="background:#141414;border:1px solid #333;border-radius:12px;padding:32px;">
-    <p style="color:#00ff00;font-size:14px;margin:0 0 16px 0;letter-spacing:2px;">&gt; REPORT RECEIVED</p>
+    <p style="color:#00ff88;font-size:14px;margin:0 0 16px 0;letter-spacing:2px;">&gt; REPORT RECEIVED</p>
     <h2 style="color:#fff;font-size:22px;margin:0 0 16px 0;">Thanks for the report.</h2>
     <p style="color:#b0b0b0;font-size:15px;line-height:1.6;margin:0 0 24px 0;">
-      We're tracking your issue as <strong style="color:#00ff00;">#${issueNumber}</strong>.
+      We're tracking your issue as <strong style="color:#00ff88;">#${issueNumber}</strong>.
       You can follow updates on GitHub:
     </p>
     <div style="text-align:center;">
-      <a href="${issueUrl}" style="display:inline-block;background:#0a0a0a;border:1px solid #00ff00;color:#00ff00;padding:12px 24px;border-radius:8px;text-decoration:none;font-weight:bold;">View issue →</a>
+      <a href="${issueUrl}" style="display:inline-block;background:#0a0a0a;border:1px solid #00ff88;color:#00ff88;padding:12px 24px;border-radius:8px;text-decoration:none;font-weight:bold;">View issue →</a>
     </div>
   </div>
   <div style="text-align:center;padding:16px 0;border-top:1px solid #333;margin-top:24px;">
