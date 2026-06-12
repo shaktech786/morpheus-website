@@ -4,42 +4,54 @@ import { useSearchParams } from "next/navigation";
 import { Suspense } from "react";
 import Link from "next/link";
 
+// Stable download gateway: each link 302-redirects to the matching asset of
+// the latest GitHub release (the repo itself is private, so links must go
+// through the gateway rather than github.com/releases).
+const DOWNLOAD_GATEWAY =
+  "https://hdcgbbmjbkbwlluobkqe.supabase.co/functions/v1/check-for-updates/download";
+
 const desktopPlatforms = [
   {
     name: "macOS (Apple Silicon)",
     os: "mac",
     tag: "darwin-arm64",
     note: "M1/M2/M3/M4 Macs",
+    href: `${DOWNLOAD_GATEWAY}/mac-arm64`,
   },
   {
     name: "macOS (Intel)",
     os: "mac",
     tag: "darwin-x64",
     note: "Intel-based Macs",
+    href: `${DOWNLOAD_GATEWAY}/mac-x64`,
   },
   {
     name: "Windows (Installer)",
     os: "windows",
     tag: "win32-x64",
     note: "Windows 10+ (x64)",
+    href: `${DOWNLOAD_GATEWAY}/win`,
   },
   {
     name: "Windows (Portable)",
     os: "windows",
     tag: "win32-portable",
     note: "No install required",
+    href: `${DOWNLOAD_GATEWAY}/win-portable`,
   },
   {
     name: "Linux (AppImage)",
     os: "linux",
     tag: "linux-appimg",
     note: "Universal Linux",
+    href: `${DOWNLOAD_GATEWAY}/linux-appimage`,
   },
   {
     name: "Linux (Debian)",
     os: "linux",
     tag: "linux-deb",
     note: "Ubuntu / Debian",
+    href: `${DOWNLOAD_GATEWAY}/linux-deb`,
   },
 ];
 
@@ -48,9 +60,6 @@ const OS_LABELS: Record<string, string> = {
   windows: "Windows",
   linux: "Linux",
 };
-
-const GITHUB_RELEASES =
-  "https://github.com/shaktech786/morpheus/releases/latest";
 
 const PLAY_STORE =
   "https://play.google.com/store/apps/details?id=com.shaktech.morpheus";
@@ -146,7 +155,7 @@ function DownloadInner() {
             {filteredPlatforms.map((p) => (
               <a
                 key={p.name}
-                href={GITHUB_RELEASES}
+                href={p.href}
                 target="_blank"
                 rel="noopener noreferrer"
                 className={`flex items-center justify-between gap-4 rounded-xl border p-4 transition-all hover:border-morpheus-dark hover:bg-surface-hover ${
@@ -184,7 +193,7 @@ function DownloadInner() {
                 {otherPlatforms.map((p) => (
                   <a
                     key={p.name}
-                    href={GITHUB_RELEASES}
+                    href={p.href}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center justify-between gap-4 rounded-xl border border-border bg-surface p-4 transition-all hover:border-morpheus-dark hover:bg-surface-hover"
