@@ -166,8 +166,14 @@ const jsonLd = {
     },
   ],
   author: {
-    "@type": "Person",
-    name: "Shakeel Bhamani",
+    "@type": "Organization",
+    name: "ShakTech Labs LLC",
+    url: "https://getmorphe.us",
+  },
+  publisher: {
+    "@type": "Organization",
+    name: "ShakTech Labs LLC",
+    url: "https://getmorphe.us",
   },
 };
 

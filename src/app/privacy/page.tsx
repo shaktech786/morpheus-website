@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Privacy Policy",
   description:
-    "Morpheus Privacy Policy. Local-first architecture with optional cloud sync. Transparent data handling for AI agent control.",
+    "Morpheus Privacy Policy. Local-first architecture with optional cloud sync. Transparent data handling for AI agent control by ShakTech Labs LLC.",
 };
 
 export default function PrivacyPage() {
@@ -11,11 +11,25 @@ export default function PrivacyPage() {
     <div className="py-24">
       <div className="prose prose-invert prose-morpheus mx-auto max-w-3xl px-6">
         <h1>Privacy Policy</h1>
-        <p className="lead">Last Updated: March 2026</p>
+        <p className="lead">Last Updated: May 2026</p>
+
+        <div className="not-prose my-6 rounded-lg border border-white/10 bg-white/5 p-5">
+          <p className="text-sm font-semibold text-white">Data Controller</p>
+          <p className="mt-1 text-sm text-white/70">
+            <strong>ShakTech Labs LLC</strong>
+            <br />
+            Georgia, United States
+            <br />
+            <a href="mailto:team@getmorphe.us" className="text-[#00ff88]">team@getmorphe.us</a>
+          </p>
+          <p className="mt-2 text-sm text-white/60">
+            ShakTech Labs LLC is the data controller for personal data processed in connection with your use of Morpheus, as defined under GDPR Article 4(7) and the California Consumer Privacy Act.
+          </p>
+        </div>
 
         <h2>1. Introduction</h2>
         <p>
-          This Privacy Policy describes how Morpheus (&quot;the Software&quot;) handles your data.
+          This Privacy Policy describes how ShakTech Labs LLC (&quot;we&quot;, &quot;us&quot;, &quot;our&quot;) handles your data in connection with the Morpheus application (&quot;the Software&quot;).
           Morpheus is a mobile-to-machine AI agent control application.
         </p>
         <p>
@@ -31,7 +45,7 @@ export default function PrivacyPage() {
         <ul>
           <li>Device names you assign to paired devices</li>
           <li>ECDH public keys for end-to-end encryption</li>
-          <li>Connection endpoints (local network addresses, WebRTC peer identifiers)</li>
+          <li>Connection endpoints (local network addresses, relay device identifiers)</li>
           <li>Temporary pairing codes</li>
         </ul>
         <h3>Command and Session Data</h3>
@@ -65,6 +79,7 @@ export default function PrivacyPage() {
           <li><strong>Sync</strong> (optional): Settings, recent command history (last 100), and sound preferences</li>
           <li><strong>Token balance</strong>: Usage tracking for the managed Claude API proxy</li>
           <li><strong>Transaction ledger</strong>: Token purchases, usage, and refunds</li>
+          <li><strong>Waitlist / sign-up</strong> (if applicable): Email address and IP address for early access notifications</li>
         </ul>
         <p>
           All Supabase data is protected by row-level security &mdash; each user can only access their own data.
@@ -95,13 +110,13 @@ export default function PrivacyPage() {
         <ul>
           <li><strong>Agent (macOS)</strong>: ~/Library/Application Support/Morpheus/</li>
           <li><strong>Agent (Windows)</strong>: %APPDATA%/Morpheus/</li>
-          <li><strong>Agent (Linux/Server)</strong>: ~/.config/Morpheus/</li>
+          <li><strong>Agent (Linux)</strong>: ~/.config/Morpheus/</li>
           <li><strong>Mobile (iOS)</strong>: Keychain for keys, app container for settings</li>
           <li><strong>Mobile (Android)</strong>: Keystore for keys, app storage for settings</li>
         </ul>
         <p>
           Delete local data at any time by uninstalling the application or clearing app data.
-          For server-side data, contact us for deletion.
+          For server-side data, contact <a href="mailto:team@getmorphe.us">team@getmorphe.us</a> for deletion.
         </p>
 
         <h2>6. Encryption</h2>
@@ -112,14 +127,13 @@ export default function PrivacyPage() {
           <li><strong>Key Storage</strong>: Platform-specific secure storage (Keychain, Keystore, safeStorage)</li>
         </ul>
 
-        <h2>7. Remote Access (WebRTC Peer-to-Peer)</h2>
-        <p>When your phone is off the agent&apos;s local network, Morpheus establishes a direct peer-to-peer WebRTC connection:</p>
+        <h2>7. Remote Access (Relay)</h2>
+        <p>When your phone and desktop are on the same network, Morpheus connects directly over your LAN and no traffic leaves your network. When they are on different networks, traffic is routed through a <strong>relay server we operate</strong> (hosted on <a href="https://fly.io/legal/privacy-policy" target="_blank" rel="noopener noreferrer">Fly.io</a>):</p>
         <ul>
-          <li>Session setup (SDP offer/answer + ICE candidates) is signed with the pairing shared secret and exchanged through <strong>Supabase Realtime</strong> &mdash; Supabase only relays opaque signed envelopes and cannot read the contents</li>
-          <li>The actual data channel is encrypted end-to-end by DTLS-SRTP (required by the WebRTC spec) on top of Morpheus&apos;s own TweetNaCl layer</li>
-          <li><strong>STUN</strong> (Google&apos;s public STUN) is used for NAT discovery; it receives no traffic content, only a connectivity probe</li>
-          <li><strong>TURN fallback</strong> (Open Relay Project, openrelay.metered.ca) is used only when both peers are behind symmetric NATs that block direct connection &mdash; the relay sees encrypted bytes, never the contents</li>
-          <li>No persistent tunneling infrastructure. Each connection lasts only for the session.</li>
+          <li>The relay forwards data only &mdash; all message content stays <strong>end-to-end encrypted</strong> with the secret established when you paired the devices, so the relay (and we) <strong>cannot read it</strong></li>
+          <li>The relay processes connection <strong>metadata</strong> to route traffic: your stable device identifier, IP addresses, and connection timestamps. Message payloads are never logged</li>
+          <li>The desktop maintains an <strong>outbound</strong> connection to the relay, so your phone can reach it without exposing your machine to the public internet</li>
+          <li>You can disable the relay and run <strong>LAN-only</strong> at any time via your desktop configuration</li>
         </ul>
 
         <h2>8. Voice Data</h2>
@@ -138,6 +152,9 @@ export default function PrivacyPage() {
           over the encrypted connection. Screenshots are not sent to external servers unless explicitly
           included in AI command context.
         </p>
+        <p>
+          <strong>Note</strong>: Because Morpheus can capture your screen, screenshots may incidentally contain personal information, financial data, or other sensitive content visible on your desktop at the time of capture. This content is transmitted only to your paired mobile device over the encrypted connection.
+        </p>
 
         <h2>10. Notification Bridge (Android, Optional)</h2>
         <p>
@@ -153,6 +170,12 @@ export default function PrivacyPage() {
           <li><strong>File/Process/System</strong>: Local monitoring only, no external data sharing</li>
         </ul>
         <p>All watcher data goes only to your paired mobile device. OAuth tokens stored in the encrypted credential vault.</p>
+        <p>
+          <strong>Google API Limited Use Disclosure</strong>: Morpheus&apos;s use and transfer of information received from Google APIs adheres to the{" "}
+          <a href="https://developers.google.com/terms/api-services-user-data-policy" target="_blank" rel="noopener noreferrer">
+            Google API Services User Data Policy
+          </a>, including the Limited Use requirements.
+        </p>
 
         <h2>12. Third-Party Services</h2>
         <ul>
@@ -160,8 +183,7 @@ export default function PrivacyPage() {
           <li><strong>Supabase</strong> &mdash; Auth, sync, tokens. Anonymous user data stored. (<a href="https://supabase.com/privacy" target="_blank" rel="noopener noreferrer">Privacy</a>)</li>
           <li><strong>ElevenLabs</strong> &mdash; Voice TTS (optional). Response text sent. (<a href="https://elevenlabs.io/privacy" target="_blank" rel="noopener noreferrer">Privacy</a>)</li>
           <li><strong>RevenueCat</strong> &mdash; Subscriptions. Customer ID and purchase events. (<a href="https://www.revenuecat.com/privacy" target="_blank" rel="noopener noreferrer">Privacy</a>)</li>
-          <li><strong>Google STUN</strong> &mdash; NAT discovery for WebRTC. Connectivity probes only, no content. (<a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Privacy</a>)</li>
-          <li><strong>Open Relay Project</strong> &mdash; TURN fallback when direct WebRTC isn&apos;t possible. Relays encrypted bytes only. (<a href="https://www.metered.ca/privacy" target="_blank" rel="noopener noreferrer">Privacy</a>)</li>
+          <li><strong>Fly.io</strong> &mdash; Hosts the relay for off-LAN remote access. Connection metadata only (device ID, IP, timestamps); message content is end-to-end encrypted and unreadable by the relay. (<a href="https://fly.io/legal/privacy-policy" target="_blank" rel="noopener noreferrer">Privacy</a>)</li>
           <li><strong>Sentry</strong> &mdash; Crash reporting. Technical data only. (<a href="https://sentry.io/privacy/" target="_blank" rel="noopener noreferrer">Privacy</a>)</li>
           <li><strong>Grafana Cloud</strong> &mdash; Telemetry (optional, desktop). Performance data only. (<a href="https://grafana.com/legal/privacy-policy/" target="_blank" rel="noopener noreferrer">Privacy</a>)</li>
           <li><strong>Google</strong> &mdash; Email/calendar watchers (optional). Read-only API access. (<a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Privacy</a>)</li>
@@ -172,43 +194,62 @@ export default function PrivacyPage() {
         <h2>13. Data Retention</h2>
         <ul>
           <li>Local data retained until you delete it; long-term memory persists with confidence decay</li>
-          <li>Cloud data (Supabase) retained while your account exists; contact us for deletion</li>
+          <li>Cloud data (Supabase) retained while your account exists; contact us for deletion within 30 days</li>
           <li>Third-party retention governed by each service&apos;s own policies</li>
         </ul>
 
-        <h2>14. International Users (GDPR)</h2>
-        <p>If you are in the EEA, UK, or Switzerland:</p>
+        <h2>14. Data Controller and GDPR Rights</h2>
+        <p>If you are in the EEA, UK, or Switzerland, the data controller is <strong>ShakTech Labs LLC</strong>, Georgia, United States, team@getmorphe.us.</p>
+        <h3>Lawful Basis for Processing</h3>
         <ul>
-          <li><strong>Lawful basis</strong>: Legitimate interest (local data, sync), consent (optional features), contract (subscriptions)</li>
-          <li><strong>Your rights</strong>: Access, rectification, erasure, restriction, portability, objection &mdash; local data directly on your device, cloud data via contacting us</li>
-          <li><strong>Data transfers</strong>: AI data to Anthropic (US); voice text to ElevenLabs; sync to Supabase; WebRTC signaling envelopes relayed (encrypted) via Supabase Realtime</li>
+          <li><strong>Legitimate interest (Art. 6(1)(f))</strong>: Local device data processing and minimum cloud infrastructure (anonymous authentication, crash reporting) necessary for the app to function securely</li>
+          <li><strong>Consent (Art. 6(1)(a))</strong>: Optional features involving third-party data sharing — voice mode (ElevenLabs), cloud sync, and watchers — are opt-in. You may withdraw consent at any time by disabling the feature</li>
+          <li><strong>Contract performance (Art. 6(1)(b))</strong>: Subscription and billing management via RevenueCat</li>
         </ul>
-
-        <h2>15. California Users (CCPA)</h2>
+        <h3>Your GDPR Rights</h3>
         <ul>
-          <li>Morpheus does <strong>not</strong> sell personal information</li>
-          <li>Delete local data by uninstalling; contact us for cloud data</li>
-          <li>No discrimination for exercising privacy rights</li>
+          <li><strong>Access (Art. 15)</strong>: Local data is directly on your device. For cloud data, contact team@getmorphe.us</li>
+          <li><strong>Rectification (Art. 16)</strong>: Modify data within the app at any time</li>
+          <li><strong>Erasure (Art. 17)</strong>: Uninstall to erase local data; contact us for cloud data deletion within 30 days</li>
+          <li><strong>Restriction (Art. 18)</strong>: Disable optional features to restrict third-party data sharing</li>
+          <li><strong>Portability (Art. 20)</strong>: Command history exportable as JSON/Markdown</li>
+          <li><strong>Object (Art. 21)</strong>: You may stop using optional features at any time</li>
+          <li><strong>Supervisory authority</strong>: You may lodge a complaint with your local data protection authority</li>
+        </ul>
+        <p>
+          <strong>Data transfers</strong>: AI data to Anthropic (US); voice text to ElevenLabs; sync to Supabase; off-LAN relay connection metadata to Fly.io. Transfers to the US occur on the basis of your consent to use those features.
+        </p>
+        <p>Contact: <a href="mailto:team@getmorphe.us">team@getmorphe.us</a> for GDPR inquiries. We respond within 30 days (acknowledgement within 72 hours).</p>
+
+        <h2>15. California Users (CCPA / CPRA)</h2>
+        <p>If you are a California resident:</p>
+        <ul>
+          <li>Morpheus does <strong>not</strong> sell or share personal information for cross-context behavioral advertising</li>
+          <li>Categories of personal information collected: identifiers (anonymous user ID), internet activity (session metadata, crash reports if Sentry fires), inferences (local long-term memory, never transmitted)</li>
+          <li><strong>Right to know</strong>: Categories and specific pieces are described in Sections 2–3 and this section</li>
+          <li><strong>Right to delete</strong>: Uninstall for local data; contact team@getmorphe.us for cloud data</li>
+          <li><strong>Right to correct</strong>: Contact us to correct inaccurate information</li>
+          <li><strong>Right to opt-out of sale/sharing</strong>: No sale or sharing occurs; no opt-out needed</li>
+          <li><strong>No discrimination</strong>: You will not receive different service quality for exercising privacy rights</li>
         </ul>
 
         <h2>16. Children&apos;s Privacy</h2>
         <p>
-          Morpheus is not designed for children under 13. We do not knowingly collect data from children.
+          Morpheus is not designed for children under 13 (or 16 in the EEA/UK). ShakTech Labs LLC does not knowingly collect personal information from children. If you believe a child has provided information through the Software, contact team@getmorphe.us.
         </p>
 
         <h2>17. Security</h2>
         <ul>
-          <li>End-to-end encryption (ECDH + TweetNaCl)</li>
+          <li>End-to-end encryption (ECDH + TweetNaCl) for all device-to-device communications</li>
           <li>Pairing codes for secure device authentication</li>
           <li>Encrypted credential vault for API keys and OAuth tokens</li>
-          <li>Row-level security on all server-side data</li>
+          <li>Row-level security on all server-side data in Supabase</li>
           <li>Risk classification of AI commands with approval prompts for high-risk operations</li>
         </ul>
 
         <h2>18. Changes to This Policy</h2>
         <p>
-          Changes will be indicated by updating the &quot;Last Updated&quot; date. Significant changes
-          will also be noted in release notes.
+          Changes will be indicated by updating the &quot;Last Updated&quot; date. Significant changes will also be noted in release notes. Continued use of the Software after changes constitutes acceptance.
         </p>
 
         <h2>19. Contact</h2>
@@ -216,7 +257,7 @@ export default function PrivacyPage() {
           For questions about this Privacy Policy: <a href="mailto:team@getmorphe.us">team@getmorphe.us</a>
         </p>
         <p>
-          Website: <a href="https://getmorphe.us">getmorphe.us</a>
+          <strong>ShakTech Labs LLC</strong> &mdash; <a href="https://getmorphe.us">getmorphe.us</a>
         </p>
       </div>
     </div>

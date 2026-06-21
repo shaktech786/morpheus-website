@@ -290,8 +290,8 @@ const sharedSecret = nacl.box.before(
         <ul>
           <li>
             <strong>WebSocket URL</strong> — The LAN address where the agent is
-            listening. Remote pairing uses a persistent agent device ID for the
-            WebRTC signaling channel, not a tunnel URL.
+            listening. Remote access uses a persistent agent device ID to route
+            through the relay, not a tunnel URL.
           </li>
           <li>
             <strong>Server public key</strong> — Base64-encoded Curve25519

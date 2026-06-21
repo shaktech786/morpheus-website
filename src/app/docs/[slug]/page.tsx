@@ -215,7 +215,7 @@ const guides: Record<string, Guide> = {
   "connection-modes": {
     title: "Connection Modes",
     description:
-      "LAN, USB/ADB, and peer-to-peer WebRTC — how Morpheus connects your devices.",
+      "LAN, USB/ADB, and an operated relay — how Morpheus connects your devices.",
     sections: [
       {
         id: "lan",
@@ -275,36 +275,42 @@ const guides: Record<string, Guide> = {
         ),
       },
       {
-        id: "remote-webrtc",
-        title: "Remote Access via Peer-to-Peer WebRTC",
+        id: "remote-relay",
+        title: "Remote Access via the Relay",
         content: (
           <>
             <p>
               <span className="rounded bg-morpheus/10 px-2 py-0.5 text-xs font-semibold text-morpheus">
                 PRO
               </span>{" "}
-              When your phone leaves the agent&apos;s LAN, Morpheus establishes a
-              direct peer-to-peer WebRTC data channel between the two devices
-              &mdash; no tunneling service, no proxy, no vendor in the hot path.
+              When your phone leaves the agent&apos;s LAN, Morpheus reaches it
+              through a relay server we operate &mdash; so remote control works
+              from any network, with no port forwarding or setup.
             </p>
             <ul className="mt-4 space-y-2 text-zinc-400">
               <li>
-                <strong className="text-zinc-200">Signaling</strong>: SDP
-                offer/answer and ICE candidates are signed with the pairing
-                shared secret and relayed through Supabase Realtime. The relay
-                sees only opaque signed envelopes.
+                <strong className="text-zinc-200">Outbound by design</strong>:
+                the desktop holds a persistent <em>outbound</em> connection to
+                the relay, so your machine is never exposed to inbound
+                connections from the internet &mdash; NAT and CGNAT are
+                non-issues.
               </li>
               <li>
-                <strong className="text-zinc-200">NAT traversal</strong>: Google
-                public STUN for most networks; Open Relay TURN fallback only
-                when both sides are behind symmetric NATs.
+                <strong className="text-zinc-200">Encryption</strong>: the relay
+                forwards only opaque, already-encrypted frames. Everything stays
+                end-to-end encrypted with TweetNaCl using the secret established
+                at pairing &mdash; the relay cannot read your traffic.
               </li>
               <li>
-                <strong className="text-zinc-200">Encryption</strong>: DTLS-SRTP
-                at the WebRTC layer plus Morpheus&apos;s own TweetNaCl at the
-                application layer. End-to-end, no middle box.
+                <strong className="text-zinc-200">Metadata only</strong>: the
+                relay processes connection metadata (device identifier, IP,
+                timestamps) to route traffic; message payloads are never logged.
               </li>
-              <li>No port forwarding, no static IP, no long-lived tunnel.</li>
+              <li>
+                Prefer LAN automatically when reachable; set{" "}
+                <code>RELAY_URL=&apos;&apos;</code> on the desktop to run
+                LAN-only.
+              </li>
             </ul>
           </>
         ),
@@ -328,8 +334,9 @@ const guides: Record<string, Guide> = {
                 <code>ws://127.0.0.1:3847</code>
               </li>
               <li>
-                <strong className="text-zinc-200">WebRTC (P2P)</strong>{" "}
-                &mdash; direct data channel via Supabase signaling
+                <strong className="text-zinc-200">Relay (Remote)</strong>{" "}
+                &mdash; operated relay over <code>wss://</code>, end-to-end
+                encrypted
               </li>
             </ol>
             <p className="mt-4 text-zinc-400">
@@ -651,9 +658,9 @@ const guides: Record<string, Guide> = {
                 </h3>
                 <p className="mt-1 text-zinc-400">
                   Voice commands require a stable network connection. On LAN,
-                  latency is effectively zero. On remote WebRTC, latency depends
-                  on whether your connection uses a direct path (fast) or TURN
-                  relay fallback (slower). For best results, use LAN mode.
+                  latency is effectively zero. Over the remote relay, latency
+                  depends on your network and distance to the relay region. For
+                  best results, use LAN mode when both devices are at home.
                 </p>
               </div>
             </div>
@@ -1057,7 +1064,7 @@ const guides: Record<string, Guide> = {
             <p>
               Morpheus doesn&apos;t just detect problems &mdash; it fixes them.
               The Health Manager supervises all agent services (WebSocket,
-              Claude CLI, WebRTC peer, MCP servers) and auto-restarts any that crash.
+              Claude CLI, relay client, MCP servers) and auto-restarts any that crash.
               It uses exponential backoff and tracks restart counts to avoid
               infinite loops.
             </p>

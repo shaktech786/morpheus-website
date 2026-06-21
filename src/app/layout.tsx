@@ -27,8 +27,8 @@ export const metadata: Metadata = {
     "automation",
     "Morpheus",
   ],
-  authors: [{ name: "Shakeel Bhamani" }],
-  creator: "Shakeel Bhamani",
+  authors: [{ name: "ShakTech Labs LLC", url: "https://getmorphe.us" }],
+  creator: "ShakTech Labs LLC",
   metadataBase: new URL("https://getmorphe.us"),
   openGraph: {
     title: "Morpheus — Any Machine, Controlled by Your Phone",
@@ -165,7 +165,7 @@ function Footer() {
           </nav>
         </div>
         <div className="mt-8 border-t border-border pt-8 text-center text-sm text-zinc-500">
-          <span className="text-morpheus-dark">&gt;</span> &copy; {new Date().getFullYear()} Shakeel Bhamani. All rights reserved.
+          <span className="text-morpheus-dark">&gt;</span> &copy; {new Date().getFullYear()} ShakTech Labs LLC. All rights reserved.
         </div>
       </div>
     </footer>
