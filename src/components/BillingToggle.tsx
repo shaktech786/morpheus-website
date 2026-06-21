@@ -50,20 +50,20 @@ export default function BillingToggle() {
         >
           Annual{" "}
           <span className="ml-1 rounded-md border border-morpheus-dark bg-morpheus/10 px-2 py-0.5 text-xs text-morpheus">
-            Save 33%
+            Save 25%
           </span>
         </span>
       </div>
 
-      {/* Pricing Cards — 3 columns */}
+      {/* Pricing Cards — 2x2 grid on md, 4 cols on xl */}
       <div className="mx-auto max-w-6xl mt-16">
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-4">
           {/* Free Tier */}
           <div className="flex flex-col rounded-xl border border-border bg-surface p-8">
             <div>
               <h3 className="text-lg font-semibold text-zinc-300">Free</h3>
               <p className="mt-1 text-sm text-zinc-400">
-                Bring your own Claude subscription. Morpheus handles the rest.
+                15 Haiku messages/day. LAN only, 1 device.
               </p>
             </div>
             <div className="mt-6">
@@ -85,11 +85,6 @@ export default function BillingToggle() {
                   <li key={f.name} className="flex items-center gap-3 text-sm">
                     <FeatureValue value={f.free} />
                     <span className="text-zinc-400">{f.name}</span>
-                    {typeof f.free === "string" && (
-                      <span className="ml-auto text-xs text-zinc-500">
-                        {f.free}
-                      </span>
-                    )}
                   </li>
                 ))}
               </ul>
@@ -107,24 +102,24 @@ export default function BillingToggle() {
             <div>
               <h3 className="text-lg font-semibold text-morpheus">Pro</h3>
               <p className="mt-1 text-sm text-zinc-400">
-                Full power. Voice, remote, unlimited devices.
+                Voice, remote, unlimited devices. 1,500 credits/mo.
               </p>
             </div>
             <div className="mt-6">
               {annual ? (
                 <>
                   <span className="text-4xl font-bold text-white">
-                    {PRICING.annual}
+                    {PRICING.proAnnual}
                   </span>
                   <span className="text-sm text-zinc-400"> / year</span>
                   <p className="mt-1 text-sm text-morpheus-muted">
-                    {PRICING.annualMonthly}/mo billed annually
+                    {PRICING.proAnnualMonthly}/mo billed annually
                   </p>
                 </>
               ) : (
                 <>
                   <span className="text-4xl font-bold text-white">
-                    {PRICING.monthly}
+                    {PRICING.proMonthly}
                   </span>
                   <span className="text-sm text-zinc-400"> / month</span>
                 </>
@@ -145,11 +140,55 @@ export default function BillingToggle() {
                   <li key={f.name} className="flex items-center gap-3 text-sm">
                     <FeatureValue value={f.pro} />
                     <span className="text-zinc-400">{f.name}</span>
-                    {typeof f.pro === "string" && (
-                      <span className="ml-auto text-xs text-zinc-500">
-                        {f.pro}
-                      </span>
-                    )}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          {/* Power Tier */}
+          <div className="relative flex flex-col rounded-xl border border-[#a855f7]/40 bg-surface p-8 shadow-[0_0_30px_rgba(168,85,247,0.06)]">
+            <div>
+              <h3 className="text-lg font-semibold text-[#a855f7]">Power</h3>
+              <p className="mt-1 text-sm text-zinc-400">
+                + Opus model, 4,000 credits/mo, 3 concurrent tasks.
+              </p>
+            </div>
+            <div className="mt-6">
+              {annual ? (
+                <>
+                  <span className="text-4xl font-bold text-white">
+                    {PRICING.powerAnnual}
+                  </span>
+                  <span className="text-sm text-zinc-400"> / year</span>
+                  <p className="mt-1 text-sm text-[#a855f7]/70">
+                    {PRICING.powerAnnualMonthly}/mo billed annually
+                  </p>
+                </>
+              ) : (
+                <>
+                  <span className="text-4xl font-bold text-white">
+                    {PRICING.powerMonthly}
+                  </span>
+                  <span className="text-sm text-zinc-400"> / month</span>
+                </>
+              )}
+            </div>
+            <Link
+              href="/download"
+              className="mt-8 block rounded-lg border border-[#a855f7]/40 bg-[#a855f7]/10 px-6 py-3 text-center text-sm font-semibold text-[#a855f7] transition-all hover:bg-[#a855f7]/20 hover:shadow-[0_0_20px_rgba(168,85,247,0.15)]"
+            >
+              Get Power
+            </Link>
+            <div className="mt-8 flex-1">
+              <p className="text-xs font-semibold uppercase tracking-wider text-zinc-400">
+                Everything in Pro, plus
+              </p>
+              <ul className="mt-4 space-y-3">
+                {PLAN_FEATURES.map((f) => (
+                  <li key={f.name} className="flex items-center gap-3 text-sm">
+                    <FeatureValue value={f.power} />
+                    <span className="text-zinc-400">{f.name}</span>
                   </li>
                 ))}
               </ul>
@@ -167,7 +206,7 @@ export default function BillingToggle() {
             <div>
               <h3 className="text-lg font-semibold text-pill">Team</h3>
               <p className="mt-1 text-sm text-zinc-400">
-                Shared devices, audit logs, admin controls.
+                Shared devices, audit logs, SSO. Up to 25 seats.
               </p>
             </div>
             <div className="mt-6">
@@ -198,18 +237,13 @@ export default function BillingToggle() {
             </Link>
             <div className="mt-8 flex-1">
               <p className="text-xs font-semibold uppercase tracking-wider text-zinc-400">
-                Everything in Pro, plus
+                Everything in Power, plus
               </p>
               <ul className="mt-4 space-y-3">
                 {PLAN_FEATURES.map((f) => (
                   <li key={f.name} className="flex items-center gap-3 text-sm">
                     <FeatureValue value={f.team} />
                     <span className="text-zinc-400">{f.name}</span>
-                    {typeof f.team === "string" && (
-                      <span className="ml-auto text-xs text-zinc-500">
-                        {f.team}
-                      </span>
-                    )}
                   </li>
                 ))}
               </ul>
@@ -217,31 +251,42 @@ export default function BillingToggle() {
           </div>
         </div>
 
-        {/* Lifetime Option */}
-        <div className="mt-8 rounded-xl border border-morpheus/30 bg-surface p-6 shadow-[0_0_20px_rgba(0,255,136,0.05)]">
-          <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
+        {/* BYOK Callout */}
+        <div className="mt-8 rounded-xl border border-zinc-700/50 bg-surface p-6">
+          <div className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
             <div>
               <div className="flex items-center gap-3">
-                <span className="rounded-md border border-morpheus bg-morpheus/20 px-3 py-0.5 text-xs font-bold uppercase tracking-wider text-morpheus">
-                  Best Value
+                <span className="rounded-md border border-zinc-600 bg-zinc-800 px-3 py-0.5 text-xs font-bold uppercase tracking-wider text-zinc-300">
+                  BYOK
                 </span>
                 <h3 className="text-lg font-semibold text-white">
-                  Lifetime Pro
+                  Bring Your Own Anthropic Key
                 </h3>
               </div>
               <p className="mt-2 text-sm text-zinc-400">
-                Pay once, own forever. All Pro features with no recurring
-                charges.
+                All models unlocked — Haiku, Sonnet, and Opus. All Pro features included.
+                You pay Anthropic directly for usage; no credit metering on our end.
               </p>
             </div>
-            <div className="text-center sm:text-right">
-              <span className="text-4xl font-bold text-white">
-                {PRICING.lifetime}
-              </span>
-              <span className="text-sm text-zinc-400"> / one-time</span>
-              <p className="mt-1 text-sm text-morpheus-muted">
-                ~2x annual — pays for itself in under 2 years
-              </p>
+            <div className="shrink-0 text-left sm:text-right">
+              {annual ? (
+                <>
+                  <span className="text-3xl font-bold text-white">
+                    {PRICING.byokAnnual}
+                  </span>
+                  <span className="text-sm text-zinc-400"> / year</span>
+                  <p className="mt-1 text-sm text-zinc-500">
+                    {PRICING.byokAnnualMonthly}/mo billed annually
+                  </p>
+                </>
+              ) : (
+                <>
+                  <span className="text-3xl font-bold text-white">
+                    {PRICING.byokMonthly}
+                  </span>
+                  <span className="text-sm text-zinc-400"> / month</span>
+                </>
+              )}
             </div>
           </div>
         </div>

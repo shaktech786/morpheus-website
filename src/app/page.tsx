@@ -154,7 +154,7 @@ const jsonLd = {
     },
     {
       "@type": "Offer",
-      price: PRICING.monthly.replace("$", ""),
+      price: PRICING.proMonthly.replace("$", ""),
       priceCurrency: "USD",
       description: "Pro monthly plan",
     },
@@ -365,8 +365,8 @@ export default function Home() {
             <span className="text-morpheus" aria-hidden="true">&gt;</span> Plans That Scale With You
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-zinc-400">
-            Free forever. Go Pro for voice, remote access, and
-            unlimited devices, or get Team for your organization.
+            Free forever. Go Pro for voice and remote access, Power for Opus,
+            or Team for your organization.
           </p>
           <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3">
             {/* Free */}
@@ -378,19 +378,19 @@ export default function Home() {
                 <li><span className="text-morpheus font-bold mr-2" aria-hidden="true">[+]</span>LAN connection &amp; text commands</li>
                 <li><span className="text-morpheus font-bold mr-2" aria-hidden="true">[+]</span>E2E encryption</li>
                 <li><span className="text-morpheus font-bold mr-2" aria-hidden="true">[+]</span>1 paired device</li>
-                <li><span className="text-morpheus font-bold mr-2" aria-hidden="true">[+]</span>AI token packs available</li>
+                <li><span className="text-morpheus font-bold mr-2" aria-hidden="true">[+]</span>15 Haiku messages/day</li>
               </ul>
             </div>
             {/* Pro */}
             <div className="rounded-xl border border-morpheus/40 bg-surface p-6 text-left shadow-[0_0_30px_rgba(0,255,136,0.08)]">
               <h3 className="text-lg font-semibold text-morpheus">Pro</h3>
-              <p className="mt-1 text-2xl font-bold text-white">{PRICING.monthly} <span className="text-sm font-normal text-zinc-400">/ month</span></p>
+              <p className="mt-1 text-2xl font-bold text-white">{PRICING.proMonthly} <span className="text-sm font-normal text-zinc-400">/ month</span></p>
               <p className="mt-2 text-xs text-morpheus-muted">Full power for individuals</p>
               <ul className="mt-4 space-y-2 text-sm text-zinc-400">
                 <li><span className="text-morpheus font-bold mr-2" aria-hidden="true">[+]</span>Everything in Free</li>
                 <li><span className="text-morpheus font-bold mr-2" aria-hidden="true">[+]</span>Voice mode &amp; remote access</li>
                 <li><span className="text-morpheus font-bold mr-2" aria-hidden="true">[+]</span>Unlimited devices &amp; all MCP servers</li>
-                <li><span className="text-morpheus font-bold mr-2" aria-hidden="true">[+]</span>Unlimited history &amp; saved commands</li>
+                <li><span className="text-morpheus font-bold mr-2" aria-hidden="true">[+]</span>1,500 AI credits/mo included</li>
               </ul>
             </div>
             {/* Team */}
@@ -402,7 +402,7 @@ export default function Home() {
                 <li><span className="text-pill font-bold mr-2" aria-hidden="true">[+]</span>Everything in Pro</li>
                 <li><span className="text-pill font-bold mr-2" aria-hidden="true">[+]</span>Shared device pools &amp; audit logs</li>
                 <li><span className="text-pill font-bold mr-2" aria-hidden="true">[+]</span>Admin controls &amp; SSO</li>
-                <li><span className="text-pill font-bold mr-2" aria-hidden="true">[+]</span>Shared token pool &amp; up to 25 seats</li>
+                <li><span className="text-pill font-bold mr-2" aria-hidden="true">[+]</span>Shared credit pool &amp; up to 25 seats</li>
               </ul>
             </div>
           </div>

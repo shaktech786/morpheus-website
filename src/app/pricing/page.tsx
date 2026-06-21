@@ -7,17 +7,21 @@ import { PLAN_FEATURES, TOKEN_PACKS } from "@/lib/pricing";
 export const metadata: Metadata = {
   title: "Pricing",
   description:
-    "Morpheus pricing — free forever, Pro for voice and remote access, Team for organizations. Unlimited devices and AI token packs.",
+    "Morpheus pricing — free forever, Pro for voice and remote access, Power for Opus and heavy usage, Team for organizations. AI credit packs available.",
 };
 
 const faqs = [
   {
     q: "What's included in the free plan?",
-    a: "The free plan lets you use Morpheus as a remote control for your existing AI setup. It includes LAN connection, text commands, end-to-end encryption, one paired device, basic MCP servers, and 24-hour command history. You'll need your own Claude subscription (Pro, Max, or API key) on the agent side — or you can purchase AI token packs.",
+    a: "The free plan gives you 15 Haiku messages per day over LAN. It includes text commands, end-to-end encryption, one paired device, basic MCP servers, and 24-hour command history. Upgrade to Pro to unlock voice, remote access, and more.",
   },
   {
-    q: "What if I don't have a Claude subscription?",
-    a: "No problem — purchase AI token packs directly in the app. They work with both Free and Pro plans. We handle all the setup so you can start using Morpheus immediately without any external accounts.",
+    q: "What are AI credits?",
+    a: "Credits are the in-app currency for AI usage. 1 credit = $0.01 of AI value. Models burn credits per 1,000 tokens: Haiku 1 credit · Sonnet 3 credits · Opus 5 credits. Included credits reset monthly; top-up credits carry over.",
+  },
+  {
+    q: "What is BYOK?",
+    a: "BYOK (Bring Your Own Key) lets you connect your own Anthropic API key. You unlock all models — Haiku, Sonnet, and Opus — and pay Anthropic directly for usage. Morpheus charges a flat $7.99/mo platform fee (or $79.99/yr). No credit metering on our end.",
   },
   {
     q: "Can I switch between monthly and annual?",
@@ -25,23 +29,19 @@ const faqs = [
   },
   {
     q: "What's the Team plan?",
-    a: "The Team plan is designed for organizations and workgroups. It includes shared device pools, audit logs, admin controls, SSO, and a shared token pool. Pricing is per-seat with up to 25 members. Contact us for larger teams.",
-  },
-  {
-    q: "What's the Lifetime plan?",
-    a: "The Lifetime plan is a one-time payment of $79.99 that gives you permanent access to all Pro features — no recurring charges, no expiration. It's roughly 2x the annual price and pays for itself in under two years.",
+    a: "The Team plan is designed for organizations and workgroups. It includes shared device pools, audit logs, admin controls, SSO, and a shared credit pool. Pricing is per-seat with up to 25 members. Contact us for larger teams.",
   },
   {
     q: "Can I cancel anytime?",
-    a: "Yes. You can cancel your Pro or Team subscription at any time. You'll retain access until the end of your current billing period, then you'll move to the free plan automatically. The Lifetime plan never expires.",
+    a: "Yes. You can cancel your subscription at any time. You'll retain access until the end of your current billing period, then move to the free plan automatically.",
   },
   {
     q: "Is my data encrypted?",
     a: "Yes. All communication between your phone and the Morpheus Agent uses ECDH key exchange with TweetNaCl encryption. Your data never passes through our servers — it stays between your devices, fully end-to-end encrypted.",
   },
   {
-    q: "What are AI token packs?",
-    a: "Token packs let you use Morpheus without your own Claude API key. You purchase tokens in-app, and we proxy your commands through our managed infrastructure. Works with all plans — Free and Pro alike.",
+    q: "What's the difference between Pro and Power?",
+    a: "Pro includes Haiku and Sonnet with 1,500 credits/mo and 2 concurrent tasks. Power adds Opus access, bumps credits to 4,000/mo, and raises concurrency to 3 tasks. Power is ideal if you use Opus regularly or run multi-step automations.",
   },
 ];
 
@@ -72,22 +72,25 @@ export default function PricingPage() {
           </h1>
           <p className="mx-auto mt-6 max-w-xl text-lg text-zinc-400">
             Free forever. Upgrade when you want voice, remote access,
-            unlimited devices, or team features.
+            Opus-class AI, or team features.
           </p>
 
           <BillingToggle />
         </div>
       </section>
 
-      {/* Token Packs */}
-      <section aria-labelledby="tokens-heading" className="border-t border-border py-20">
+      {/* Credit Packs */}
+      <section aria-labelledby="credits-heading" className="border-t border-border py-20">
         <div className="mx-auto max-w-4xl px-6">
-          <h2 id="tokens-heading" className="text-center text-2xl font-bold sm:text-3xl">
-            <span className="text-morpheus" aria-hidden="true">&gt;</span> AI Token Packs
+          <h2 id="credits-heading" className="text-center text-2xl font-bold sm:text-3xl">
+            <span className="text-morpheus" aria-hidden="true">&gt;</span> AI Credit Packs
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-center text-zinc-400">
-            No Claude subscription? No problem. Purchase tokens in-app and start
-            using Morpheus immediately. Works with all plans.
+            Top up anytime. Works with all plans.
+          </p>
+          <p className="mx-auto mt-2 max-w-xl text-center text-xs text-zinc-500">
+            1 credit = $0.01 of AI usage. Models burn credits per 1,000 tokens: Haiku 1 · Sonnet 3 · Opus 5.
+            Free tier = 15 Haiku messages/day.
           </p>
           <div className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-4">
             {TOKEN_PACKS.map((pack) => (
@@ -101,26 +104,28 @@ export default function PricingPage() {
                   </span>
                 )}
                 <p className="text-2xl font-bold text-white mt-1">{pack.label}</p>
-                <p className="text-xs text-zinc-500 mt-1">{pack.tokens} tokens</p>
+                <p className="text-xs text-zinc-500 mt-1">{pack.credits} credits</p>
                 <p className="text-lg font-bold text-morpheus mt-3">{pack.price}</p>
-                <p className="text-xs text-zinc-500 mt-1">{pack.commands}</p>
+                {pack.bonus && (
+                  <p className="text-xs text-morpheus/70 mt-1">{pack.bonus} bonus</p>
+                )}
               </div>
             ))}
           </div>
           <p className="mt-6 text-center text-xs text-zinc-500">
-            Tokens are consumed per command based on Claude API usage. Average command uses ~5,000 tokens.
+            Included plan credits reset monthly and do not roll over. Top-up credits carry over.
           </p>
         </div>
       </section>
 
       {/* Feature Comparison Table */}
       <section aria-labelledby="comparison-heading" className="border-t border-border py-20">
-        <div className="mx-auto max-w-4xl px-6">
+        <div className="mx-auto max-w-5xl px-6">
           <h2 id="comparison-heading" className="text-center text-2xl font-bold sm:text-3xl">
             <span className="text-morpheus" aria-hidden="true">&gt;</span> Feature Comparison
           </h2>
           <div className="mt-12 overflow-x-auto rounded-xl border border-border">
-            <table aria-label="Feature comparison between Free, Pro, and Team plans" className="w-full min-w-[500px]">
+            <table aria-label="Feature comparison between Free, Pro, Power, and Team plans" className="w-full min-w-[640px]">
               <thead>
                 <tr className="border-b border-border bg-surface">
                   <th scope="col" className="px-6 py-4 text-left text-sm font-semibold text-zinc-400">
@@ -131,6 +136,9 @@ export default function PricingPage() {
                   </th>
                   <th scope="col" className="px-4 py-4 text-center text-sm font-semibold text-morpheus">
                     Pro
+                  </th>
+                  <th scope="col" className="px-4 py-4 text-center text-sm font-semibold text-[#a855f7]">
+                    Power
                   </th>
                   <th scope="col" className="px-4 py-4 text-center text-sm font-semibold text-[#00ccff]">
                     Team
@@ -153,6 +161,9 @@ export default function PricingPage() {
                     </td>
                     <td className="px-4 py-3 text-center">
                       <FeatureValue value={f.pro} />
+                    </td>
+                    <td className="px-4 py-3 text-center">
+                      <FeatureValue value={f.power} />
                     </td>
                     <td className="px-4 py-3 text-center">
                       <FeatureValue value={f.team} />
