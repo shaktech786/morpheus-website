@@ -37,7 +37,7 @@ const faqs = [
   },
   {
     q: "Is my data encrypted?",
-    a: "Yes. All communication between your phone and the Morpheus Agent uses ECDH key exchange with TweetNaCl encryption. Your data never passes through our servers — it stays between your devices, fully end-to-end encrypted.",
+    a: "Yes. All communication between your phone and the Morpheus Agent uses ECDH key exchange with TweetNaCl encryption. On your LAN, traffic stays entirely on your own network. When you're away from home, it's routed through a relay we operate — but the relay only forwards already-encrypted frames it cannot read. Your message content stays end-to-end encrypted between your devices.",
   },
   {
     q: "What's the difference between Pro and Power?",

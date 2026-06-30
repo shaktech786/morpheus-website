@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     template: "%s | Morpheus",
   },
   description:
-    "Control any machine from your phone. Deploy code, send emails, manage files, automate anything — voice-first, end-to-end encrypted, no cloud required.",
+    "Control any machine from your phone. Deploy code, send emails, manage files, automate anything — voice-first, end-to-end encrypted, local-first.",
   keywords: [
     "AI assistant",
     "personal assistant",
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Morpheus — Any Machine, Controlled by Your Phone",
     description:
-      "Deploy code, send emails, manage files, automate anything — voice-first, end-to-end encrypted, no cloud required.",
+      "Deploy code, send emails, manage files, automate anything — voice-first, end-to-end encrypted, local-first.",
     url: "https://getmorphe.us",
     siteName: "Morpheus",
     locale: "en_US",
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Morpheus — Any Machine, Controlled by Your Phone",
     description:
-      "Deploy code, send emails, manage files, automate anything — voice-first, end-to-end encrypted, no cloud required.",
+      "Deploy code, send emails, manage files, automate anything — voice-first, end-to-end encrypted, local-first.",
   },
   robots: {
     index: true,

@@ -37,7 +37,7 @@ const features = [
   {
     title: "Your Data, Your Control",
     description:
-      "No cloud storage, no tracking. Everything runs locally on your devices. You own your data completely.",
+      "Local-first by design. No ads, no tracking. Your commands and data stay end-to-end encrypted between your devices — even the relay that links you off your LAN can't read them.",
     icon: "shield",
   },
   {
@@ -373,7 +373,7 @@ export default function Home() {
             <div className="rounded-xl border border-border bg-surface p-6 text-left">
               <h3 className="text-lg font-semibold text-zinc-300">Free</h3>
               <p className="mt-1 text-2xl font-bold text-white">$0 <span className="text-sm font-normal text-zinc-400">/ forever</span></p>
-              <p className="mt-2 text-xs text-zinc-500">Bring your own Claude subscription</p>
+              <p className="mt-2 text-xs text-zinc-500">No sign-up. LAN only, 1 device.</p>
               <ul className="mt-4 space-y-2 text-sm text-zinc-400">
                 <li><span className="text-morpheus font-bold mr-2" aria-hidden="true">[+]</span>LAN connection &amp; text commands</li>
                 <li><span className="text-morpheus font-bold mr-2" aria-hidden="true">[+]</span>E2E encryption</li>
@@ -445,16 +445,16 @@ export default function Home() {
             <span className="text-morpheus" aria-hidden="true">&gt;</span> Privacy by Design
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-zinc-400">
-            No cloud storage. No tracking. All data stays on your
-            devices, encrypted end-to-end.
+            Local-first by design. No tracking, no ads. Your data
+            stays end-to-end encrypted between your devices.
           </p>
           <div className="mt-12 grid grid-cols-1 gap-4 text-left sm:grid-cols-2">
             {[
-              "All data stored locally on your devices",
+              "Local-first — most data stays on your devices",
               "ECDH + TweetNaCl end-to-end encryption",
-              "No accounts needed for Free tier",
+              "No email or sign-up required to start",
               "No analytics, tracking, or advertising",
-              "Zero cloud dependency — fully local operation",
+              "Off-LAN relay forwards only encrypted frames it can't read",
               "Voice mode is opt-in and off by default",
             ].map((item) => (
               <div key={item} className="flex items-start gap-3 rounded-lg border border-border bg-surface p-3">

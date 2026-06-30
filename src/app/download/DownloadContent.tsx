@@ -294,15 +294,15 @@ function DownloadInner() {
               with the Pro plan
             </li>
             <li>
-              <strong className="text-zinc-300">AI:</strong> Your own Claude
-              subscription (free tier) or purchase{" "}
+              <strong className="text-zinc-300">AI:</strong> Managed Claude
+              included — 15 Haiku messages/day on Free, with credits on paid{" "}
               <Link
-                href="/pricing#tokens-heading"
+                href="/pricing"
                 className="text-morpheus hover:underline"
               >
-                token packs
-              </Link>{" "}
-              in-app
+                plans
+              </Link>
+              . Top up with token packs or bring your own Anthropic key (BYOK)
             </li>
             <li>
               <strong className="text-zinc-300">Network:</strong> Both devices
